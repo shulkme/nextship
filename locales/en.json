@@ -1,0 +1,9 @@
+{
+  "pages": {
+    "home": {
+      "form": {
+        "submit": "Submit"
+      }
+    }
+  }
+}
