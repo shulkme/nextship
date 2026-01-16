@@ -1,9 +1,11 @@
 {
-  "pages": {
-    "home": {
-      "form": {
-        "submit": "提交"
+  "global": {},
+  "app": {
+    "page": {
+      "dashboard": {
+        "title": "仪表盘"
       }
     }
-  }
+  },
+  "web": {}
 }

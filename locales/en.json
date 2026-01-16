@@ -1,9 +1,11 @@
 {
-  "pages": {
-    "home": {
-      "form": {
-        "submit": "Submit"
+  "global": {},
+  "app": {
+    "page": {
+      "dashboard": {
+        "title": "Dashboard"
       }
     }
-  }
+  },
+  "web": {}
 }

@@ -1,5 +1,6 @@
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
+import { assign } from 'radash';
 
 /**
  * 色板
@@ -20,6 +21,7 @@ const palettes = [
 const sharedConfig: ThemeConfig = {
   hashed: false, // close hash
   token: {
+    colorPrimary: '#0F60F8',
     controlHeightXS: 24,
     controlHeightSM: 32,
     controlHeight: 40,
@@ -28,21 +30,15 @@ const sharedConfig: ThemeConfig = {
     borderRadiusSM: 8,
     borderRadius: 12,
     borderRadiusLG: 12,
-    colorPrimary: '#0F60F8',
-    // colorLink: '#1062ff',
-    colorBorderSecondary: '#e2e8f0',
-    colorBorder: '#e2e8f0',
-    colorBgLayout: '#f1f5f9',
   },
   components: {
     Layout: {
-      headerBg: 'transparent',
       headerPadding: 0,
-      headerHeight: 'auto',
-      footerBg: 'transparent',
       footerPadding: 0,
-      bodyBg: 'transparent',
-      siderBg: 'transparent',
+      headerHeight: 'auto',
+      headerBg: 'transparent',
+      footerBg: 'transparent',
+      triggerBg: 'transparent',
     },
     Table: {
       headerBorderRadius: 0,
@@ -88,14 +84,34 @@ const sharedConfig: ThemeConfig = {
   },
 };
 
-const lightConfig: ThemeConfig = {
-  ...sharedConfig,
+const lightConfig: ThemeConfig = assign(sharedConfig, {
   algorithm: theme.defaultAlgorithm,
-};
+  token: {
+    colorBorderSecondary: '#e2e8f0',
+    colorBorder: '#e2e8f0',
+    colorBgContainer: '#fff',
+  },
+  components: {
+    Layout: {
+      bodyBg: '#fff',
+      siderBg: '#f7f8fa',
+    },
+  },
+});
 
-const darkConfig: ThemeConfig = {
-  ...sharedConfig,
+const darkConfig: ThemeConfig = assign(sharedConfig, {
   algorithm: theme.darkAlgorithm,
-};
+  token: {
+    colorBorderSecondary: '#272a2c',
+    colorBorder: '#272a2c',
+    colorBgContainer: '#191b1d',
+  },
+  components: {
+    Layout: {
+      siderBg: '#191b1d',
+      bodyBg: '#121416',
+    },
+  },
+});
 
 export { darkConfig, lightConfig, palettes };

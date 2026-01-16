@@ -6,10 +6,11 @@
 </a>
 <h1>NextShip</h1>
 <p>基于Next.js快速构建出海项目模版</p>
-<a href="https://react.dev/"><img src="https://img.shields.io/badge/-React-05A5D1?style=flat-square&logo=react&logoColor=white&labelColor=black" alt="React"/></a>
-<a href="https://nextjs.org/"><img src="https://img.shields.io/badge/-Next.js-171717?style=flat-square&logo=nextdotjs&logoColor=white&labelColor=black" alt="Next.js"/></a>
-<a href="https://ant.design"><img src="https://img.shields.io/badge/-Ant%20Design-1677ff?labelColor=black&logo=antdesign&logoColor=white&style=flat-square" alt="AntDesign"/></a>
-<a href="https://www.typescriptlang.org/zh/"><img src="https://img.shields.io/badge/-Typescript-007ACC?style=flat-square&logo=typescript&logoColor=white&labelColor=black" alt="Typescript"/></a>
+<a href="https://react.dev/"><img src="https://img.shields.io/badge/-React-0f60f8?style=flat-square&logo=react&logoColor=white&labelColor=black" alt="React"/></a>
+<a href="https://nextjs.org/"><img src="https://img.shields.io/badge/-Next.js-0f60f8?style=flat-square&logo=nextdotjs&logoColor=white&labelColor=black" alt="Next.js"/></a>
+<a href="https://ant.design/"><img src="https://img.shields.io/badge/-Ant%20Design-0f60f8?labelColor=black&logo=antdesign&logoColor=white&style=flat-square" alt="AntDesign"/></a>
+<a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/-Typescript-0f60f8?style=flat-square&logo=typescript&logoColor=white&labelColor=black" alt="Typescript"/></a>
+<a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/-Tailwindcss-0f60f8?style=flat-square&logo=tailwindcss&logoColor=white&labelColor=black" alt="Tailwindcss"/></a>
 </div>
 
 ## Features

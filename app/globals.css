@@ -52,7 +52,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground dark:bg-black dark:text-white;
+    @apply overflow-hidden bg-background text-foreground dark:bg-black dark:text-white;
   }
 }
 

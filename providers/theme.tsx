@@ -11,6 +11,7 @@ type Mode = 'dark' | 'light' | 'auto';
 type ThemeProviderContext = {
   mode?: Mode;
   setMode: (mode: Mode) => void;
+  toggleMode: () => void;
 };
 
 const ThemeProviderContext = createContext<ThemeProviderContext | undefined>(
@@ -36,15 +37,29 @@ export const ThemeProvider: React.FC<
     setTheme(mode).then();
   };
 
+  const toggleMode = () => {
+    if (mode === 'dark') {
+      setMode('light');
+    } else {
+      setMode('dark');
+    }
+  };
+
   return (
     <ThemeProviderContext.Provider
       value={{
         mode,
         setMode,
+        toggleMode,
       }}
     >
       <StyleProvider layer>
-        <ConfigProvider theme={mode === 'dark' ? darkConfig : lightConfig}>
+        <ConfigProvider
+          theme={mode === 'dark' ? darkConfig : lightConfig}
+          button={{
+            className: 'leading-none',
+          }}
+        >
           <NextThemesProvider
             attribute="class"
             defaultTheme={mode}
