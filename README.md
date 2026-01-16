@@ -1,4 +1,9 @@
 <div align="center">
+<a href="https://github.com/shulkme/nextship">
+    <picture>
+      <img alt="NextShip logo" src="public/images/logo.png" height="256" style="height: 128px">
+    </picture>
+</a>
 <h1>NextShip</h1>
 <p>基于Next.js快速构建出海项目模版</p>
 <a href="https://react.dev/"><img src="https://img.shields.io/badge/-React-05A5D1?style=flat-square&logo=react&logoColor=white&labelColor=black" alt="React"/></a>
