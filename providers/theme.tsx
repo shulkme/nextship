@@ -1,84 +1,95 @@
 'use client';
-import { setTheme } from '@/app/actions/theme';
+import { setTheme as setThemeCookie } from '@/app/actions/theme';
 import { darkConfig, lightConfig } from '@/config/theme';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider } from 'antd';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { ThemeProvider as NextThemesProvider, useTheme as useNextTheme } from 'next-themes';
+import React, { useEffect } from 'react';
 
-type Mode = 'dark' | 'light' | 'auto';
+type Mode = 'dark' | 'light' | 'system';
 
-type ThemeProviderContext = {
-  mode?: Mode;
-  setMode: (mode: Mode) => void;
-  toggleMode: () => void;
-};
-
-const ThemeProviderContext = createContext<ThemeProviderContext | undefined>(
-  undefined,
-);
-
+/**
+ * Theme Provider Component
+ * Uses next-themes for theme management with Ant Design integration
+ */
 export const ThemeProvider: React.FC<
   React.PropsWithChildren<{
     initMode?: string;
   }>
-> = ({ children, initMode = 'auto' }) => {
-  const [mode, _setMode] = useState<Mode>(initMode as Mode);
-
-  useEffect(() => {
-    if (mode) {
-      document.documentElement.setAttribute('class', mode);
-    }
-  }, [mode]);
-
-  const setMode = (mode: Mode) => {
-    _setMode(mode);
-    localStorage.setItem('theme', mode);
-    setTheme(mode).then();
-  };
-
-  const toggleMode = () => {
-    if (mode === 'dark') {
-      setMode('light');
-    } else {
-      setMode('dark');
-    }
-  };
-
+> = ({ children, initMode = 'system' }) => {
   return (
-    <ThemeProviderContext.Provider
-      value={{
-        mode,
-        setMode,
-        toggleMode,
-      }}
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme={initMode}
+      enableSystem={true}
+      enableColorScheme={false}
+      storageKey="theme"
+      themes={['light', 'dark', 'system']}
     >
-      <StyleProvider layer>
-        <ConfigProvider
-          theme={mode === 'dark' ? darkConfig : lightConfig}
-          button={{
-            className: 'leading-none',
-          }}
-        >
-          <NextThemesProvider
-            attribute="class"
-            defaultTheme={mode}
-            enableColorScheme={false}
-            enableSystem={false}
-            storageKey="theme"
-          >
-            {children}
-          </NextThemesProvider>
-        </ConfigProvider>
-      </StyleProvider>
-    </ThemeProviderContext.Provider>
+      <ThemeConfigProvider>{children}</ThemeConfigProvider>
+    </NextThemesProvider>
   );
 };
 
+/**
+ * Internal component to provide Ant Design theme based on current theme
+ */
+const ThemeConfigProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const { theme, resolvedTheme } = useNextTheme();
+
+  // Sync theme with server-side cookie
+  useEffect(() => {
+    if (theme) {
+      setThemeCookie(theme).catch(console.error);
+    }
+  }, [theme]);
+
+  // Use resolvedTheme to get the actual theme (resolves 'system' to 'light' or 'dark')
+  const isDark = resolvedTheme === 'dark';
+
+  return (
+    <StyleProvider layer>
+      <ConfigProvider
+        theme={isDark ? darkConfig : lightConfig}
+        button={{
+          className: 'leading-none',
+        }}
+      >
+        {children}
+      </ConfigProvider>
+    </StyleProvider>
+  );
+};
+
+/**
+ * Custom hook to use theme
+ * Provides mode, setMode, and toggleMode functions
+ */
 export const useTheme = () => {
-  const context = useContext(ThemeProviderContext);
-  if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
+  const { theme, setTheme, systemTheme, resolvedTheme } = useNextTheme();
+
+  const mode = theme as Mode;
+
+  const setMode = (newMode: Mode) => {
+    setTheme(newMode);
+  };
+
+  const toggleMode = () => {
+    if (resolvedTheme === 'dark') {
+      setTheme('light');
+    } else if (resolvedTheme === 'light') {
+      setTheme('dark');
+    } else {
+      // If system theme, toggle to opposite of system
+      setTheme(systemTheme === 'dark' ? 'light' : 'dark');
+    }
+  };
+
+  return {
+    mode,
+    setMode,
+    toggleMode,
+    resolvedTheme,
+    systemTheme,
+  };
 };

@@ -23,3 +23,15 @@ export interface PageParams {
   page: number;
   size: number;
 }
+
+export interface ApiError {
+  code: number;
+  msg: string;
+  data?: unknown;
+}
+
+export interface ApiErrorResponse {
+  status: number;
+  message: string;
+  error?: unknown;
+}

@@ -1,13 +1,15 @@
+import { env } from '@/lib/env';
 import { delToken, getToken } from '@/utils/token';
 import axios, { type AxiosResponse } from 'axios';
 import qs from 'qs';
+import type { ApiError, ApiErrorResponse } from './types';
 
 /**
  * request
  */
 const request = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL!,
-  timeout: +process.env.NEXT_PUBLIC_API_TIMEOUT!,
+  baseURL: env.api.baseUrl,
+  timeout: env.api.timeout,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -45,24 +47,40 @@ request.interceptors.response.use(
   },
   (error) => {
     if (error.response) {
-      if (error.response.status === 401) {
+      const status = error.response.status;
+
+      // Handle 401 - Unauthorized
+      if (status === 401) {
         delToken();
-        window.location.replace(
-          '/login?redirect=' + encodeURIComponent(window.location.href),
-        );
+        // Only redirect on client side
+        if (typeof window !== 'undefined') {
+          window.location.replace(
+            '/login?redirect=' + encodeURIComponent(window.location.href),
+          );
+        }
       }
-      if (error.response.status === 429) {
+
+      // Handle 429 - Too Many Requests
+      if (status === 429) {
         return Promise.reject(error.response);
       }
-      // Server error
-      const { code, msg } = error.response.data;
-      return Promise.reject({
-        status: code,
-        message: msg,
-      });
+
+      // Server error with structured response
+      const responseData = error.response.data as ApiError;
+      const apiError: ApiErrorResponse = {
+        status: responseData.code || status,
+        message: responseData.msg || 'An error occurred',
+        error: responseData.data,
+      };
+      return Promise.reject(apiError);
     } else {
-      // Error before request
-      return Promise.reject(error);
+      // Error before request (network error, timeout, etc.)
+      const apiError: ApiErrorResponse = {
+        status: 0,
+        message: error.message || 'Network error',
+        error: error,
+      };
+      return Promise.reject(apiError);
     }
   },
 );

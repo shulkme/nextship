@@ -1,5 +1,8 @@
+import { ErrorBoundary } from '@/components';
 import NProgressBar from '@/components/nprogress-bar';
 import { routing } from '@/i18n/routing';
+import { env } from '@/lib/env';
+import { initErrorTracking } from '@/lib/logger';
 import { LanguageProvider } from '@/providers/language';
 import { ThemeProvider } from '@/providers/theme';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
@@ -11,8 +14,13 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 import '../globals.css';
 
+// Initialize error tracking
+if (env.isProduction) {
+  initErrorTracking();
+}
+
 export const metadata: Metadata = {
-  title: process.env.NEXT_PUBLIC_APP_NAME,
+  title: env.app.name,
 };
 
 export default async function RootLayout({
@@ -47,7 +55,9 @@ export default async function RootLayout({
           <ThemeProvider initMode={theme}>
             <NextIntlClientProvider>
               <LanguageProvider>
-                <App>{children}</App>
+                <ErrorBoundary>
+                  <App>{children}</App>
+                </ErrorBoundary>
               </LanguageProvider>
             </NextIntlClientProvider>
           </ThemeProvider>

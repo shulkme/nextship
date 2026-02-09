@@ -1,34 +1,88 @@
-/**
- * token key
- */
-const TOKEN_KEY = process.env.NEXT_PUBLIC_TOKEN_KEY!;
+import { env } from '@/lib/env';
 
 /**
- * get token
+ * Token key for storage
  */
-export const getToken = () => {
-  return localStorage.getItem(TOKEN_KEY);
+const TOKEN_KEY = env.auth.tokenKey;
+
+/**
+ * Check if code is running on client side
+ */
+const isClient = typeof window !== 'undefined';
+
+/**
+ * Get token from storage
+ * Returns null on server side or if token doesn't exist
+ */
+export const getToken = (): string | null => {
+  if (!isClient) {
+    return null;
+  }
+  try {
+    return localStorage.getItem(TOKEN_KEY);
+  } catch (error) {
+    console.error('Failed to get token:', error);
+    return null;
+  }
 };
 
 /**
- * save token
- * use jwt type
- * @param token
+ * Save token to storage
+ * Automatically adds Bearer prefix if not present
+ * @param token - JWT token string
  */
-export const setToken = (token: string) => {
-  localStorage.setItem(TOKEN_KEY, `Bearer ${token}`);
+export const setToken = (token: string): void => {
+  if (!isClient) {
+    console.warn('Cannot set token on server side');
+    return;
+  }
+  try {
+    const bearerToken = token.startsWith('Bearer ')
+      ? token
+      : `Bearer ${token}`;
+    localStorage.setItem(TOKEN_KEY, bearerToken);
+  } catch (error) {
+    console.error('Failed to set token:', error);
+  }
 };
 
 /**
- * delete token
+ * Delete token from storage
  */
-export const delToken = () => {
-  localStorage.removeItem(TOKEN_KEY);
+export const delToken = (): void => {
+  if (!isClient) {
+    console.warn('Cannot delete token on server side');
+    return;
+  }
+  try {
+    localStorage.removeItem(TOKEN_KEY);
+  } catch (error) {
+    console.error('Failed to delete token:', error);
+  }
 };
 
 /**
- * check token
+ * Check if token exists
  */
-export const hasToken = () => {
-  return !!localStorage.getItem(TOKEN_KEY);
+export const hasToken = (): boolean => {
+  if (!isClient) {
+    return false;
+  }
+  try {
+    return !!localStorage.getItem(TOKEN_KEY);
+  } catch (error) {
+    console.error('Failed to check token:', error);
+    return false;
+  }
+};
+
+/**
+ * Get token without Bearer prefix
+ */
+export const getRawToken = (): string | null => {
+  const token = getToken();
+  if (!token) {
+    return null;
+  }
+  return token.replace('Bearer ', '');
 };
