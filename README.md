@@ -6,14 +6,8 @@
 </a>
 <h1>NextShip</h1>
 <p>🚀 A production-ready Next.js starter template for building SaaS and global products</p>
-<p>基于 Next.js 快速构建出海项目的生产级模版</p>
 
-<a href="https://react.dev/"><img src="https://img.shields.io/badge/-React%2019-0f60f8?style=flat-square&logo=react&logoColor=white&labelColor=black" alt="React"/></a>
-<a href="https://nextjs.org/"><img src="https://img.shields.io/badge/-Next.js%2016-0f60f8?style=flat-square&logo=nextdotjs&logoColor=white&labelColor=black" alt="Next.js"/></a>
-<a href="https://ant.design/"><img src="https://img.shields.io/badge/-Ant%20Design%206-0f60f8?labelColor=black&logo=antdesign&logoColor=white&style=flat-square" alt="AntDesign"/></a>
-<a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/-TypeScript-0f60f8?style=flat-square&logo=typescript&logoColor=white&labelColor=black" alt="Typescript"/></a>
-<a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/-Tailwind%20CSS%204-0f60f8?style=flat-square&logo=tailwindcss&logoColor=white&labelColor=black" alt="Tailwindcss"/></a>
-<img src="https://img.shields.io/badge/License-MIT-0f60f8?style=flat-square" alt="License"/>
+<a href="https://react.dev/"><img src="https://img.shields.io/badge/-React%2019-0f60f8?style=flat-square&logo=react&logoColor=white&labelColor=black" alt="React"/></a> <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/-Next.js%2016-0f60f8?style=flat-square&logo=nextdotjs&logoColor=white&labelColor=black" alt="Next.js"/></a> <a href="https://ant.design/"><img src="https://img.shields.io/badge/-Ant%20Design%206-0f60f8?labelColor=black&logo=antdesign&logoColor=white&style=flat-square" alt="AntDesign"/></a> <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/-TypeScript-0f60f8?style=flat-square&logo=typescript&logoColor=white&labelColor=black" alt="Typescript"/></a> <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/-Tailwind%20CSS%204-0f60f8?style=flat-square&logo=tailwindcss&logoColor=white&labelColor=black" alt="Tailwindcss"/></a> <img src="https://img.shields.io/badge/License-MIT-0f60f8?style=flat-square" alt="License"/>
 
 <p>
   <a href="#features">Features</a> •
@@ -29,24 +23,28 @@
 ## ✨ Features
 
 ### 🎨 Modern UI
+
 - **Ant Design 6** - Professional component library with 50+ components
 - **Tailwind CSS 4** - Utility-first CSS framework
 - **Dark Mode** - System/light/dark theme support with smooth transitions
 - **Responsive** - Mobile-first design, works on all devices
 
 ### 🌍 Internationalization
+
 - **next-intl** - Type-safe internationalization
 - **Multiple Languages** - Built-in support for English and Chinese
 - **Easy to Extend** - Add new languages in minutes
 - **Route-based** - Clean URLs like `/en/dashboard`, `/zh/dashboard`
 
 ### 🔐 Authentication Ready
+
 - **Token Management** - Secure token storage and handling
 - **API Integration** - Pre-configured Axios with interceptors
 - **Error Handling** - Comprehensive error boundaries and logging
 - **SSR Compatible** - Works seamlessly with server-side rendering
 
 ### 🏗️ Best Practices
+
 - **TypeScript First** - 100% TypeScript with strict mode
 - **Type-Safe Env** - Validated environment variables
 - **Modular API Layer** - Organized API calls by domain
@@ -54,6 +52,7 @@
 - **Code Quality** - ESLint, Prettier, and Git hooks configured
 
 ### ⚡ Developer Experience
+
 - **Fast Refresh** - Instant feedback during development
 - **pnpm** - Fast, disk space efficient package manager
 - **Organized Structure** - Clear separation of concerns
@@ -61,6 +60,7 @@
 - **AI-Friendly** - Includes `CLAUDE.md` for AI assistants
 
 ### 📦 Production Ready
+
 - **Optimized Build** - Automatic code splitting and optimization
 - **Error Boundaries** - Graceful error handling at all levels
 - **Logging System** - Centralized logging for debugging
@@ -71,6 +71,7 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+ or 20+
 - pnpm 8+ (recommended) or npm/yarn
 
@@ -135,24 +136,29 @@ pnpm clean            # Clean build artifacts
 ## 📂 Tech Stack
 
 ### Core
+
 - **[Next.js 16](https://nextjs.org/)** - React framework with App Router
 - **[React 19](https://react.dev/)** - UI library
 - **[TypeScript](https://www.typescriptlang.org/)** - Type safety
 
 ### UI & Styling
+
 - **[Ant Design 6](https://ant.design/)** - Component library
 - **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS
 - **[next-themes](https://github.com/pacocoursey/next-themes)** - Theme management
 
 ### State & Data
+
 - **[Axios](https://axios-http.com/)** - HTTP client
 - **[ahooks](https://ahooks.js.org/)** - React hooks library
 - **[dayjs](https://day.js.org/)** - Date manipulation
 
 ### Internationalization
+
 - **[next-intl](https://next-intl-docs.vercel.app/)** - Type-safe i18n
 
 ### Developer Tools
+
 - **[ESLint](https://eslint.org/)** - Code linting
 - **[Prettier](https://prettier.io/)** - Code formatting
 - **[pnpm](https://pnpm.io/)** - Package manager
@@ -189,7 +195,6 @@ nextship/
 ├── i18n/                # Internationalization setup
 ├── icons/               # Custom icons
 ├── lib/                 # Utilities & wrappers
-│   ├── env.ts          # Type-safe environment variables
 │   └── logger.ts       # Centralized logging
 │
 ├── locales/            # Translation files
@@ -214,13 +219,25 @@ For detailed structure explanation, see [CLAUDE.md](./CLAUDE.md).
 
 ### Type-Safe Environment Variables
 
-```typescript
-import { env } from '@/lib/env';
+Environment variables are fully type-safe with IDE autocomplete via `env.d.ts`:
 
-// ✅ Type-safe and validated
-const apiUrl = env.api.baseUrl;
-const timeout = env.api.timeout; // number type
+```typescript
+// ✅ Type-safe with IDE autocomplete
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '/';
+const timeout = Number(process.env.NEXT_PUBLIC_API_TIMEOUT) || 30000;
+const appName = process.env.NEXT_PUBLIC_APP_NAME || 'NextShip';
+
+// All variables are defined in env.d.ts for type safety
+// Just add new variables to .env and env.d.ts - no extra boilerplate needed
 ```
+
+**Adding new environment variables:**
+
+1. Add to `.env` with value
+2. Add to `.env.example` with description
+3. Add type definition to `env.d.ts`
+
+That's it! IDE will immediately recognize the new variable.
 
 ### Modular API Layer
 
@@ -275,6 +292,7 @@ We welcome contributions! Here's how you can help:
 ## 🐛 Bug Reports
 
 Found a bug? Please [open an issue](https://github.com/shulkme/nextship/issues) with:
+
 - Clear title and description
 - Steps to reproduce
 - Expected vs actual behavior
@@ -286,6 +304,7 @@ Found a bug? Please [open an issue](https://github.com/shulkme/nextship/issues) 
 ## 💡 Feature Requests
 
 Have an idea? We'd love to hear it! [Open an issue](https://github.com/shulkme/nextship/issues) with:
+
 - Clear description of the feature
 - Use cases and benefits
 - Any implementation ideas
@@ -295,6 +314,7 @@ Have an idea? We'd love to hear it! [Open an issue](https://github.com/shulkme/n
 ## 🙏 Acknowledgments
 
 This project is built with amazing open-source technologies:
+
 - [Next.js](https://nextjs.org/) - The React Framework
 - [Ant Design](https://ant.design/) - Enterprise UI Design Language
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS Framework
@@ -338,5 +358,3 @@ If you find this project useful, please consider giving it a star ⭐️
 | [![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) |
 | --- | --- | --- | --- |
 | Latest 2 versions | Latest 2 versions | Latest 2 versions | Latest 2 versions |
-
-

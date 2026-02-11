@@ -1,3 +1,17 @@
+/**
+ * Shared User interface
+ */
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  avatar?: string;
+  role: string;
+  status?: 'active' | 'inactive' | 'banned';
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface HttpResponse<T> {
   code: number;
   msg: string;

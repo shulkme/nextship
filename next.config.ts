@@ -1,8 +1,7 @@
-import { NextConfig } from 'next';
+import { type routing } from '@/i18n/routing';
+import type messages from '@/locales/en.json';
+import { type NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
-
-import { routing } from '@/i18n/routing';
-import messages from '@/locales/en.json';
 
 declare module 'next-intl' {
   interface AppConfig {

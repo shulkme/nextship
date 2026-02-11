@@ -1,5 +1,3 @@
-import { env } from './env';
-
 /**
  * Log levels
  */
@@ -25,7 +23,7 @@ interface LogEntry {
  * Logger class for unified logging
  */
 class Logger {
-  private isProduction = env.isProduction;
+  private isProduction = process.env.NODE_ENV === 'production';
 
   /**
    * Format log entry
@@ -133,7 +131,11 @@ class Logger {
     message: string,
     data?: unknown,
   ): void {
-    this.error(`API Error [${status}] ${endpoint}: ${message}`, undefined, data);
+    this.error(
+      `API Error [${status}] ${endpoint}: ${message}`,
+      undefined,
+      data,
+    );
   }
 
   /**
@@ -161,7 +163,7 @@ export const logger = new Logger();
  * Call this in your root layout
  */
 export function initErrorTracking(): void {
-  if (env.isProduction) {
+  if (process.env.NODE_ENV === 'production') {
     // TODO: Initialize Sentry or other error tracking service
     // Example:
     // Sentry.init({

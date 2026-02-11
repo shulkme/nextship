@@ -1,6 +1,5 @@
 'use client';
-import { languages, Locale } from '@/i18n/config';
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { languages, type Locale } from '@/i18n/config';
 import { ConfigProvider } from 'antd';
 import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN';
@@ -9,6 +8,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import 'dayjs/locale/zh';
 // import 'dayjs/locale/zh-tw';
+import { usePathname, useRouter } from '@/i18n/navigation';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { useLocale } from 'next-intl';

@@ -2,15 +2,9 @@
  * Auth API Types
  */
 
-export interface User {
-  id: string;
-  email: string;
-  name: string;
-  avatar?: string;
-  role: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import type { User } from '../types';
+
+export type { User };
 
 export interface LoginParams {
   email: string;

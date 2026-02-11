@@ -61,6 +61,7 @@ git checkout -b fix/bug-description
 ```
 
 Branch naming conventions:
+
 - `feature/` - New features
 - `fix/` - Bug fixes
 - `docs/` - Documentation updates
@@ -142,6 +143,7 @@ pnpm dev
 ```
 
 **Manual Testing Checklist**:
+
 - [ ] Test in both light and dark themes
 - [ ] Test in both languages (English and Chinese)
 - [ ] Test responsive design (mobile, tablet, desktop)
@@ -167,6 +169,7 @@ git commit -m "WIP"
 ```
 
 Commit message format:
+
 ```
 <type>(<scope>): <subject>
 
@@ -176,6 +179,7 @@ Commit message format:
 ```
 
 Types:
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation only
@@ -198,6 +202,7 @@ git push origin feature/your-feature-name
 ### PR Title
 
 Use the same format as commit messages:
+
 ```
 feat: add user authentication
 fix: resolve mobile menu overflow
@@ -207,6 +212,7 @@ docs: update installation guide
 ### PR Description
 
 Include:
+
 1. **What**: Brief description of changes
 2. **Why**: Motivation and context
 3. **How**: Implementation approach (if complex)
@@ -215,19 +221,24 @@ Include:
 6. **Breaking Changes**: If any
 
 Template:
+
 ```markdown
 ## Description
+
 Brief description of what this PR does.
 
 ## Motivation
+
 Why is this change needed?
 
 ## Changes
+
 - Change 1
 - Change 2
 - Change 3
 
 ## Testing
+
 - [ ] Tested in Chrome
 - [ ] Tested in Firefox
 - [ ] Tested in Safari
@@ -238,18 +249,22 @@ Why is this change needed?
 - [ ] Build succeeds
 
 ## Screenshots (if applicable)
+
 [Add screenshots here]
 
 ## Breaking Changes
+
 None / [Describe breaking changes]
 
 ## Related Issues
+
 Closes #123
 ```
 
 ### PR Checklist
 
 Before submitting, ensure:
+
 - [ ] Code follows project conventions
 - [ ] `pnpm lint:fix` passes
 - [ ] `pnpm type-check` passes
@@ -273,30 +288,27 @@ Before submitting, ensure:
 ### Bug Report Template
 
 ```markdown
-**Describe the bug**
-A clear description of what the bug is.
+**Describe the bug** A clear description of what the bug is.
 
-**To Reproduce**
-Steps to reproduce the behavior:
+**To Reproduce** Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
-What you expected to happen.
+**Expected behavior** What you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots.
+**Screenshots** If applicable, add screenshots.
 
 **Environment:**
+
 - OS: [e.g. macOS, Windows, Linux]
 - Browser: [e.g. Chrome 120, Safari 17]
 - Node version: [e.g. 20.10.0]
 - pnpm version: [e.g. 8.15.0]
 
-**Additional context**
-Any other context about the problem.
+**Additional context** Any other context about the problem.
 ```
 
 ## ✨ Requesting Features
@@ -304,20 +316,15 @@ Any other context about the problem.
 ### Feature Request Template
 
 ```markdown
-**Is your feature request related to a problem?**
-A clear description of the problem.
+**Is your feature request related to a problem?** A clear description of the problem.
 
-**Describe the solution you'd like**
-A clear description of what you want to happen.
+**Describe the solution you'd like** A clear description of what you want to happen.
 
-**Describe alternatives you've considered**
-Alternative solutions or features you've considered.
+**Describe alternatives you've considered** Alternative solutions or features you've considered.
 
-**Additional context**
-Any other context, screenshots, or examples.
+**Additional context** Any other context, screenshots, or examples.
 
-**Would you like to implement this feature?**
-Yes/No - If yes, we'll guide you!
+**Would you like to implement this feature?** Yes/No - If yes, we'll guide you!
 ```
 
 ## 📚 Documentation
@@ -345,6 +352,7 @@ Documentation improvements are always welcome!
 To add a new language:
 
 1. Add language config in `i18n/config.ts`:
+
 ```typescript
 export const languages = [
   { label: 'English', value: 'en' },
@@ -354,6 +362,7 @@ export const languages = [
 ```
 
 2. Create translation file `locales/es.json`:
+
 ```json
 {
   "global": {},
@@ -416,6 +425,7 @@ export const languages = [
 Instead, email security concerns to: [Add your email]
 
 Include:
+
 - Description of the vulnerability
 - Steps to reproduce
 - Potential impact

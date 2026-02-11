@@ -7,6 +7,7 @@
 **NextShip** is a production-ready Next.js starter template designed for rapid SaaS and overseas product development. It provides a complete foundation with authentication, internationalization, theming, and modern development tooling.
 
 **Key Characteristics**:
+
 - **Framework**: Next.js 16 with App Router (React 19)
 - **Language**: TypeScript (strict mode)
 - **UI Library**: Ant Design 6.x + Tailwind CSS 4.x
@@ -53,7 +54,6 @@ nextship/
 │
 ├── icons/                  # Custom icon components
 ├── lib/                    # Library wrappers and utilities
-│   ├── env.ts              # Type-safe environment variables
 │   └── logger.ts           # Centralized logging
 │
 ├── locales/                # Translation files
@@ -79,7 +79,9 @@ nextship/
 ## 🎨 Code Conventions
 
 ### Import Order
+
 Imports are organized and auto-sorted by Prettier:
+
 ```typescript
 // 1. React/Next.js core
 import React from 'react';
@@ -90,13 +92,13 @@ import { Button } from 'antd';
 import dayjs from 'dayjs';
 
 // 3. Internal modules (with @/ alias)
-import { env } from '@/lib/env';
 import { authApi } from '@/apis';
 import { useTheme } from '@/providers/theme';
-import type { User } from '@/apis/auth/types';
+import type { User } from '@/apis/types';
 ```
 
 ### File Naming
+
 - **Components**: PascalCase for component files, kebab-case for folders
   - `Button.tsx`, `components/nprogress-bar/index.tsx`
 - **Utilities**: camelCase - `token.ts`, `classname.ts`
@@ -104,6 +106,7 @@ import type { User } from '@/apis/auth/types';
 - **Constants**: camelCase file, UPPER_CASE exports - `constants/routes.ts`
 
 ### Component Structure
+
 ```typescript
 'use client'; // Only if client component
 
@@ -142,6 +145,7 @@ export default MyComponent;
 ```
 
 ### TypeScript Guidelines
+
 - **Use type imports**: `import type { User } from '@/types'`
 - **No `any`**: Use `unknown` or proper types
 - **No non-null assertions (`!`)**: Use proper checks or optional chaining
@@ -153,18 +157,23 @@ export default MyComponent;
 ## 🔧 Key Patterns
 
 ### 1. Environment Variables
-**Always use the type-safe env helper:**
-```typescript
-// ❌ DON'T
-const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL!;
 
-// ✅ DO
-import { env } from '@/lib/env';
-const apiUrl = env.api.baseUrl;
+**Use process.env directly with type safety:**
+
+```typescript
+// ✅ Type-safe with IDE autocomplete (via env.d.ts)
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '/';
+const timeout = Number(process.env.NEXT_PUBLIC_API_TIMEOUT) || 30000;
+const appName = process.env.NEXT_PUBLIC_APP_NAME || 'NextShip';
+
+// Always provide default values for optional variables
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID; // Can be undefined
 ```
 
 ### 2. API Calls
+
 **Use centralized API modules:**
+
 ```typescript
 // ❌ DON'T
 import request from '@/apis/request';
@@ -176,6 +185,7 @@ const response = await authApi.login(data);
 ```
 
 **Error handling:**
+
 ```typescript
 import { logger } from '@/lib/logger';
 import type { ApiErrorResponse } from '@/apis/types';
@@ -191,6 +201,7 @@ try {
 ```
 
 ### 3. Theme Management
+
 ```typescript
 'use client';
 import { useTheme } from '@/providers/theme';
@@ -210,6 +221,7 @@ function MyComponent() {
 ```
 
 ### 4. Internationalization
+
 ```typescript
 // Server component
 import { getTranslations } from 'next-intl/server';
@@ -230,6 +242,7 @@ export default function Component() {
 ```
 
 ### 5. Logging
+
 ```typescript
 import { logger } from '@/lib/logger';
 
@@ -247,6 +260,7 @@ logger.userAction('button_click', { button: 'submit' });
 ```
 
 ### 6. Token Management
+
 ```typescript
 import { getToken, setToken, delToken, hasToken } from '@/utils/token';
 
@@ -270,6 +284,7 @@ delToken();
 ## 🚨 Critical Rules
 
 ### 1. Server vs Client Components
+
 - **Default to Server Components** unless you need:
   - Browser APIs (localStorage, window)
   - Event handlers (onClick, onChange)
@@ -278,7 +293,9 @@ delToken();
 - **Mark client components** with `'use client'` directive at the top
 
 ### 2. SSR Compatibility
+
 **Always check for browser environment when using browser APIs:**
+
 ```typescript
 // ❌ DON'T
 localStorage.setItem('key', 'value');
@@ -292,17 +309,20 @@ if (typeof window !== 'undefined') {
 ```
 
 ### 3. Route Groups
+
 - `(app)/` - Protected routes (admin/dashboard)
 - `(web)/` - Public routes (marketing pages)
 - These parentheses don't appear in URLs
 
 ### 4. Styling Approach
+
 - **Ant Design components**: Use built-in props and theme config
 - **Layout/spacing**: Use Tailwind utility classes
 - **Custom styles**: Use Tailwind or CSS modules, avoid inline styles
 - **Theme tokens**: Defined in `config/theme.ts` and synced with Tailwind
 
 ### 5. Error Handling
+
 - **Component errors**: Wrap with `<ErrorBoundary>`
 - **Page errors**: Handled by `app/error.tsx`
 - **API errors**: Use try-catch with logger
@@ -313,11 +333,13 @@ if (typeof window !== 'undefined') {
 ## 🔄 Common Tasks
 
 ### Add a New API Endpoint
+
 1. Create types in `apis/[module]/types.ts`
 2. Add function in `apis/[module]/index.ts`
 3. Export from `apis/index.ts`
 
 Example:
+
 ```typescript
 // apis/user/types.ts
 export interface CreateUserParams {
@@ -332,25 +354,30 @@ export const createUser = (data: CreateUserParams) => {
 ```
 
 ### Add a New Page
+
 1. Create file in `app/[locale]/(app)/` or `app/[locale]/(web)/`
 2. Add translations in `locales/en.json` and `locales/zh.json`
 3. Add route constants in `constants/routes.ts` (if needed)
 
 ### Add a Translation Key
+
 1. Add to `locales/en.json`
 2. Add to `locales/zh.json` (same structure)
 3. Use with `t('key.path')`
 
 ### Add Environment Variable
-1. Add to `.env.example` with description
-2. Add to `lib/env.ts` with type and validation
-3. Use via `env.xxx.yyy`
+
+1. Add to `.env.example` with description and default value
+2. Add type definition to `env.d.ts` in the `ProcessEnv` interface
+3. Use directly via `process.env.VARIABLE_NAME`
+4. Always provide default values in your code when using optional variables
 
 ---
 
 ## 🧪 Development Workflow
 
 ### Before Starting
+
 ```bash
 # Check environment
 pnpm type-check
@@ -363,6 +390,7 @@ pnpm format:check
 ```
 
 ### Making Changes
+
 ```bash
 # Auto-fix issues
 pnpm lint:fix
@@ -373,6 +401,7 @@ pnpm dev
 ```
 
 ### Before Committing
+
 ```bash
 # Full check
 pnpm type-check && pnpm lint && pnpm format:check
@@ -386,6 +415,7 @@ pnpm build
 ## 📦 Dependencies
 
 ### Core
+
 - `next` - Framework
 - `react` / `react-dom` - UI library
 - `typescript` - Type safety
@@ -395,6 +425,7 @@ pnpm build
 - `next-themes` - Theme management
 
 ### Utilities
+
 - `axios` - HTTP client
 - `ahooks` - React hooks library
 - `dayjs` - Date manipulation
@@ -403,6 +434,7 @@ pnpm build
 - `radash` - Modern lodash alternative
 
 ### Icons
+
 - `@remixicon/react` - Icon library
 
 ---
@@ -428,6 +460,7 @@ pnpm build
 ## 🎯 When Making Changes
 
 ### Adding Features
+
 1. Check existing patterns in similar files
 2. Follow the project structure
 3. Add proper TypeScript types
@@ -438,6 +471,7 @@ pnpm build
 8. Test in both languages (en/zh)
 
 ### Modifying Existing Code
+
 1. Preserve existing patterns unless improving them
 2. Update related types if changing interfaces
 3. Check for usages across the codebase
@@ -445,9 +479,10 @@ pnpm build
 5. Maintain backward compatibility when possible
 
 ### Debugging Issues
+
 1. Check browser console for errors
 2. Check Next.js terminal output
-3. Verify environment variables in `lib/env.ts`
+3. Verify environment variables in `.env` and `env.d.ts`
 4. Check API request/response in Network tab
 5. Verify theme and language settings
 
@@ -466,6 +501,7 @@ pnpm build
 ## 🤝 For AI Assistants
 
 ### When Asked to Add Features
+
 1. Always check existing similar implementations first
 2. Follow established patterns strictly
 3. Use the centralized utilities (env, logger, APIs)
@@ -475,6 +511,7 @@ pnpm build
 7. Test suggestions mentally against the conventions above
 
 ### When Asked to Debug
+
 1. Check if it's an SSR issue (server vs client)
 2. Verify environment variables are properly set
 3. Check theme compatibility (light/dark)
@@ -482,6 +519,7 @@ pnpm build
 5. Look for browser console errors first
 
 ### When Asked to Refactor
+
 1. Preserve existing public APIs
 2. Update all usages across the codebase
 3. Maintain test compatibility (when tests exist)
@@ -489,6 +527,7 @@ pnpm build
 5. Keep the same code style and patterns
 
 ### Communication
+
 - Be concise and direct
 - Provide code examples using actual project patterns
 - Reference specific files when explaining
@@ -497,10 +536,8 @@ pnpm build
 
 ---
 
-**Last Updated**: 2026-02-09
-**Version**: 0.1.0
-**Maintainer**: NextShip Team
+**Last Updated**: 2026-02-09 **Version**: 0.1.0 **Maintainer**: NextShip Team
 
 ---
 
-*This file is specifically designed for AI assistants like Claude Code. Keep it updated as the project evolves.*
+_This file is specifically designed for AI assistants like Claude Code. Keep it updated as the project evolves._

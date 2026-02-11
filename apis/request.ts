@@ -1,4 +1,3 @@
-import { env } from '@/lib/env';
 import { delToken, getToken } from '@/utils/token';
 import axios, { type AxiosResponse } from 'axios';
 import qs from 'qs';
@@ -8,8 +7,8 @@ import type { ApiError, ApiErrorResponse } from './types';
  * request
  */
 const request = axios.create({
-  baseURL: env.api.baseUrl,
-  timeout: env.api.timeout,
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || '/',
+  timeout: Number(process.env.NEXT_PUBLIC_API_TIMEOUT) || 30000,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -55,7 +54,7 @@ request.interceptors.response.use(
         // Only redirect on client side
         if (typeof window !== 'undefined') {
           window.location.replace(
-            '/login?redirect=' + encodeURIComponent(window.location.href),
+            `/login?redirect=${encodeURIComponent(window.location.href)}`,
           );
         }
       }
@@ -78,7 +77,7 @@ request.interceptors.response.use(
       const apiError: ApiErrorResponse = {
         status: 0,
         message: error.message || 'Network error',
-        error: error,
+        error,
       };
       return Promise.reject(apiError);
     }

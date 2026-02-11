@@ -1,6 +1,6 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import NProgress, { NProgressOptions } from 'nprogress';
+import NProgress, { type NProgressOptions } from 'nprogress';
 import React, { useEffect } from 'react';
 import './styles.css';
 

@@ -1,9 +1,7 @@
-import { env } from '@/lib/env';
-
 /**
  * Token key for storage
  */
-const TOKEN_KEY = env.auth.tokenKey;
+const TOKEN_KEY = process.env.NEXT_PUBLIC_TOKEN_KEY || 'token';
 
 /**
  * Check if code is running on client side
@@ -37,9 +35,7 @@ export const setToken = (token: string): void => {
     return;
   }
   try {
-    const bearerToken = token.startsWith('Bearer ')
-      ? token
-      : `Bearer ${token}`;
+    const bearerToken = token.startsWith('Bearer ') ? token : `Bearer ${token}`;
     localStorage.setItem(TOKEN_KEY, bearerToken);
   } catch (error) {
     console.error('Failed to set token:', error);

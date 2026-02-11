@@ -3,6 +3,7 @@
 ## 🚀 Getting Started
 
 ### 1. Environment Setup
+
 ```bash
 # Copy environment template
 cp .env.example .env
@@ -12,16 +13,19 @@ nano .env
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 pnpm install
 ```
 
 ### 3. Run Type Check
+
 ```bash
 pnpm type-check
 ```
 
 ### 4. Start Development
+
 ```bash
 pnpm dev
 ```
@@ -31,16 +35,18 @@ pnpm dev
 ## 📝 Common Usage Examples
 
 ### Using Environment Variables
+
 ```typescript
 import { env } from '@/lib/env';
 
 // Access typed environment variables
-console.log(env.app.name);           // Type-safe
-console.log(env.api.baseUrl);        // No more undefined!
-console.log(env.api.timeout);        // Number type
+console.log(env.app.name); // Type-safe
+console.log(env.api.baseUrl); // No more undefined!
+console.log(env.api.timeout); // Number type
 ```
 
 ### Making API Calls
+
 ```typescript
 import { authApi, userApi } from '@/apis';
 
@@ -61,7 +67,7 @@ const getUsers = async () => {
     const response = await userApi.getUserList({
       page: 1,
       size: 10,
-      keyword: 'test'
+      keyword: 'test',
     });
     console.log('Users:', response.items);
   } catch (error) {
@@ -71,6 +77,7 @@ const getUsers = async () => {
 ```
 
 ### Using Logger
+
 ```typescript
 import { logger } from '@/lib/logger';
 
@@ -86,6 +93,7 @@ logger.userAction('button_click', { button: 'submit' });
 ```
 
 ### Using Theme
+
 ```typescript
 'use client';
 import { useTheme } from '@/providers/theme';
@@ -111,6 +119,7 @@ function ThemeToggle() {
 ```
 
 ### Error Boundary Usage
+
 ```typescript
 import { ErrorBoundary } from '@/components';
 
@@ -129,6 +138,7 @@ function MyComponent() {
 ```
 
 ### Token Management
+
 ```typescript
 import { getToken, setToken, delToken, hasToken } from '@/utils/token';
 
@@ -214,6 +224,7 @@ nextship/
 ## 🎯 Best Practices
 
 ### 1. Always Use Type-Safe Environment Variables
+
 ```typescript
 // ❌ Bad
 const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL!;
@@ -224,6 +235,7 @@ const apiUrl = env.api.baseUrl;
 ```
 
 ### 2. Use Centralized API Modules
+
 ```typescript
 // ❌ Bad
 import request from '@/apis/request';
@@ -235,6 +247,7 @@ const response = await authApi.login(data);
 ```
 
 ### 3. Use Logger Instead of Console
+
 ```typescript
 // ❌ Bad
 console.log('Error:', error);
@@ -245,6 +258,7 @@ logger.error('Operation failed', error);
 ```
 
 ### 4. Wrap Risky Components with Error Boundary
+
 ```typescript
 // ✅ Good
 <ErrorBoundary>
@@ -253,6 +267,7 @@ logger.error('Operation failed', error);
 ```
 
 ### 5. Check Environment Before Client-Only Code
+
 ```typescript
 // ✅ Good
 if (typeof window !== 'undefined') {
@@ -265,6 +280,7 @@ if (typeof window !== 'undefined') {
 ## 🐛 Troubleshooting
 
 ### Type Errors
+
 ```bash
 # Clear cache and rebuild
 pnpm clean
@@ -274,12 +290,14 @@ pnpm type-check
 ```
 
 ### Theme Not Working
+
 ```bash
 # Clear browser storage
 # Go to DevTools > Application > Storage > Clear site data
 ```
 
 ### API Errors
+
 ```typescript
 // Check if you're using the new API structure
 import { authApi } from '@/apis'; // ✅ Correct

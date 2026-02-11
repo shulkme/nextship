@@ -3,10 +3,13 @@ import { setTheme as setThemeCookie } from '@/app/actions/theme';
 import { darkConfig, lightConfig } from '@/config/theme';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider } from 'antd';
-import { ThemeProvider as NextThemesProvider, useTheme as useNextTheme } from 'next-themes';
+import {
+  ThemeProvider as NextThemesProvider,
+  useTheme as useNextTheme,
+} from 'next-themes';
 import React, { useEffect } from 'react';
 
-type Mode = 'dark' | 'light' | 'system';
+export type Mode = 'dark' | 'light' | 'system';
 
 /**
  * Theme Provider Component
@@ -34,7 +37,9 @@ export const ThemeProvider: React.FC<
 /**
  * Internal component to provide Ant Design theme based on current theme
  */
-const ThemeConfigProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+const ThemeConfigProvider: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   const { theme, resolvedTheme } = useNextTheme();
 
   // Sync theme with server-side cookie
@@ -53,6 +58,18 @@ const ThemeConfigProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
         theme={isDark ? darkConfig : lightConfig}
         button={{
           className: 'leading-none',
+        }}
+        dropdown={{
+          className: '[&_.ant-dropdown-menu-submenu-title]:items-center', // FIXME: antd bug
+        }}
+        menu={{
+          className:
+            '[&.ant-menu-inline]:border-0 [&.ant-menu-vertical_.ant-menu-item]:flex [&.ant-menu-vertical_.ant-menu-item]:items-center',
+        }}
+        modal={{
+          classNames: {
+            header: 'mb-4',
+          },
         }}
       >
         {children}

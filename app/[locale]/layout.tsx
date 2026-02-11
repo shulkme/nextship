@@ -1,7 +1,6 @@
 import { ErrorBoundary } from '@/components';
 import NProgressBar from '@/components/nprogress-bar';
 import { routing } from '@/i18n/routing';
-import { env } from '@/lib/env';
 import { initErrorTracking } from '@/lib/logger';
 import { LanguageProvider } from '@/providers/language';
 import { ThemeProvider } from '@/providers/theme';
@@ -15,12 +14,12 @@ import React from 'react';
 import '../globals.css';
 
 // Initialize error tracking
-if (env.isProduction) {
+if (process.env.NODE_ENV === 'production') {
   initErrorTracking();
 }
 
 export const metadata: Metadata = {
-  title: env.app.name,
+  title: process.env.NEXT_PUBLIC_APP_NAME || 'NextShip',
 };
 
 export default async function RootLayout({
