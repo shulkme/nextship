@@ -13,7 +13,7 @@ export const languages = [
   //   label: '繁體中文',
   //   value: 'tw',
   // },
-] as const;
+];
 
 export const locales = languages.map((f) => f.value);
 export const defaultLocale: Locale =
