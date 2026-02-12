@@ -1,104 +1,84 @@
 'use client';
-import { Mode, useTheme } from '@/providers/theme';
+import { type Locale } from '@/i18n/config';
+import { useLanguage } from '@/providers/language';
+import { type Mode, useTheme } from '@/providers/theme';
 import { cn } from '@/utils/classname';
 import {
   RiArrowRightUpLine,
+  RiChatAiLine,
   RiComputerLine,
   RiDashboardLine,
-  RiDraggable,
   RiFunctionLine,
   RiHome5Line,
-  RiInputField,
   RiLayoutRowLine,
-  RiListCheck3,
   RiLockPasswordLine,
   RiLoginBoxLine,
   RiLogoutBoxRLine,
   RiMoonLine,
   RiPlanetLine,
+  RiQuestionAnswerLine,
   RiQuestionLine,
+  RiResetRightLine,
   RiSettingsLine,
   RiShieldKeyholeLine,
   RiSideBarFill,
-  RiStackedView,
+  RiSideBarLine,
   RiSunLine,
   RiTableView,
   RiTranslate2,
   RiTShirt2Line,
   RiUser3Line,
   RiVipCrown2Line,
+  RiVipDiamondLine,
 } from '@remixicon/react';
 import {
   Avatar,
   Button,
   ConfigProvider,
   Dropdown,
-  GetProp,
+  type GetProp,
   Layout,
   Menu,
-  MenuProps,
+  type MenuProps,
+  Tooltip,
 } from 'antd';
 import Image from 'next/image';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useMemo, useState } from 'react';
 
-type MenuItemType = GetProp<MenuProps, 'items'>[number];
+type MenuItemType = GetProp<MenuProps, 'items'>[number] & {
+  href?: string;
+};
 
 const menus = [
   {
-    key: 'dashboard',
-    label: 'Dashboard',
+    key: 'home',
+    label: 'Home',
     icon: <RiHome5Line size={18} />,
+    href: '/home',
   },
   {
     key: 'discover',
     label: 'Discover',
     icon: <RiPlanetLine size={18} />,
+    href: '/discover',
   },
   {
-    key: 'forms',
-    label: 'Forms',
+    key: 'creations',
+    label: 'Creations',
     type: 'group',
     children: [
       {
-        key: 'forms:single',
-        label: 'Single',
-        icon: <RiInputField size={18} />,
+        key: 'creations:agent',
+        label: 'Agent',
+        icon: <RiChatAiLine size={18} />,
+        href: '/creations/agent',
       },
       {
-        key: 'forms:grouped',
-        label: 'Grouped',
-        icon: <RiStackedView size={18} />,
-      },
-    ],
-  },
-  {
-    key: 'pages',
-    label: 'Pages',
-    type: 'group',
-    children: [
-      {
-        key: 'pages:sign-in',
-        label: 'Sign in',
-        icon: <RiLoginBoxLine size={18} />,
-        extra: <RiArrowRightUpLine size={16} />,
-      },
-      {
-        key: 'pages:sign-up',
-        label: 'Sign up',
-        icon: <RiLogoutBoxRLine size={18} />,
-        extra: <RiArrowRightUpLine size={16} />,
-      },
-      {
-        key: 'pages:reset-password',
-        label: 'Reset password',
-        icon: <RiLockPasswordLine size={18} />,
-        extra: <RiArrowRightUpLine size={16} />,
-      },
-      {
-        key: 'pages:mfa',
-        label: 'MFA',
-        icon: <RiShieldKeyholeLine size={18} />,
-        extra: <RiArrowRightUpLine size={16} />,
+        key: 'creations:message',
+        label: 'Message',
+        icon: <RiQuestionAnswerLine size={18} />,
+        href: '/creations/message',
       },
     ],
   },
@@ -108,41 +88,76 @@ const menus = [
     type: 'group',
     children: [
       {
+        key: 'layouts:table',
+        label: 'Table',
+        icon: <RiTableView size={18} />,
+        href: '/layouts/table',
+      },
+      {
         key: 'layouts:list',
         label: 'List',
         icon: <RiLayoutRowLine size={18} />,
+        href: '/layouts/list',
       },
       {
         key: 'layouts:grid',
         label: 'Grid',
         icon: <RiFunctionLine size={18} />,
+        href: '/layouts/grid',
       },
       {
         key: 'layouts:masonry',
         label: 'Masonry',
         icon: <RiDashboardLine size={18} />,
+        href: '/layouts/masonry',
       },
     ],
   },
   {
-    key: 'tables',
-    label: 'Tables',
+    key: 'pages',
+    label: 'Pages',
     type: 'group',
     children: [
       {
-        key: 'tables:overview',
-        label: 'Overview',
-        icon: <RiTableView size={18} />,
+        key: 'pages:pricing',
+        label: 'Pricing',
+        icon: <RiVipDiamondLine size={18} />,
+        href: '/pricing',
       },
       {
-        key: 'tables:actions',
-        label: 'Actions',
-        icon: <RiListCheck3 size={18} />,
+        key: 'pages:sign-in',
+        label: 'Sign in',
+        icon: <RiLoginBoxLine size={18} />,
+        extra: <RiArrowRightUpLine size={16} />,
+        href: '/login',
       },
       {
-        key: 'tables:draggable',
-        label: 'Draggable',
-        icon: <RiDraggable size={18} />,
+        key: 'pages:sign-up',
+        label: 'Sign up',
+        icon: <RiLogoutBoxRLine size={18} />,
+        extra: <RiArrowRightUpLine size={16} />,
+        href: '/signup',
+      },
+      {
+        key: 'pages:forgot-password',
+        label: 'Forgot password',
+        icon: <RiLockPasswordLine size={18} />,
+        extra: <RiArrowRightUpLine size={16} />,
+        href: '/forgot-password',
+      },
+      {
+        key: 'pages:reset-password',
+        label: 'Reset password',
+        icon: <RiResetRightLine size={18} />,
+        extra: <RiArrowRightUpLine size={16} />,
+        href: '/reset-password',
+      },
+      {
+        key: 'pages:mfa',
+        label: 'MFA',
+        icon: <RiShieldKeyholeLine size={18} />,
+        extra: <RiArrowRightUpLine size={16} />,
+        href: '/mfa',
       },
     ],
   },
@@ -151,17 +166,86 @@ const menus = [
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { setMode } = useTheme();
+  const { setLocale } = useLanguage();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  // Cache flattened menu items (only calculate once)
+  const flattenMenus = useMemo(() => {
+    const result: MenuItemType[] = [];
+    menus.forEach((menu) => {
+      if (menu.type === 'group' && 'children' in menu && menu.children) {
+        result.push(...(menu.children as MenuItemType[]));
+      } else {
+        result.push(menu);
+      }
+    });
+    return result;
+  }, []);
+
+  const selectedKeys = useMemo(() => {
+    // Find exact match first
+    const exactMatch = flattenMenus.find((item) => item.href === pathname);
+    if (exactMatch) {
+      return [exactMatch.key as string];
+    }
+
+    // Find best prefix match (longest match wins)
+    const prefixMatches = flattenMenus.filter(
+      (item) => item.href && pathname.startsWith(item.href),
+    );
+    if (prefixMatches.length > 0) {
+      // Sort by href length (longest first)
+      const bestMatch = prefixMatches.sort(
+        (a, b) => (b.href?.length || 0) - (a.href?.length || 0),
+      )[0];
+      return [bestMatch.key as string];
+    }
+
+    // Default to first menu item
+    return [menus[0]?.key as string];
+  }, [pathname, flattenMenus]);
 
   const renderMenus = useMemo(() => {
     // filter menu items, eq: promission control
     return menus;
-  }, [menus]);
+  }, []);
 
-  const handleDropdownClick: MenuProps['onClick'] = ({ key, keyPath }) => {
+  const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
+    const menuItem = flattenMenus.find((item) => item.key === key);
+    if (menuItem?.href) {
+      router.push(menuItem.href);
+    }
+  };
+
+  const handleDropdownClick: MenuProps['onClick'] = async ({
+    key,
+    keyPath,
+  }) => {
     const type = keyPath[1] || key;
     switch (type) {
       case 'theme':
         setMode(key as Mode);
+        break;
+      case 'languages':
+        // Map menu keys to locale values
+        const localeMap: Record<string, Locale> = {
+          english: 'en',
+          chinese: 'zh',
+        };
+        const newLocale = localeMap[key];
+        if (newLocale) {
+          await setLocale(newLocale);
+        }
+        break;
+      case 'general':
+      case 'plans-credits':
+      case 'profile':
+        // Update URL with settings parameter
+        const params = new URLSearchParams(searchParams.toString());
+        params.set('settings', key);
+        router.push(`?${params.toString()}`);
         break;
     }
   };
@@ -196,11 +280,22 @@ const Sidebar: React.FC = () => {
                   'bg-(--ant-layout-sider-bg) absolute top-0 left-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity',
               )}
             >
-              <Button
-                type="text"
-                icon={<RiSideBarFill size={18} />}
-                onClick={() => setCollapsed(!collapsed)}
-              />
+              <Tooltip
+                placement="right"
+                title={collapsed ? 'Open sidebar' : 'Close sidebar'}
+              >
+                <Button
+                  type="text"
+                  icon={
+                    collapsed ? (
+                      <RiSideBarFill size={18} />
+                    ) : (
+                      <RiSideBarLine size={18} />
+                    )
+                  }
+                  onClick={() => setCollapsed(!collapsed)}
+                />
+              </Tooltip>
             </div>
           </div>
           <div className="flex-auto px-3 overflow-auto">
@@ -224,6 +319,8 @@ const Sidebar: React.FC = () => {
                 className="[&_.ant-menu-item-group-title]:pl-4 [&.ant-menu-inline-collapsed_.ant-menu-item-group-title]:hidden"
                 inlineIndent={16}
                 mode="inline"
+                selectedKeys={selectedKeys}
+                onClick={handleMenuClick}
                 items={renderMenus}
               />
             </ConfigProvider>
@@ -255,7 +352,7 @@ const Sidebar: React.FC = () => {
                     type: 'divider',
                   },
                   {
-                    key: 'settings',
+                    key: 'general', // menu key mapping
                     icon: <RiSettingsLine size={18} />,
                     label: 'Settings',
                   },

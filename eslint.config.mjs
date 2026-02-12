@@ -58,26 +58,6 @@ const eslintConfig = defineConfig([
       'object-shorthand': 'warn',
       'prefer-template': 'warn',
 
-      // Import organization
-      'import/order': [
-        'warn',
-        {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
-          ],
-          'newlines-between': 'never',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
-          },
-        },
-      ],
-
       // Next.js specific
       '@next/next/no-html-link-for-pages': 'off',
       '@next/next/no-img-element': 'warn',

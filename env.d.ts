@@ -38,6 +38,12 @@ declare namespace NodeJS {
     readonly NEXT_PUBLIC_TOKEN_KEY?: string;
 
     // ============================================
+    // Internationalization (i18n)
+    // ============================================
+    readonly NEXT_PUBLIC_LOCALE_DEFAULT?: string;
+    readonly NEXT_PUBLIC_LOCALE_COOKIE_KEY?: string;
+
+    // ============================================
     // File Upload Configuration
     // ============================================
     readonly NEXT_PUBLIC_UPLOAD_IMAGE_ACCEPT?: string;

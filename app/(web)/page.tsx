@@ -1,4 +1,4 @@
-import Hero from '@/app/[locale]/(web)/components/hero';
+import Hero from '@/app/(web)/components/hero';
 
 export default function Page() {
   return (

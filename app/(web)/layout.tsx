@@ -1,4 +1,4 @@
-import Header from '@/app/[locale]/(web)/components/header';
+import Header from '@/app/(web)/components/header';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {

@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         </p>
 
         <div className="space-x-4 mt-12">
-          <Button href="/dashboard" size="large" type="primary" shape="round">
+          <Button href="/home" size="large" type="primary" shape="round">
             Get Started
           </Button>
           <Button

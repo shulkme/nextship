@@ -8,11 +8,10 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import 'dayjs/locale/zh';
 // import 'dayjs/locale/zh-tw';
-import { usePathname, useRouter } from '@/i18n/navigation';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { useLocale } from 'next-intl';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { createContext, useContext, useEffect, useMemo } from 'react';
 
 dayjs.extend(localizedFormat);
@@ -43,18 +42,19 @@ const LanguageProvider: React.FC<{
 }> = ({ children }) => {
   const locale = useLocale();
   const router = useRouter();
-  const params = useParams();
-  const pathname = usePathname();
-  const query = Object.fromEntries(useSearchParams().entries());
-  const setLocale = (locale: string) => {
-    setDayjsLocale(locale);
-    router.replace(
-      // @ts-expect-error -- TypeScript will validate that only known `params`
-      { pathname, params, query },
-      {
-        locale,
-      },
-    );
+
+  const setLocale = async (newLocale: string) => {
+    setDayjsLocale(newLocale);
+
+    // Set cookie via API route
+    await fetch('/api/locale', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ locale: newLocale }),
+    });
+
+    // Refresh to apply new locale
+    router.refresh();
   };
   const _locale = useMemo(() => {
     switch (locale) {
@@ -73,7 +73,7 @@ const LanguageProvider: React.FC<{
 
   useEffect(() => {
     setDayjsLocale(locale);
-  }, []);
+  }, [locale]);
 
   return (
     <LanguageContext.Provider

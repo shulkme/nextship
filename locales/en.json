@@ -7,5 +7,24 @@
       }
     }
   },
-  "web": {}
+  "web": {},
+  "error": {
+    "404": {
+      "title": "404",
+      "subtitle": "Sorry, the page you visited does not exist.",
+      "backHome": "Back Home"
+    },
+    "500": {
+      "title": "500",
+      "subtitle": "Sorry, something went wrong.",
+      "tryAgain": "Try Again"
+    },
+    "general": {
+      "title": "Oops! Something went wrong",
+      "subtitle": "We encountered an unexpected error. Please try refreshing the page.",
+      "subtitleDev": "Error: {message}",
+      "tryAgain": "Try Again",
+      "goHome": "Go Home"
+    }
+  }
 }

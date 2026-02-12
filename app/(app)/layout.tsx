@@ -1,5 +1,6 @@
 'use client';
-import Sidebar from '@/app/[locale]/(app)/components/sidebar';
+import SettingsModal from '@/app/(app)/_settings';
+import Sidebar from '@/app/(app)/components/sidebar';
 import { Layout as AntdLayout } from 'antd';
 import React from 'react';
 
@@ -12,6 +13,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           {children}
         </AntdLayout.Content>
       </AntdLayout>
+      <SettingsModal />
     </>
   );
 }

@@ -7,5 +7,24 @@
       }
     }
   },
-  "web": {}
+  "web": {},
+  "error": {
+    "404": {
+      "title": "404",
+      "subtitle": "抱歉，您访问的页面不存在。",
+      "backHome": "返回首页"
+    },
+    "500": {
+      "title": "500",
+      "subtitle": "抱歉，服务器出错了。",
+      "tryAgain": "重试"
+    },
+    "general": {
+      "title": "哎呀！出错了",
+      "subtitle": "我们遇到了意外错误，请尝试刷新页面。",
+      "subtitleDev": "错误：{message}",
+      "tryAgain": "重试",
+      "goHome": "返回首页"
+    }
+  }
 }
