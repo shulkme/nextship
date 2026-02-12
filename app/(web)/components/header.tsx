@@ -28,7 +28,7 @@ const Header: React.FC = () => {
   return (
     <header className="p-4">
       <div className="border flex items-center justify-between border-slate-200 bg-white/90 max-w-7xl mx-auto p-2 pl-4 rounded-full">
-        <div className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2 text-neutral-800">
           <Image
             className="size-8"
             src="/images/logo.png"
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
           <span className="font-bold text-lg">
             {process.env.NEXT_PUBLIC_APP_NAME}
           </span>
-        </div>
+        </a>
         <nav>
           <ul className="flex items-center gap-12">
             <NavItem title={'Products'} href={'/products'} />
