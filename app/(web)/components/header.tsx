@@ -50,7 +50,7 @@ const Header: React.FC = () => {
           </ul>
         </nav>
         <div>
-          <Button shape="round" type="primary">
+          <Button href="/signup" shape="round" type="primary">
             Sign up
           </Button>
         </div>
