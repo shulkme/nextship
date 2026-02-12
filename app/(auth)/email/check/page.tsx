@@ -4,10 +4,11 @@ import { Button, Form, Input } from 'antd';
 export default function Page() {
   return (
     <>
-      <h1 className="font-bold text-3xl text-center mb-4">Check your email</h1>
+      <h1 className="font-bold text-3xl text-center mb-4">Verify email</h1>
       <p className="text-center mb-12 text-neutral-500">
-        A verification code has been sent to xxx@example.com. Please check your{' '}
-        <strong>inbox</strong> and <strong>spam folder</strong> .
+        A verification code has been sent to <strong>xxx@example.com</strong>.
+        Please check your <strong>inbox</strong> and{' '}
+        <strong>spam folder</strong> .
       </p>
       <Form variant="filled" layout="vertical" size="large">
         <Form.Item>
