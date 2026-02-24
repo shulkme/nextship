@@ -1,10 +1,16 @@
 'use client';
+import AboutPane from '@/app/(app)/_settings/components/about';
+import BillingPane from '@/app/(app)/_settings/components/billing';
 import GeneralPane from '@/app/(app)/_settings/components/general';
+import PlansCreditsPane from '@/app/(app)/_settings/components/plans-credits';
 import ProfilePane from '@/app/(app)/_settings/components/profile';
 import {
   RiAppsLine,
+  RiDraftLine,
   RiEqualizer2Line,
+  RiKey2Line,
   RiNotification3Line,
+  RiPulseLine,
   RiShieldKeyholeLine,
   RiUserLine,
   RiVipCrown2Line,
@@ -29,8 +35,8 @@ type MenuItemType = GetProp<MenuProps, 'items'>[number];
 type TabItemType = GetProp<TabsProps, 'items'>[number];
 
 const panes: {
-  key: React.Key;
-  label: React.ReactNode;
+  key?: React.Key;
+  label?: React.ReactNode;
   icon?: React.ReactNode;
   children?: React.ReactNode;
   type?: 'divider' | 'group';
@@ -51,11 +57,23 @@ const panes: {
     key: 'plans-credits',
     label: 'Plans & credits',
     icon: <RiVipCrown2Line size={18} />,
+    children: <PlansCreditsPane />,
   },
   {
-    key: 'bill',
-    label: 'Bill',
+    key: 'billing',
+    label: 'Billing',
     icon: <RiWalletLine size={18} />,
+    children: <BillingPane />,
+  },
+  {
+    key: 'usage',
+    label: 'Usage',
+    icon: <RiPulseLine size={18} />,
+  },
+  {
+    key: 'keys',
+    label: 'API Keys',
+    icon: <RiKey2Line size={18} />,
   },
   {
     key: 'apps',
@@ -75,12 +93,12 @@ const panes: {
   // {
   //   type: 'divider',
   // },
-  // {
-  //   key: 'help-center',
-  //   label: 'Help center',
-  //   icon: <RiQuestionLine size={18} />,
-  //   extra: <RiArrowRightUpLine size={16} />,
-  // },
+  {
+    key: 'about',
+    label: 'About',
+    icon: <RiDraftLine size={18} />,
+    children: <AboutPane />,
+  },
 ];
 
 const SettingsModal: React.FC = () => {
@@ -126,6 +144,7 @@ const SettingsModal: React.FC = () => {
 
   return (
     <Modal
+      style={{ top: 64 }}
       classNames={{
         container: 'p-0',
       }}
@@ -134,7 +153,7 @@ const SettingsModal: React.FC = () => {
       onCancel={handleClose}
       footer={false}
     >
-      <div className="w-full h-[calc(100vh-256px)] overflow-hidden flex">
+      <div className="w-full h-[calc(100vh-128px)] overflow-hidden flex">
         <div className="flex-none flex flex-col overflow-hidden w-64 border-r border-(--ant-color-border-secondary)">
           <div className="flex-none p-6">
             <Image
@@ -177,7 +196,7 @@ const SettingsModal: React.FC = () => {
             <h3 className="font-bold text-base">{tabLabel}</h3>
             {/*<p className="text-neutral-500 mt-1">This is a description</p>*/}
           </div>
-          <div className="flex-auto">
+          <div className="flex-auto overflow-hidden">
             <Tabs
               renderTabBar={() => <></>}
               activeKey={selectedKey}

@@ -18,7 +18,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
           </span>
         </div>
       </div>
-      <div className="flex-auto hidden lg:block">
+      <div className="w-full max-w-1/2 flex-auto hidden lg:block">
         <div className="w-full h-full bg-primary-500 rounded-4xl"></div>
       </div>
     </div>
