@@ -23,14 +23,13 @@ const Hero: React.FC = () => {
         </p>
 
         <div className="space-x-4 mt-12">
-          <Button href="/home" size="large" type="primary" shape="round">
+          <Button href="/home" size="large" type="primary">
             Get Started
           </Button>
           <Button
             size="large"
             icon={<RiGithubFill size={18} />}
             href={process.env.NEXT_PUBLIC_GITHUB_URL}
-            shape="round"
           >
             Github
           </Button>

@@ -1,14 +1,19 @@
 'use client';
 import AboutPane from '@/app/(app)/_settings/components/about';
 import BillingPane from '@/app/(app)/_settings/components/billing';
+import ConnectionsPane from '@/app/(app)/_settings/components/connections';
 import GeneralPane from '@/app/(app)/_settings/components/general';
+import KeysPane from '@/app/(app)/_settings/components/keys';
+import NotificationsPane from '@/app/(app)/_settings/components/notifications';
 import PlansCreditsPane from '@/app/(app)/_settings/components/plans-credits';
 import ProfilePane from '@/app/(app)/_settings/components/profile';
+import SecurityPane from '@/app/(app)/_settings/components/security';
+import UsagePane from '@/app/(app)/_settings/components/usage';
 import {
-  RiAppsLine,
   RiDraftLine,
   RiEqualizer2Line,
   RiKey2Line,
+  RiLinksLine,
   RiNotification3Line,
   RiPulseLine,
   RiShieldKeyholeLine,
@@ -69,26 +74,31 @@ const panes: {
     key: 'usage',
     label: 'Usage',
     icon: <RiPulseLine size={18} />,
+    children: <UsagePane />,
   },
   {
     key: 'keys',
     label: 'API Keys',
     icon: <RiKey2Line size={18} />,
+    children: <KeysPane />,
   },
   {
-    key: 'apps',
-    label: 'Apps',
-    icon: <RiAppsLine size={18} />,
+    key: 'connections',
+    label: 'Connections',
+    icon: <RiLinksLine size={18} />,
+    children: <ConnectionsPane />,
   },
   {
     key: 'notifications',
     label: 'Notifications',
     icon: <RiNotification3Line size={18} />,
+    children: <NotificationsPane />,
   },
   {
     key: 'security',
     label: 'Security',
     icon: <RiShieldKeyholeLine size={18} />,
+    children: <SecurityPane />,
   },
   // {
   //   type: 'divider',
@@ -155,14 +165,15 @@ const SettingsModal: React.FC = () => {
     >
       <div className="w-full h-[calc(100vh-128px)] overflow-hidden flex">
         <div className="flex-none flex flex-col overflow-hidden w-64 border-r border-(--ant-color-border-secondary)">
-          <div className="flex-none p-6">
+          <div className="flex items-center gap-3 flex-none p-6">
             <Image
-              className="size-8"
+              className="size-6"
               src="/images/logo.png"
               width={256}
               height={256}
               alt="logo"
             />
+            <h2 className="font-medium text-base">Settings</h2>
           </div>
           <div className="flex-auto px-4 overflow-auto">
             <ConfigProvider
@@ -193,7 +204,7 @@ const SettingsModal: React.FC = () => {
         </div>
         <div className="flex flex-col flex-auto overflow-hidden">
           <div className="flex-none px-6 py-4 border-b border-(--ant-color-border-secondary)">
-            <h3 className="font-bold text-base">{tabLabel}</h3>
+            <h3 className="font-medium text-base">{tabLabel}</h3>
             {/*<p className="text-neutral-500 mt-1">This is a description</p>*/}
           </div>
           <div className="flex-auto overflow-hidden">

@@ -1,3 +1,4 @@
+'use client';
 import { Button, List } from 'antd';
 import React from 'react';
 const AboutPane: React.FC = () => {

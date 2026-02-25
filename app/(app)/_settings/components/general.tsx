@@ -1,3 +1,4 @@
+'use client';
 import { defaultLocale, languages } from '@/i18n/config';
 import { RiComputerLine, RiMoonLine, RiSunLine } from '@remixicon/react';
 import { Button, List, Segmented, Select, Switch } from 'antd';
@@ -58,14 +59,6 @@ const GeneralPane: React.FC = () => {
           <List.Item.Meta
             title={'Suggestions'}
             description={`Get relevant in-chat suggestions to refine your project.`}
-          />
-        </List.Item>
-        <List.Item
-          actions={[<Switch size="small" key="switch" defaultChecked />]}
-        >
-          <List.Item.Meta
-            title={'Sound Notifications'}
-            description={`A new sound will play when ${process.env.NEXT_PUBLIC_APP_NAME} is finished responding and the window is not focused.`}
           />
         </List.Item>
         <List.Item

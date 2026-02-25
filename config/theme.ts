@@ -2,9 +2,6 @@ import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
 import { assign } from 'radash';
 
-/**
- * 色板
- */
 const palettes = [
   '#e6f3ff',
   '#b3d7ff',

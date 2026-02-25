@@ -219,10 +219,7 @@ const Sidebar: React.FC = () => {
     }
   };
 
-  const handleDropdownClick: MenuProps['onClick'] = async ({
-    key,
-    keyPath,
-  }) => {
+  const handleDropdownClick: MenuProps['onClick'] = ({ key, keyPath }) => {
     const type = keyPath[1] || key;
     switch (type) {
       case 'theme':
@@ -236,7 +233,7 @@ const Sidebar: React.FC = () => {
         };
         const newLocale = localeMap[key];
         if (newLocale) {
-          await setLocale(newLocale);
+          setLocale(newLocale);
         }
         break;
       case 'general':
