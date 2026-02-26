@@ -31,9 +31,9 @@ import {
   type TabsProps,
 } from 'antd';
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { omit, pick } from 'radash';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 type MenuItemType = GetProp<MenuProps, 'items'>[number];
 
@@ -112,43 +112,86 @@ const panes: {
 ];
 
 const SettingsModal: React.FC = () => {
-  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
-  const settings = searchParams.get('settings');
-  const menus = panes.map((f) => omit(f, ['children'])) as MenuItemType[];
-  const menuKeys = menus.map((f) => f?.key).filter((f) => f !== undefined);
+  const [open, setOpen] = useState(false);
+  const [selectedKey, setSelectedKey] = useState('general');
 
-  const tabs = panes
-    .filter((f) => !!f?.key && f?.type !== 'divider' && f?.type !== 'group')
-    .map((f) => pick(f, ['key', 'label', 'children'])) as TabItemType[];
+  // Memoize menus and menuKeys to prevent unnecessary re-renders
+  const menus = useMemo(
+    () => panes.map((f) => omit(f, ['children'])) as MenuItemType[],
+    []
+  );
 
-  // Derive open state from URL params
-  const open = Boolean(settings && menuKeys.includes(settings));
+  const menuKeys = useMemo(
+    () => menus.map((f) => f?.key).filter((f) => f !== undefined),
+    [menus]
+  );
 
-  // Derive selectedKeys from URL params
-  const selectedKey =
-    settings && menuKeys.includes(settings) ? settings : 'general';
+  const tabs = useMemo(
+    () =>
+      panes
+        .filter((f) => !!f?.key && f?.type !== 'divider' && f?.type !== 'group')
+        .map((f) => pick(f, ['key', 'label', 'children'])) as TabItemType[],
+    []
+  );
+
+  useEffect(() => {
+    // Check if browser environment
+    if (typeof window === 'undefined') return;
+
+    // Check hash on mount and parse settings key
+    const checkHash = () => {
+      const hash = window.location.hash;
+
+      // Check if hash starts with #settings/
+      if (hash.startsWith('#settings/')) {
+        const key = hash.replace('#settings/', '');
+        // Validate if key exists in menus
+        if (menuKeys.includes(key)) {
+          setOpen(true);
+          setSelectedKey(key);
+        } else {
+          // Default to general if invalid key
+          setOpen(true);
+          setSelectedKey('general');
+        }
+      } else {
+        setOpen(false);
+      }
+    };
+
+    // Initial check
+    checkHash();
+
+    // Listen to hash changes
+    window.addEventListener('hashchange', checkHash);
+
+    return () => {
+      window.removeEventListener('hashchange', checkHash);
+    };
+  }, [menuKeys]);
 
   const tabLabel = useMemo(() => {
     return tabs.find((f) => f.key === selectedKey)?.label;
   }, [selectedKey, tabs]);
 
   const handleClose = () => {
-    // Remove settings param from URL when closing
-    const params = new URLSearchParams(searchParams.toString());
-    params.delete('settings');
-    const newUrl = params.toString()
-      ? `?${params.toString()}`
-      : window.location.pathname;
-    router.push(newUrl);
+    // Remove hash from URL when closing (use native API for immediate effect)
+    if (typeof window !== 'undefined' && window.location.hash.startsWith('#settings')) {
+      // Use native history API for instant hash removal without triggering hashchange
+      const search = searchParams.toString();
+      const url = search ? `${pathname}?${search}` : pathname;
+      window.history.replaceState({}, '', url);
+    }
+    // Set open to false after hash is cleared
+    setOpen(false);
   };
 
   const handleMenuSelect = ({ selectedKeys }: { selectedKeys: string[] }) => {
-    // Update URL when menu item is selected
-    if (selectedKeys.length > 0) {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set('settings', selectedKeys[0]);
-      router.push(`?${params.toString()}`);
+    // Update hash when menu item is selected
+    if (selectedKeys.length > 0 && typeof window !== 'undefined') {
+      window.location.hash = `#settings/${selectedKeys[0]}`;
     }
   };
 

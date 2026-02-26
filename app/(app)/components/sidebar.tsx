@@ -1,4 +1,5 @@
 'use client';
+import Kbd from '@/components/kbd';
 import { type Locale } from '@/i18n/config';
 import { useLanguage } from '@/providers/language';
 import { type Mode, useTheme } from '@/providers/theme';
@@ -20,6 +21,7 @@ import {
   RiQuestionAnswerLine,
   RiQuestionLine,
   RiResetRightLine,
+  RiSearchLine,
   RiSettingsLine,
   RiSideBarFill,
   RiSideBarLine,
@@ -43,7 +45,7 @@ import {
   Tooltip,
 } from 'antd';
 import Image from 'next/image';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useMemo, useState } from 'react';
 
 type MenuItemType = GetProp<MenuProps, 'items'>[number] & {
@@ -62,6 +64,13 @@ const menus = [
     label: 'Discover',
     icon: <RiPlanetLine size={18} />,
     href: '/discover',
+  },
+  {
+    key: 'search',
+    label: 'Search',
+    icon: <RiSearchLine size={18} />,
+    href: '#search',
+    extra: <Kbd shortcut="cmd+k" />,
   },
   {
     key: 'creations',
@@ -163,12 +172,17 @@ const menus = [
   },
 ] as MenuItemType[];
 
+const nativePush = (hash: string) => {
+  if (typeof window !== 'undefined') {
+    window.location.hash = hash;
+  }
+};
+
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { setMode } = useTheme();
   const { setLocale } = useLanguage();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const pathname = usePathname();
 
   // Cache flattened menu items (only calculate once)
@@ -215,7 +229,13 @@ const Sidebar: React.FC = () => {
   const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
     const menuItem = flattenMenus.find((item) => item.key === key);
     if (menuItem?.href) {
-      router.push(menuItem.href);
+      // Handle hash links (e.g., #search) with native navigation
+      if (menuItem.href.startsWith('#')) {
+        nativePush(menuItem.href);
+      } else {
+        // Use Next.js router for regular paths
+        router.push(menuItem.href);
+      }
     }
   };
 
@@ -239,10 +259,7 @@ const Sidebar: React.FC = () => {
       case 'general':
       case 'plans-credits':
       case 'profile':
-        // Update URL with settings parameter
-        const params = new URLSearchParams(searchParams.toString());
-        params.set('settings', key);
-        router.push(`?${params.toString()}`);
+        nativePush(`#settings/${key}`);
         break;
     }
   };
@@ -352,6 +369,7 @@ const Sidebar: React.FC = () => {
                     key: 'general', // menu key mapping
                     icon: <RiSettingsLine size={18} />,
                     label: 'Settings',
+                    extra: <Kbd shortcut="cmd+," />,
                   },
                   {
                     key: 'languages',

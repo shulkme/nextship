@@ -1,12 +1,14 @@
+import Listy from '@/components/listy';
 import { RiArrowRightSLine } from '@remixicon/react';
-import { Button, List, Switch } from 'antd';
+import { Button, Switch } from 'antd';
 import React from 'react';
 const SecurityPane: React.FC = () => {
   return (
     <>
-      <List className="[&_.ant-list-item-meta-title]:font-medium [&_.ant-list-item-action>li]:p-0">
-        <List.Item
-          actions={[
+      <Listy>
+        <Listy.Item
+          title={'Password'}
+          action={
             <Button
               className="pl-4"
               type="text"
@@ -16,13 +18,13 @@ const SecurityPane: React.FC = () => {
               key="button"
             >
               Add
-            </Button>,
-          ]}
-        >
-          <List.Item.Meta title={'Password'} />
-        </List.Item>
-        <List.Item
-          actions={[
+            </Button>
+          }
+        />
+        <Listy.Item
+          title={'Passkeys'}
+          description={`Passkeys are secure and protect your account with multi-factor authentication. They don't require any extra steps.`}
+          action={
             <Button
               className="pl-4"
               type="text"
@@ -32,22 +34,18 @@ const SecurityPane: React.FC = () => {
               key="button"
             >
               Add
-            </Button>,
-          ]}
-        >
-          <List.Item.Meta
-            title={'Passkeys'}
-            description={`Passkeys are secure and protect your account with multi-factor authentication. They don't require any extra steps.`}
-          />
-        </List.Item>
-        <List.Item actions={[<Switch size="small" key="switch" />]}>
-          <List.Item.Meta
-            title={'Multi-factor authentication (MFA)'}
-            description={`Use one-time codes from an authenticator app.`}
-          />
-        </List.Item>
-        <List.Item
-          actions={[
+            </Button>
+          }
+        />
+        <Listy.Item
+          title={'Multi-factor authentication (MFA)'}
+          description={`Use one-time codes from an authenticator app.`}
+          action={<Switch size="small" key="switch" />}
+        />
+        <Listy.Item
+          title={'Log out of all device'}
+          description={`Log out of all active sessions across all devices, including your current session. It may take up to 30 minutes for other devices to be logged out.`}
+          action={
             <Button
               color="danger"
               variant="outlined"
@@ -56,15 +54,10 @@ const SecurityPane: React.FC = () => {
               key="button"
             >
               Log out
-            </Button>,
-          ]}
-        >
-          <List.Item.Meta
-            title={'Log out of all device'}
-            description={`Log out of all active sessions across all devices, including your current session. It may take up to 30 minutes for other devices to be logged out.`}
-          />
-        </List.Item>
-      </List>
+            </Button>
+          }
+        />
+      </Listy>
     </>
   );
 };

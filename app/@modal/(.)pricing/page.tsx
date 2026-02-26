@@ -25,14 +25,16 @@ export default function PricingModal() {
       onCancel={handleClose}
       width="100vw"
     >
-      <div className="py-16">
-        <PricingContent />
-      </div>
-      <div className="text-center">
-        <a className="inline-flex items-center gap-1" href="#">
-          <span>Manage Billing</span>
-          <RiArrowRightUpLine size={16} />
-        </a>
+      <div className="max-w-7xl mx-auto">
+        <div className="py-16">
+          <PricingContent />
+        </div>
+        <div className="text-center">
+          <a className="inline-flex items-center gap-1" href="#">
+            <span>Manage Billing</span>
+            <RiArrowRightUpLine size={16} />
+          </a>
+        </div>
       </div>
     </Modal>
   );

@@ -1,30 +1,30 @@
 'use client';
+import Listy from '@/components/listy';
 import { defaultLocale, languages } from '@/i18n/config';
 import { RiComputerLine, RiMoonLine, RiSunLine } from '@remixicon/react';
-import { Button, List, Segmented, Select, Switch } from 'antd';
+import { Button, Segmented, Select, Switch } from 'antd';
 import React from 'react';
 const GeneralPane: React.FC = () => {
   return (
     <>
-      <List className="[&_.ant-list-item-meta-title]:font-medium [&_.ant-list-item-action>li]:p-0">
-        <List.Item
-          actions={[
+      <Listy>
+        <Listy.Item
+          title={'Language'}
+          description={'Select your preferred language'}
+          action={
             <Select
               defaultValue={defaultLocale}
               className="w-32"
               size="small"
               key="select"
               options={languages}
-            />,
-          ]}
-        >
-          <List.Item.Meta
-            title={'Languages'}
-            description={'Select your preferred language'}
-          />
-        </List.Item>
-        <List.Item
-          actions={[
+            />
+          }
+        />
+        <Listy.Item
+          title={'Theme'}
+          description={'Choose your preferred color scheme'}
+          action={
             <Segmented
               classNames={{
                 label: 'flex items-center',
@@ -45,32 +45,23 @@ const GeneralPane: React.FC = () => {
                   icon: <RiComputerLine size={16} />,
                 },
               ]}
-            />,
-          ]}
-        >
-          <List.Item.Meta
-            title={'Theme'}
-            description={'Choose your preferred color scheme'}
-          />
-        </List.Item>
-        <List.Item
-          actions={[<Switch size="small" key="switch" defaultChecked />]}
-        >
-          <List.Item.Meta
-            title={'Suggestions'}
-            description={`Get relevant in-chat suggestions to refine your project.`}
-          />
-        </List.Item>
-        <List.Item
-          actions={[
+            />
+          }
+        />
+        <Listy.Item
+          title={'Suggestions'}
+          description={`Get relevant in-chat suggestions to refine your project.`}
+          action={<Switch size="small" key="switch" defaultChecked />}
+        />
+        <Listy.Item
+          title={'Manage Cookies'}
+          action={
             <Button className="px-4" size="small" key="button">
               Manage
-            </Button>,
-          ]}
-        >
-          <List.Item.Meta title={'Manage Cookies'} />
-        </List.Item>
-      </List>
+            </Button>
+          }
+        />
+      </Listy>
     </>
   );
 };

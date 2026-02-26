@@ -1,4 +1,5 @@
 'use client';
+import SearchModal from '@/app/(app)/_search';
 import SettingsModal from '@/app/(app)/_settings';
 import Sidebar from '@/app/(app)/components/sidebar';
 import { Layout as AntdLayout } from 'antd';
@@ -14,6 +15,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         </AntdLayout.Content>
       </AntdLayout>
       <SettingsModal />
+      <SearchModal />
     </>
   );
 }
