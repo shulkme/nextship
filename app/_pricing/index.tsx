@@ -3,7 +3,7 @@ import Plans from '@/app/_pricing/components/plans';
 import { Segmented } from 'antd';
 import React, { useState } from 'react';
 const PricingContent: React.FC = () => {
-  const [mode, setMode] = useState<'monthly' | 'annual'>('monthly');
+  const [mode, setMode] = useState<'monthly' | 'annual'>('annual');
   return (
     <div>
       <h2 className="text-4xl font-bold mb-4 text-center">Pricing</h2>

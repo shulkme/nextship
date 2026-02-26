@@ -1,3 +1,4 @@
+'use client';
 import { RiCheckLine } from '@remixicon/react';
 import { Button, Card, Tag } from 'antd';
 import React from 'react';

@@ -5,6 +5,7 @@ import type { FC, ReactNode } from 'react';
 interface ListyProps {
   children?: ReactNode;
   className?: string;
+  split?: boolean;
 }
 
 // Define props for ListyItem component
@@ -30,9 +31,11 @@ interface ListyComponent extends FC<ListyProps> {
 }
 
 // Main Listy component
-const Listy: FC<ListyProps> = ({ children, className }) => {
+const Listy: FC<ListyProps> = ({ children, className, split = true }) => {
   return (
-    <ul className={cn('divide-y divide-(--ant-color-split)', className)}>
+    <ul
+      className={cn(split && 'divide-y divide-(--ant-color-split)', className)}
+    >
       {children}
     </ul>
   );
@@ -60,7 +63,7 @@ const ListyItem: FC<ListyItemProps> = ({
         <div className={cn('flex-none', classNames?.avatar)}>{avatar}</div>
       )}
       {(title || description) && (
-        <div className="flex-auto space-y-0.5">
+        <div className="flex-auto">
           {title && (
             <h3 className={cn('font-medium', classNames?.title)}>{title}</h3>
           )}

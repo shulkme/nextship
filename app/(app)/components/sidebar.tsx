@@ -263,6 +263,12 @@ const Sidebar: React.FC = () => {
         break;
     }
   };
+
+  const handleUpgrade = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    router.push('/pricing');
+  };
+
   return (
     <>
       <Layout.Sider
@@ -447,7 +453,7 @@ const Sidebar: React.FC = () => {
                         className="text-xs px-3"
                         size="small"
                         shape="round"
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={handleUpgrade}
                       >
                         Upgrade
                       </Button>
