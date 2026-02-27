@@ -1,33 +1,29 @@
+'use client';
 import { cn } from '@/utils/classname';
 import { Button } from 'antd';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 
 const NavItem: React.FC<{
   href: string;
   title: string;
-  active?: boolean;
-}> = ({ href, active, title }) => {
+}> = ({ href, title }) => {
   return (
     <li>
-      <Link
+      <a
         href={href}
-        className={cn(
-          'block text-base text-neutral-800 hover:text-primary-500',
-          active && 'text-primary-500',
-        )}
+        className={cn('block text-sm text-neutral-800 hover:text-primary-500')}
       >
         {title}
-      </Link>
+      </a>
     </li>
   );
 };
 
 const Header: React.FC = () => {
   return (
-    <header className="p-4">
-      <div className="border flex items-center justify-between border-slate-200 bg-white/90 max-w-7xl mx-auto p-2 pl-4 rounded-full">
+    <header>
+      <div className="h-16 flex items-center justify-between bg-white/90 px-8">
         <a href="/" className="flex items-center gap-2 text-neutral-800">
           <Image
             className="size-8"
@@ -51,7 +47,7 @@ const Header: React.FC = () => {
         </nav>
         <div>
           <Button href="/signup" shape="round" type="primary">
-            Sign up
+            Try {process.env.NEXT_PUBLIC_APP_NAME}
           </Button>
         </div>
       </div>

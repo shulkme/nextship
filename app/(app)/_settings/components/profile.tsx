@@ -10,11 +10,7 @@ const ProfilePane: React.FC = () => {
         <Listy.Item
           title={'Name'}
           description={'Shulk Steve'}
-          action={
-            <Button className="px-4" key="edit" size="small">
-              Edit
-            </Button>
-          }
+          action={<Button key="edit">Edit</Button>}
         />
         <Listy.Item
           title={'UUID'}
@@ -40,7 +36,7 @@ const ProfilePane: React.FC = () => {
             </Typography.Text>
           }
           action={
-            <Button danger className="px-4" key="edit" size="small">
+            <Button danger key="edit">
               Delete
             </Button>
           }

@@ -1,3 +1,4 @@
+'use client';
 import { useMemo } from 'react';
 
 export type Platform = 'mac' | 'windows' | 'linux' | 'other';

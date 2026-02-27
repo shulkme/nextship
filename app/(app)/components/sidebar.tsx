@@ -375,7 +375,6 @@ const Sidebar: React.FC = () => {
                     key: 'general', // menu key mapping
                     icon: <RiSettingsLine size={18} />,
                     label: 'Settings',
-                    extra: <Kbd shortcut="cmd+," />,
                   },
                   {
                     key: 'languages',
@@ -450,7 +449,7 @@ const Sidebar: React.FC = () => {
                     </div>
                     <div className="flex-none">
                       <Button
-                        className="text-xs px-3"
+                        className="text-xs"
                         size="small"
                         shape="round"
                         onClick={handleUpgrade}

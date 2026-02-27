@@ -32,7 +32,7 @@ const PlansCreditsPane: React.FC = () => {
           </div>
         </div>
         <div className="flex items-center gap-2 mb-6">
-          <Switch size="small" value={annual} onChange={setAnnual} />
+          <Switch value={annual} onChange={setAnnual} />
           <span className="font-medium">Annual</span>
           <Tag color="green">Save 16.7%</Tag>
         </div>

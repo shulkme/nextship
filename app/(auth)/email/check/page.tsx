@@ -15,7 +15,7 @@ export default function Page() {
           <Input.OTP
             className="flex justify-between"
             classNames={{
-              input: 'px-4',
+              input: 'px-3.5',
             }}
             length={6}
             separator={(i) => i === 2 && <span>-</span>}

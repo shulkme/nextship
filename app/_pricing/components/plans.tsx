@@ -30,7 +30,7 @@ const Plans: React.FC<{
             <p className="text-neutral-400">For getting started</p>
           </div>
           <div className="mb-4">
-            <Button color="default" variant="filled" block>
+            <Button size="large" color="default" variant="filled" block>
               Current Plan
             </Button>
           </div>
@@ -81,7 +81,7 @@ const Plans: React.FC<{
             <p className="text-neutral-400">Unlock more features</p>
           </div>
           <div className="mb-4">
-            <Button color="primary" variant="filled" block>
+            <Button size="large" color="primary" variant="filled" block>
               Upgrade
             </Button>
           </div>
@@ -138,7 +138,7 @@ const Plans: React.FC<{
             <p className="text-neutral-400">Full access to the best</p>
           </div>
           <div className="mb-4">
-            <Button color="primary" variant="solid" block>
+            <Button size="large" color="primary" variant="solid" block>
               Upgrade
             </Button>
           </div>

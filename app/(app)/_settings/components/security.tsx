@@ -10,10 +10,8 @@ const SecurityPane: React.FC = () => {
           title={'Password'}
           action={
             <Button
-              className="pl-4"
               type="text"
               iconPlacement="end"
-              size="small"
               icon={<RiArrowRightSLine size={14} />}
               key="button"
             >
@@ -26,10 +24,8 @@ const SecurityPane: React.FC = () => {
           description={`Passkeys are secure and protect your account with multi-factor authentication. They don't require any extra steps.`}
           action={
             <Button
-              className="pl-4"
               type="text"
               iconPlacement="end"
-              size="small"
               icon={<RiArrowRightSLine size={14} />}
               key="button"
             >
@@ -40,19 +36,13 @@ const SecurityPane: React.FC = () => {
         <Listy.Item
           title={'Multi-factor authentication (MFA)'}
           description={`Use one-time codes from an authenticator app.`}
-          action={<Switch size="small" key="switch" />}
+          action={<Switch key="switch" />}
         />
         <Listy.Item
           title={'Log out of all device'}
           description={`Log out of all active sessions across all devices, including your current session. It may take up to 30 minutes for other devices to be logged out.`}
           action={
-            <Button
-              color="danger"
-              variant="outlined"
-              className="px-4"
-              size="small"
-              key="button"
-            >
+            <Button color="danger" variant="outlined" key="button">
               Log out
             </Button>
           }

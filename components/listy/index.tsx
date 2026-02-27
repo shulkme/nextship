@@ -54,7 +54,7 @@ const ListyItem: FC<ListyItemProps> = ({
   return (
     <li
       className={cn(
-        'flex items-center gap-4 py-3',
+        'flex items-center gap-4 py-4',
         className,
         classNames?.root,
       )}

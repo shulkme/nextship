@@ -87,7 +87,7 @@ const SearchModal: React.FC = () => {
       open={open}
       onCancel={handleClose}
     >
-      <div className="py-1 px-2 border-b border-(--ant-color-border-secondary)">
+      <div className="py-1.5 px-2 border-b border-(--ant-color-border-secondary)">
         <Input
           classNames={{
             prefix: 'mr-3 text-(--ant-color-text-quaternary)',

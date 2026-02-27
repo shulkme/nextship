@@ -5,13 +5,15 @@ import Pager from '@/components/pager';
 import Toggle from '@/components/toggle';
 import { RiArrowRightSLine } from '@remixicon/react';
 import { Avatar, Button } from 'antd';
+import { random, shuffle } from 'radash';
 import { useMemo, useState } from 'react';
 
 export default function Page() {
   const [type, setType] = useState<string>('featured');
 
   const renderItems = useMemo(() => {
-    return apps.filter((f) => f.type === type);
+    const items = shuffle(apps) || [];
+    return items.splice(0, random(0, apps.length));
   }, [type]);
   return (
     <Pager

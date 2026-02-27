@@ -19,11 +19,7 @@ const ConnectionsPane: React.FC = () => {
           description={
             'Connect Google Drive to import files into Knowledge Hub and use in your videos.'
           }
-          action={
-            <Button className="px-4" size="small" key="button">
-              Connect
-            </Button>
-          }
+          action={<Button key="button">Connect</Button>}
         />
         <Listy.Item
           avatar={
@@ -36,11 +32,7 @@ const ConnectionsPane: React.FC = () => {
           description={
             'Connect Notion to pull content from your workspace into Knowledge Hub and video creation.'
           }
-          action={
-            <Button className="px-4" size="small" key="button">
-              Connect
-            </Button>
-          }
+          action={<Button key="button">Connect</Button>}
         />
         <Listy.Item
           avatar={
@@ -53,11 +45,7 @@ const ConnectionsPane: React.FC = () => {
           description={
             'Connect your Slack account to HeyGen and make videos from the comfort and familiarity of your Slack workspace.'
           }
-          action={
-            <Button className="px-4" size="small" key="button">
-              Connect
-            </Button>
-          }
+          action={<Button key="button">Connect</Button>}
         />
       </Listy>
     </>

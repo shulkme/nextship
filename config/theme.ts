@@ -19,13 +19,13 @@ const sharedConfig: ThemeConfig = {
   hashed: false, // close hash
   token: {
     colorPrimary: '#0F60F8',
-    controlHeightXS: 24,
-    controlHeightSM: 32,
-    controlHeight: 40,
-    controlHeightLG: 48,
-    borderRadiusXS: 8,
+    controlHeightXS: 20,
+    controlHeightSM: 28,
+    controlHeight: 36,
+    controlHeightLG: 44,
+    borderRadiusXS: 6,
     borderRadiusSM: 8,
-    borderRadius: 12,
+    borderRadius: 10,
     borderRadiusLG: 12,
   },
   components: {
@@ -55,6 +55,9 @@ const sharedConfig: ThemeConfig = {
       defaultShadow: 'none',
       primaryShadow: 'none',
       contentFontSizeSM: 12,
+      paddingInlineSM: 11,
+      paddingInline: 15,
+      paddingInlineLG: 19,
     },
     Tabs: {
       horizontalMargin: '0',

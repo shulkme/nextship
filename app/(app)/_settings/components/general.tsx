@@ -15,7 +15,6 @@ const GeneralPane: React.FC = () => {
             <Select
               defaultValue={defaultLocale}
               className="w-32"
-              size="small"
               key="select"
               options={languages}
             />
@@ -29,7 +28,6 @@ const GeneralPane: React.FC = () => {
               classNames={{
                 label: 'flex items-center',
               }}
-              size="small"
               key="segmented"
               options={[
                 {
@@ -51,15 +49,11 @@ const GeneralPane: React.FC = () => {
         <Listy.Item
           title={'Suggestions'}
           description={`Get relevant in-chat suggestions to refine your project.`}
-          action={<Switch size="small" key="switch" defaultChecked />}
+          action={<Switch key="switch" defaultChecked />}
         />
         <Listy.Item
           title={'Manage Cookies'}
-          action={
-            <Button className="px-4" size="small" key="button">
-              Manage
-            </Button>
-          }
+          action={<Button key="button">Manage</Button>}
         />
       </Listy>
     </>

@@ -12,6 +12,7 @@ const PricingContent: React.FC = () => {
       </p>
       <div className="mb-8 text-center">
         <Segmented
+          size="large"
           value={mode}
           options={[
             {

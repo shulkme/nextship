@@ -8,19 +8,11 @@ const AboutPane: React.FC = () => {
       <Listy>
         <Listy.Item
           title={'Terms of Use'}
-          action={
-            <Button className="px-4" size="small" key="button">
-              View
-            </Button>
-          }
+          action={<Button key="button">View</Button>}
         />
         <Listy.Item
           title={'Privacy Policy'}
-          action={
-            <Button className="px-4" size="small" key="button">
-              View
-            </Button>
-          }
+          action={<Button key="button">View</Button>}
         />
       </Listy>
     </>
