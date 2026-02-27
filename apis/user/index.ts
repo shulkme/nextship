@@ -1,6 +1,12 @@
-import request from '../request';
-import type { HttpResponse, PageParams, PageResult } from '../types';
-import type { UpdateProfileParams, User, UserListParams } from './types';
+import type {
+  HttpResponse,
+  PageParams,
+  PageResult,
+  UpdateProfileParams,
+  User,
+  UserListParams,
+} from '@/apis';
+import request from '@/apis/request';
 
 /**
  * User API Module

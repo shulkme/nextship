@@ -1,6 +1,11 @@
-import request from '../request';
-import type { HttpResponse } from '../types';
-import type { LoginParams, LoginResponse, RegisterParams, User } from './types';
+import type {
+  HttpResponse,
+  LoginParams,
+  LoginResponse,
+  RegisterParams,
+  User,
+} from '@/apis';
+import request from '@/apis/request';
 
 /**
  * Auth API Module

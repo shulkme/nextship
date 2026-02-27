@@ -1,4 +1,4 @@
-import { routing } from '@/i18n/routing';
+import { locales } from '@/i18n/config';
 import { cookies } from 'next/headers';
 import { type NextRequest, NextResponse } from 'next/server';
 
@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const { locale } = await request.json();
 
     // Validate locale
-    if (!routing.locales.includes(locale)) {
+    if (!locales.includes(locale)) {
       return NextResponse.json({ error: 'Invalid locale' }, { status: 400 });
     }
 

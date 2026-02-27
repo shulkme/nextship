@@ -2,7 +2,7 @@
  * User API Types
  */
 
-import type { User } from '../types';
+import type { User } from '@/apis/types';
 
 export type { User };
 
