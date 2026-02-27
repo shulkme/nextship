@@ -80,7 +80,7 @@ const Kbd: FC<KbdProps> = ({ children, shortcut, className }) => {
     // Render children as single key
     content = (
       <kbd>
-        <span className="min-w-[1em]">{children}</span>
+        <span className="min-w-[1em] border py-0.5 px-1 leading-none border-(--ant-color-border-secondary) rounded-[4px]">{children}</span>
       </kbd>
     );
   } else if (shortcut) {
@@ -93,7 +93,7 @@ const Kbd: FC<KbdProps> = ({ children, shortcut, className }) => {
 
     content = keys.map((key, index) => (
       <kbd key={index}>
-        <span className="min-w-[1em]">
+        <span className="min-w-[1em] border py-0.5 px-1 leading-none border-(--ant-color-border-secondary) rounded-[4px]">
           {symbols[key as keyof typeof symbols] || key.toUpperCase()}
         </span>
       </kbd>
@@ -107,7 +107,7 @@ const Kbd: FC<KbdProps> = ({ children, shortcut, className }) => {
   return (
     <div
       className={cn(
-        'inline-flex whitespace-pre *:inline-flex *:font-sans touch:hidden',
+        'inline-flex gap-1 whitespace-pre *:inline-flex *:font-sans touch:hidden text-xs',
         className,
       )}
     >

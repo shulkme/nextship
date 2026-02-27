@@ -305,7 +305,7 @@ const Sidebar: React.FC = () => {
                 title={collapsed ? 'Open sidebar' : 'Close sidebar'}
               >
                 <Button
-                  className="size-10"
+                  className="size-10 text-neutral-400 hover:text-neutral-800"
                   type="text"
                   icon={
                     collapsed ? (
@@ -319,7 +319,7 @@ const Sidebar: React.FC = () => {
               </Tooltip>
             </div>
           </div>
-          <div className="flex-auto px-3 overflow-auto">
+          <div className="flex-auto px-3 overflow-auto scrollbar-hidden">
             <ConfigProvider
               theme={{
                 components: {
