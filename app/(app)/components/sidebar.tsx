@@ -305,6 +305,7 @@ const Sidebar: React.FC = () => {
                 title={collapsed ? 'Open sidebar' : 'Close sidebar'}
               >
                 <Button
+                  className="size-10"
                   type="text"
                   icon={
                     collapsed ? (

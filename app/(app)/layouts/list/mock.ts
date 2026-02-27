@@ -1,4 +1,4 @@
-export const apps = [
+export const data = [
   {
     type: 'featured',
     title: 'Adobe Photoshop',

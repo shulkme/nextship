@@ -10,7 +10,18 @@ declare module 'next-intl' {
   }
 }
 
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+};
 
 const withNextIntl = createNextIntlPlugin();
 export default withNextIntl(nextConfig);

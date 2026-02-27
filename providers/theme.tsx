@@ -70,6 +70,23 @@ const ThemeConfigProvider: React.FC<React.PropsWithChildren> = ({
           classNames: {
             header: 'mb-4',
           },
+          // mask: {
+          //   blur: true,
+          // },
+        }}
+        table={{
+          classNames: {
+            content:
+              'border border-(--ant-table-border-color) rounded-(--ant-table-header-border-radius)',
+            body: {
+              wrapper:
+                '[&>.ant-table-placeholder>td]:border-0 [&>.ant-table-placeholder]:bg-transparent',
+              row: 'last:[&>td]:border-0 last:[&>td:first-child]:rounded-bl-lg last:[&>td:last-child]:rounded-br-lg',
+            },
+            pagination: {
+              root: '[&>.ant-pagination-total-text]:mr-auto',
+            },
+          },
         }}
       >
         {children}

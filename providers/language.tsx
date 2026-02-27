@@ -6,16 +6,14 @@ import zhCN from 'antd/locale/zh_CN';
 // import zhTW from 'antd/locale/zh_TW';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
-import 'dayjs/locale/zh';
+import 'dayjs/locale/zh-cn';
 // import 'dayjs/locale/zh-tw';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
-import relativeTime from 'dayjs/plugin/relativeTime';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import React, { createContext, useContext, useEffect, useMemo } from 'react';
 
 dayjs.extend(localizedFormat);
-dayjs.extend(relativeTime);
 
 const setDayjsLocale = (locale: string) => {
   switch (locale) {
@@ -23,7 +21,7 @@ const setDayjsLocale = (locale: string) => {
       dayjs.locale('en');
       break;
     case 'zh':
-      dayjs.locale('zh');
+      dayjs.locale('zh-cn');
       break;
     // case 'tw':
     //   dayjs.locale('zh-tw');

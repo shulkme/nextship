@@ -38,8 +38,8 @@ const sharedConfig: ThemeConfig = {
       triggerBg: 'transparent',
     },
     Table: {
-      headerBorderRadius: 0,
-      headerBg: 'transparent',
+      // headerBorderRadius: 0,
+      // headerBg: 'transparent',
       footerBg: 'transparent',
       headerSplitColor: 'transparent',
     },
@@ -58,6 +58,16 @@ const sharedConfig: ThemeConfig = {
       paddingInlineSM: 11,
       paddingInline: 15,
       paddingInlineLG: 19,
+    },
+    Switch: {
+      handleSize: 16,
+      handleSizeSM: 12,
+      trackHeight: 20,
+      trackHeightSM: 16,
+      trackMinWidth: 36,
+      trackMinWidthSM: 28,
+      innerMaxMargin: 20,
+      innerMaxMarginSM: 16,
     },
     Tabs: {
       horizontalMargin: '0',

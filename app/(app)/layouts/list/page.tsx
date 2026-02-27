@@ -1,5 +1,5 @@
 'use client';
-import { apps } from '@/app/(app)/layouts/list/mock';
+import { data } from '@/app/(app)/layouts/list/mock';
 import Listy from '@/components/listy';
 import Pager from '@/components/pager';
 import Toggle from '@/components/toggle';
@@ -12,12 +12,13 @@ export default function Page() {
   const [type, setType] = useState<string>('featured');
 
   const renderItems = useMemo(() => {
-    const items = shuffle(apps) || [];
-    return items.splice(0, random(0, apps.length));
+    const items = shuffle(data) || [];
+    return items.splice(0, random(Math.ceil(data.length / 2), data.length));
   }, [type]);
+
   return (
     <Pager
-      size="medium"
+      size="large"
       title={'List'}
       description={
         'Use list layout for similar items in order, easy to scan and act on.'
