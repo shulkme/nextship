@@ -1,18 +1,15 @@
 'use client';
-import { data } from '@/app/(app)/layouts/masonry/mock';
-import Pager from '@/components/pager';
+import { inspirations } from '@/app/(app)/discover/mock';
 import Toggle from '@/components/toggle';
-import { Avatar, Masonry } from 'antd';
+import { RiSparklingFill } from '@remixicon/react';
+import { Button, Masonry } from 'antd';
 import Image from 'next/image';
-
-export default function Page() {
+import React from 'react';
+const Inspirations: React.FC = () => {
   return (
-    <Pager
-      size="large"
-      title={'Masonry'}
-      description={'Use Masonry for visual galleries with uneven heights.'}
-    >
-      <div className="sticky top-0 z-10 bg-background overflow-auto py-4">
+    <section>
+      <h3 className="text-lg font-medium">Inspirations</h3>
+      <div className="py-6 bg-background sticky top-0 z-20">
         <Toggle.Group
           defaultValue="all"
           options={[
@@ -58,22 +55,25 @@ export default function Page() {
           ]}
         />
       </div>
-      <div>
+      <div className="">
         <Masonry
-          columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
+          columns={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }}
           gutter={{ xs: 8, sm: 12, md: 16 }}
-          items={data}
+          items={inspirations}
           itemRender={({ data }) => (
-            <div className="">
+            <div className="relative rounded-lg overflow-hidden group/item">
+              <div className="absolute z-10 top-2 left-2 bg-black/30 backdrop-blur-sm text-xs text-white px-2 py-0.5 rounded-full">
+                <span>Style</span>
+              </div>
               <div
-                className="w-full relative bg-neutral-100 rounded-lg overflow-hidden"
+                className="w-full relative bg-neutral-100"
                 style={{
                   paddingBottom: `${(data.height / data.width) * 100}%`,
                 }}
               >
                 <Image
                   fill
-                  className="absolute inset-0 hover:scale-110 transition-all duration-300"
+                  className="absolute inset-0 group-hover/item:scale-110 transition-all duration-300"
                   src={data.cover}
                   alt={data.title}
                   loading="lazy"
@@ -81,20 +81,22 @@ export default function Page() {
                   // height={data.height}
                 />
               </div>
-              <div className="flex items-center gap-2 pt-4 pb-3">
-                <div className="flex-none">
-                  <Avatar src={data.avatar} size={32}>
-                    {data.author.charAt(0)}
-                  </Avatar>
-                </div>
-                <div className="flex-auto">
-                  <div className="line-clamp-1">{data.title}</div>
-                </div>
+              <div className="absolute group-hover/item:translate-y-0 translate-y-full transition-all bottom-0 left-0 right-0 p-4 z-10 bg-linear-to-t from-black/60 to-transparent">
+                <Button
+                  shape="round"
+                  className="border-0 bg-black/30 text-white backdrop-blur-sm hover:bg-black/50"
+                  block
+                  icon={<RiSparklingFill size={18} />}
+                >
+                  Generate
+                </Button>
               </div>
             </div>
           )}
         />
       </div>
-    </Pager>
+    </section>
   );
-}
+};
+
+export default Inspirations;

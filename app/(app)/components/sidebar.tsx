@@ -6,7 +6,6 @@ import { type Mode, useTheme } from '@/providers/theme';
 import { cn } from '@/utils/classname';
 import {
   RiArrowRightUpLine,
-  RiChatAiLine,
   RiComputerLine,
   RiDashboardLine,
   RiFunctionLine,
@@ -18,7 +17,6 @@ import {
   RiMailCheckLine,
   RiMoonLine,
   RiPlanetLine,
-  RiQuestionAnswerLine,
   RiQuestionLine,
   RiResetRightLine,
   RiSearchLine,
@@ -71,25 +69,6 @@ const menus = [
     icon: <RiSearchLine size={18} />,
     href: '#search',
     extra: <Kbd shortcut="cmd+k" />,
-  },
-  {
-    key: 'creations',
-    label: 'Creations',
-    type: 'group',
-    children: [
-      {
-        key: 'creations:agent',
-        label: 'Agent',
-        icon: <RiChatAiLine size={18} />,
-        href: '/creations/agent',
-      },
-      {
-        key: 'creations:message',
-        label: 'Message',
-        icon: <RiQuestionAnswerLine size={18} />,
-        href: '/creations/message',
-      },
-    ],
   },
   {
     key: 'layouts',

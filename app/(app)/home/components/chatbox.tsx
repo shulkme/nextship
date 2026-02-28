@@ -118,6 +118,7 @@ const Chatbox: React.FC = () => {
             }
           >
             <Button
+              className="border-none"
               type="primary"
               disabled
               shape="circle"

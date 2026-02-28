@@ -23,7 +23,7 @@ export default function Page() {
             >
               <div className="w-full relative overflow-hidden aspect-3/2 bg-neutral-100 rounded-sm">
                 <Image
-                  className="absolute inset-0 hover:scale-105 transition-all"
+                  className="absolute inset-0 hover:scale-110 transition-all duration-300"
                   src={item.data.cover}
                   fill
                   alt={item.data.title}
