@@ -49,7 +49,7 @@ export default function Page() {
           {renderItems.map((item, index) => (
             <Listy.Item
               key={index}
-              className="px-3 rounded-lg hover:bg-neutral-100 cursor-pointer"
+              className="px-3 rounded-lg hover:bg-(--ant-control-item-bg-hover) cursor-pointer"
               action={
                 <Button
                   type="text"

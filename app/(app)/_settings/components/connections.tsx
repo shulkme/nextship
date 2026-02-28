@@ -11,7 +11,7 @@ const ConnectionsPane: React.FC = () => {
         <Listy.Item
           avatar={
             <Avatar
-              className="bg-background border border-(--ant-color-border)"
+              className="bg-(--ant-color-bg-elevated) border border-(--ant-color-border)"
               icon={<GoogleDrive />}
             />
           }
@@ -24,7 +24,7 @@ const ConnectionsPane: React.FC = () => {
         <Listy.Item
           avatar={
             <Avatar
-              className="bg-background border border-(--ant-color-border)"
+              className="bg-(--ant-color-bg-elevated) border border-(--ant-color-border)"
               icon={<Notion />}
             />
           }
@@ -37,7 +37,7 @@ const ConnectionsPane: React.FC = () => {
         <Listy.Item
           avatar={
             <Avatar
-              className="bg-background border border-(--ant-color-border)"
+              className="bg-(--ant-color-bg-elevated) border border-(--ant-color-border)"
               icon={<Slack />}
             />
           }

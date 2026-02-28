@@ -1,10 +1,11 @@
+'use client';
 import { RiArrowLeftLine } from '@remixicon/react';
-import { Button } from 'antd';
+import { Layout as AntdLayout, Button } from 'antd';
 import React from 'react';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="min-h-screen w-full flex p-6">
+    <AntdLayout className="min-h-screen w-full flex flex-row p-6">
       <div className="flex-auto flex flex-col">
         <div className="flex-none">
           <Button href="/" type="text" icon={<RiArrowLeftLine size={18} />} />
@@ -21,6 +22,6 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
       <div className="w-full max-w-1/2 flex-auto hidden lg:block">
         <div className="w-full h-full bg-primary-500 rounded-4xl"></div>
       </div>
-    </div>
+    </AntdLayout>
   );
 }

@@ -10,7 +10,7 @@ import {
   RiSmartphoneLine,
   RiWindowLine,
 } from '@remixicon/react';
-import { Button, Tooltip } from 'antd';
+import { Alert, Button, Tooltip } from 'antd';
 
 export default function Page() {
   return (
@@ -26,18 +26,32 @@ export default function Page() {
       </div>
       <div className="mt-[20vh] max-w-full sm:max-w-3xl w-full mx-auto">
         <div className="flex relative flex-col items-center gap-10 mb-10">
-          <div className="absolute h-9 pl-2 pr-4 -top-10 left-1/2 -translate-y-full -translate-x-1/2 flex items-center gap-2 bg-primary-50 rounded-full text-sm whitespace-nowrap">
-            <span className="inline-block text-xs rounded-full px-2 py-1 bg-primary-500 text-white font-medium">
-              New
-            </span>
-            <span>The next version is already available!</span>
-            <a className="font-medium">Start free trial</a>
+          <div className="absolute -top-10 left-1/2 -translate-y-full -translate-x-1/2">
+            <Alert
+              classNames={{
+                root: 'border-none',
+                title: 'whitespace-nowrap',
+              }}
+              type="info"
+              showIcon
+              icon={
+                <span className="inline-block text-xs rounded-full px-2 py-1 bg-primary-500 text-white font-medium">
+                  New
+                </span>
+              }
+              title={'The next version is already available!'}
+              action={
+                <a className="font-medium whitespace-nowrap">
+                  Start free trial
+                </a>
+              }
+            />
           </div>
           <h1 className="font-serif text-4xl">What can I do for you?</h1>
         </div>
         <Chatbox />
         <div className="flex flex-col items-center mt-6">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap justify-center items-center gap-2">
             <Button shape="round" icon={<RiSlideshow3Line size={18} />}>
               Create slides
             </Button>

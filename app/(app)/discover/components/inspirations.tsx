@@ -9,7 +9,7 @@ const Inspirations: React.FC = () => {
   return (
     <section>
       <h3 className="text-lg font-medium">Inspirations</h3>
-      <div className="py-6 bg-background sticky top-0 z-20">
+      <div className="py-6 bg-(--ant-layout-body-bg) sticky top-0 z-20">
         <Toggle.Group
           defaultValue="all"
           options={[
@@ -66,7 +66,7 @@ const Inspirations: React.FC = () => {
                 <span>Style</span>
               </div>
               <div
-                className="w-full relative bg-neutral-100"
+                className="w-full relative bg-(--ant-color-fill-tertiary)"
                 style={{
                   paddingBottom: `${(data.height / data.width) * 100}%`,
                 }}

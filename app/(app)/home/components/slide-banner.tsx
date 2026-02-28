@@ -8,7 +8,7 @@ const Banner: React.FC<{
   image: string;
 }> = ({ title, desc, image }) => {
   return (
-    <div className="w-full bg-neutral-100 flex">
+    <div className="w-full bg-(--ant-color-fill-tertiary) flex">
       <div className="flex flex-auto flex-col justify-center gap-2 py-4 px-6">
         <h3 className="text-base font-medium">{title}</h3>
         <p className="text-neutral-400 text-xs">{desc}</p>

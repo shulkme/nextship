@@ -14,10 +14,11 @@ export default function PricingModal() {
 
   return (
     <Modal
-      className="max-w-none h-screen top-0"
+      className="max-w-none h-screen top-0 m-0"
       classNames={{
-        container: 'rounded-none h-full',
+        container: 'rounded-none h-full overflow-hidden p-0',
         // wrapper: 'transform-none',
+        body: 'h-full overflow-auto p-6',
       }}
       footer={false}
       open

@@ -12,7 +12,7 @@ export default function Page() {
       title={'Masonry'}
       description={'Use Masonry for visual galleries with uneven heights.'}
     >
-      <div className="sticky top-0 z-10 bg-background overflow-auto py-4">
+      <div className="sticky top-0 z-10 bg-(--ant-layout-body-bg) overflow-auto py-4">
         <Toggle.Group
           defaultValue="all"
           options={[
@@ -66,7 +66,7 @@ export default function Page() {
           itemRender={({ data }) => (
             <div className="">
               <div
-                className="w-full relative bg-neutral-100 rounded-lg overflow-hidden"
+                className="w-full relative bg-(--ant-color-fill-tertiary) rounded-lg overflow-hidden"
                 style={{
                   paddingBottom: `${(data.height / data.width) * 100}%`,
                 }}

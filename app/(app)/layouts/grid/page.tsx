@@ -21,7 +21,7 @@ export default function Page() {
                 body: 'p-3',
               }}
             >
-              <div className="w-full relative overflow-hidden aspect-3/2 bg-neutral-100 rounded-sm">
+              <div className="w-full relative overflow-hidden aspect-3/2 bg-(--ant-color-fill-tertiary) rounded-sm">
                 <Image
                   className="absolute inset-0 hover:scale-110 transition-all duration-300"
                   src={item.data.cover}
@@ -31,7 +31,7 @@ export default function Page() {
               </div>
               <div className="pt-3">
                 <h3 className="text-sm">Untitled</h3>
-                <p className="text-xs text-neutral-400">
+                <p className="text-xs text-(--ant-color-text-description)">
                   Last refined on {dayjs().format('L')}
                 </p>
               </div>

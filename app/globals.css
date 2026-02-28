@@ -3,10 +3,7 @@
 @import 'tailwindcss';
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-  --color-background: #fff;
-  --color-foreground: #111;
-
+@theme inline {
   /*与antd主题同步*/
   --color-primary-50: #e6f3ff;
   --color-primary-100: #b3d7ff;
@@ -19,16 +16,16 @@
   --color-primary-800: #002185;
   --color-primary-900: #00145e;
 
-  --color-secondary-50: #ffffff;
-  --color-secondary-100: #f7f8fa;
-  --color-secondary-200: #ebedf3;
-  --color-secondary-300: #d2d5e3;
-  --color-secondary-400: #b7b9c9;
-  --color-secondary-500: #a5a7b9;
-  --color-secondary-600: #828499;
-  --color-secondary-700: #616478;
-  --color-secondary-800: #444658;
-  --color-secondary-900: #282a37;
+  /*--color-secondary-50: #ffffff;*/
+  /*--color-secondary-100: #f7f8fa;*/
+  /*--color-secondary-200: #ebedf3;*/
+  /*--color-secondary-300: #d2d5e3;*/
+  /*--color-secondary-400: #b7b9c9;*/
+  /*--color-secondary-500: #a5a7b9;*/
+  /*--color-secondary-600: #828499;*/
+  /*--color-secondary-700: #616478;*/
+  /*--color-secondary-800: #444658;*/
+  /*--color-secondary-900: #282a37;*/
 
   /*与antd主题同步*/
   --breakpoint-xs: 480px;
@@ -49,9 +46,10 @@
   --radius-4xl: 20px;
 }
 
+
 @layer base {
   body {
-    @apply overflow-hidden bg-background text-foreground dark:bg-black dark:text-white;
+    @apply overflow-hidden bg-(--ant-color-bg-container);
   }
 }
 

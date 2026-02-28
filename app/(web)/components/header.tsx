@@ -12,7 +12,9 @@ const NavItem: React.FC<{
     <li>
       <a
         href={href}
-        className={cn('block text-sm text-neutral-800 hover:text-primary-500')}
+        className={cn(
+          'block text-sm text-(--ant-color-text-base) hover:text-primary-500',
+        )}
       >
         {title}
       </a>
@@ -23,8 +25,11 @@ const NavItem: React.FC<{
 const Header: React.FC = () => {
   return (
     <header>
-      <div className="h-16 flex items-center justify-between bg-white/90 px-8">
-        <a href="/" className="flex items-center gap-2 text-neutral-800">
+      <div className="h-16 flex items-center justify-between bg-(--ant-color-bg-container)/90 px-8">
+        <a
+          href="/"
+          className="flex items-center gap-2 text-(--ant-color-text-base)"
+        >
           <Image
             className="size-8"
             src="/images/logo.png"

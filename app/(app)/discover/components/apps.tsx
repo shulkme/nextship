@@ -9,7 +9,7 @@ const AppItem: React.FC<{
   image?: string;
 }> = ({ title, image, desc }) => {
   return (
-    <div className="w-64 aspect-square relative bg-neutral-100 rounded-lg overflow-hidden group/item">
+    <div className="w-64 aspect-square relative bg-(--ant-color-fill-tertiary) rounded-lg overflow-hidden group/item">
       <img
         className="absolute inset-0 object-cover transition-all group-hover/item:scale-110"
         src={image}

@@ -14,6 +14,9 @@ export default function Page() {
         pagination={{
           showTotal: (total) => `Total ${total} items`,
         }}
+        scroll={{
+          x: 768,
+        }}
         rowKey="key"
         dataSource={data}
         columns={[
