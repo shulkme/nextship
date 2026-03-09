@@ -51,8 +51,10 @@ const LanguageProvider: React.FC<{
       body: JSON.stringify({ locale: newLocale }),
     });
 
-    // Refresh to apply new locale
-    router.refresh();
+    // Full page reload to apply new locale for both client and server components
+    if (typeof window !== 'undefined') {
+      window.location.reload();
+    }
   };
   const _locale = useMemo(() => {
     switch (locale) {

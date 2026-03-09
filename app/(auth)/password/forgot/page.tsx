@@ -1,21 +1,26 @@
 'use client';
 import { RiArrowLeftLine } from '@remixicon/react';
 import { Button, Form, Input } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('auth');
+
   return (
     <>
-      <h1 className="font-bold text-3xl text-center mb-4">Forget Password</h1>
+      <h1 className="font-bold text-3xl text-center mb-4">
+        {t('forgot.title')}
+      </h1>
       <p className="text-center mb-12 text-neutral-500">
-        We will sent you a link to reset your password.
+        {t('forgot.subtitle')}
       </p>
       <Form variant="filled" layout="vertical" size="large">
         <Form.Item>
-          <Input placeholder="Email" />
+          <Input placeholder={t('common.email')} />
         </Form.Item>
         <Form.Item>
           <Button block type="primary">
-            Continue
+            {t('common.continue')}
           </Button>
         </Form.Item>
         <Form.Item>
@@ -25,7 +30,7 @@ export default function Page() {
             type="text"
             icon={<RiArrowLeftLine size={18} />}
           >
-            Back to login
+            {t('forgot.backToLogin')}
           </Button>
         </Form.Item>
       </Form>

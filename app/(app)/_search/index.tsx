@@ -1,6 +1,7 @@
 'use client';
 import { RiAddCircleLine, RiChat3Line, RiSearchLine } from '@remixicon/react';
 import { ConfigProvider, Input, Menu, Modal } from 'antd';
+import { useTranslations } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react';
 
@@ -9,6 +10,7 @@ const SearchModal: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const t = useTranslations('app.search');
 
   const handleClose = useCallback(() => {
     setOpen(false);
@@ -95,7 +97,7 @@ const SearchModal: React.FC = () => {
           prefix={<RiSearchLine size={20} />}
           variant="borderless"
           size="large"
-          placeholder="Search..."
+          placeholder={t('placeholder')}
         />
       </div>
       <div className="py-0.5 max-h-400 overflow-auto">
@@ -120,39 +122,39 @@ const SearchModal: React.FC = () => {
             items={[
               {
                 key: '1',
-                label: 'New chat',
+                label: t('newChat'),
                 icon: <RiAddCircleLine size={20} />,
               },
               {
                 key: 'today',
-                label: 'Today',
+                label: t('today'),
                 type: 'group',
                 children: [
                   {
                     key: 'today-1',
-                    label: 'Chat title 1',
+                    label: t('chatTitle', { number: '1' }),
                     icon: <RiChat3Line size={20} />,
                   },
                   {
                     key: 'today-2',
-                    label: 'Chat title 2',
+                    label: t('chatTitle', { number: '2' }),
                     icon: <RiChat3Line size={20} />,
                   },
                 ],
               },
               {
                 key: 'yesterday',
-                label: 'Yesterday',
+                label: t('yesterday'),
                 type: 'group',
                 children: [
                   {
                     key: 'yesterday-1',
-                    label: 'Chat title 1',
+                    label: t('chatTitle', { number: '1' }),
                     icon: <RiChat3Line size={20} />,
                   },
                   {
                     key: 'yesterday-2',
-                    label: 'Chat title 2',
+                    label: t('chatTitle', { number: '2' }),
                     icon: <RiChat3Line size={20} />,
                   },
                 ],

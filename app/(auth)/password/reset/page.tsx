@@ -1,23 +1,28 @@
 'use client';
 import { Button, Form, Input } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('auth');
+
   return (
     <>
-      <h1 className="font-bold text-3xl text-center mb-4">Reset Password</h1>
+      <h1 className="font-bold text-3xl text-center mb-4">
+        {t('reset.title')}
+      </h1>
       <p className="text-center mb-12 text-neutral-500">
-        Please enter a new password below to change your password.
+        {t('reset.subtitle')}
       </p>
       <Form variant="filled" layout="vertical" size="large">
         <Form.Item>
-          <Input.Password placeholder="New Password" />
+          <Input.Password placeholder={t('reset.newPassword')} />
         </Form.Item>
         <Form.Item>
-          <Input.Password placeholder="Confim Password" />
+          <Input.Password placeholder={t('reset.confirmPassword')} />
         </Form.Item>
         <Form.Item>
           <Button block type="primary">
-            Reset
+            {t('reset.submit')}
           </Button>
         </Form.Item>
       </Form>

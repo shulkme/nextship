@@ -1,14 +1,21 @@
 'use client';
 import { Button, Form, Input } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('auth');
+
   return (
     <>
-      <h1 className="font-bold text-3xl text-center mb-4">Verify email</h1>
+      <h1 className="font-bold text-3xl text-center mb-4">
+        {t('verify.title')}
+      </h1>
       <p className="text-center mb-12 text-neutral-500">
-        A verification code has been sent to <strong>xxx@example.com</strong>.
-        Please check your <strong>inbox</strong> and{' '}
-        <strong>spam folder</strong> .
+        {t.rich('verify.subtitle', {
+          email: () => <strong>xxx@example.com</strong>,
+          inbox: () => <strong>{t('verify.inbox')}</strong>,
+          spam: () => <strong>{t('verify.spam')}</strong>,
+        })}
       </p>
       <Form variant="filled" layout="vertical" size="large">
         <Form.Item>
@@ -23,12 +30,12 @@ export default function Page() {
         </Form.Item>
         <Form.Item>
           <Button block type="primary">
-            Submit
+            {t('verify.submit')}
           </Button>
         </Form.Item>
         <Form.Item>
           <Button disabled block type="text">
-            Resend code (60s)
+            {t('verify.resend', { seconds: 60 })}
           </Button>
         </Form.Item>
       </Form>

@@ -1,13 +1,183 @@
 {
   "global": {},
   "app": {
-    "page": {
-      "dashboard": {
-        "title": "仪表盘"
+    "sidebar": {
+      "openSidebar": "打开侧边栏",
+      "closeSidebar": "关闭侧边栏",
+      "menu": {
+        "home": "首页",
+        "discover": "发现",
+        "search": "搜索",
+        "layouts": "布局",
+        "table": "表格",
+        "list": "列表",
+        "grid": "网格",
+        "masonry": "瀑布流",
+        "pages": "页面",
+        "pricing": "定价",
+        "signIn": "登录",
+        "signUp": "注册",
+        "forgotPassword": "忘记密码",
+        "resetPassword": "重置密码",
+        "emailCheck": "邮箱验证"
+      },
+      "userMenu": {
+        "profile": "个人资料",
+        "plansCredits": "套餐与积分",
+        "helpCenter": "帮助中心",
+        "settings": "设置",
+        "languages": "语言",
+        "theme": "主题",
+        "light": "浅色",
+        "dark": "深色",
+        "system": "跟随系统",
+        "logout": "退出登录",
+        "upgrade": "升级",
+        "free": "免费版"
       }
+    },
+    "home": {
+      "notifications": "通知",
+      "newBadge": "新",
+      "newVersionTitle": "新版本已经可用！",
+      "startFreeTrial": "开始免费试用",
+      "pageTitle": "我能为您做什么？",
+      "quickActions": {
+        "createSlides": "创建幻灯片",
+        "buildWebsite": "构建网站",
+        "developApps": "开发应用",
+        "design": "设计",
+        "more": "更多"
+      }
+    },
+    "chatbox": {
+      "placeholder": "询问任务或任何问题",
+      "addFilesMore": "添加文件等",
+      "chatSettings": "聊天设置",
+      "voiceInput": "语音输入",
+      "send": "发送",
+      "menu": {
+        "addFromLocal": "从本地文件添加",
+        "useSkills": "使用技能",
+        "addFromGoogleDrive": "从 Google Drive 添加文件",
+        "addFromOneDrive": "从 OneDrive 添加文件",
+        "reasoning": "推理",
+        "research": "研究",
+        "temporary": "临时"
+      }
+    },
+    "credits": {
+      "free": "免费版",
+      "upgrade": "升级",
+      "credits": "积分",
+      "freeCredits": "免费积分",
+      "dailyRefresh": "每日刷新积分",
+      "refreshAt": "每天 00:00 刷新至 {amount}",
+      "viewUsage": "查看使用情况"
+    },
+    "discover": {
+      "title": "发现",
+      "quickApps": "快捷应用",
+      "inspirations": "灵感"
+    },
+    "settings": {
+      "title": "设置",
+      "tabs": {
+        "general": "通用",
+        "profile": "个人资料",
+        "plansCredits": "套餐与积分",
+        "billing": "账单",
+        "usage": "使用情况",
+        "apiKeys": "API 密钥",
+        "connections": "连接",
+        "notifications": "通知",
+        "security": "安全",
+        "about": "关于"
+      },
+      "general": {
+        "language": "语言",
+        "languageDesc": "选择您的首选语言",
+        "theme": "主题",
+        "themeDesc": "选择您喜欢的配色方案",
+        "suggestions": "建议",
+        "suggestionsDesc": "获取相关的聊天建议以完善您的项目。",
+        "manageCookies": "管理 Cookies",
+        "manage": "管理"
+      }
+    },
+    "search": {
+      "placeholder": "搜索...",
+      "newChat": "新对话",
+      "today": "今天",
+      "yesterday": "昨天",
+      "chatTitle": "对话标题 {number}"
     }
   },
-  "web": {},
+  "web": {
+    "header": {
+      "nav": {
+        "products": "产品",
+        "pricing": "定价",
+        "blog": "博客",
+        "api": "API",
+        "docs": "文档"
+      },
+      "cta": "试用 {appName}"
+    },
+    "hero": {
+      "announcement": "宣布我们的下一轮融资。",
+      "readMore": "了解更多",
+      "title": "丰富您在线业务的数据",
+      "description": "为您的在线业务提供强大的数据支持。我们致力于帮助您更好地理解和服务您的客户。",
+      "getStarted": "立即开始",
+      "github": "Github"
+    }
+  },
+  "auth": {
+    "common": {
+      "email": "邮箱",
+      "password": "密码",
+      "continue": "继续",
+      "dividerOr": "或",
+      "googleContinue": "使用 Google 账号继续"
+    },
+    "signup": {
+      "title": "开始使用",
+      "subtitle": "已经有账号了？",
+      "loginLink": "立即登录 →",
+      "agreement": "注册即表示您同意",
+      "termsOfService": "服务条款",
+      "and": "和",
+      "privacyPolicy": "隐私政策"
+    },
+    "login": {
+      "title": "欢迎回来",
+      "subtitle": "还没有账号？",
+      "signupLink": "创建您的账号 →",
+      "submit": "登录",
+      "forgotPassword": "忘记密码？"
+    },
+    "forgot": {
+      "title": "忘记密码",
+      "subtitle": "我们将向您发送重置密码的链接。",
+      "backToLogin": "返回登录"
+    },
+    "reset": {
+      "title": "重置密码",
+      "subtitle": "请在下方输入新密码以更改您的密码。",
+      "newPassword": "新密码",
+      "confirmPassword": "确认密码",
+      "submit": "重置"
+    },
+    "verify": {
+      "title": "验证邮箱",
+      "subtitle": "验证码已发送至 {email}。请检查您的{inbox}和{spam}。",
+      "inbox": "收件箱",
+      "spam": "垃圾邮件文件夹",
+      "submit": "提交",
+      "resend": "重新发送验证码 ({seconds}秒)"
+    }
+  },
   "error": {
     "404": {
       "title": "404",

@@ -3,14 +3,16 @@ import Listy from '@/components/listy';
 import { defaultLocale, languages } from '@/i18n/config';
 import { RiComputerLine, RiMoonLine, RiSunLine } from '@remixicon/react';
 import { Button, Segmented, Select, Switch } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 const GeneralPane: React.FC = () => {
+  const t = useTranslations('app.settings.general');
   return (
     <>
       <Listy>
         <Listy.Item
-          title={'Language'}
-          description={'Select your preferred language'}
+          title={t('language')}
+          description={t('languageDesc')}
           action={
             <Select
               defaultValue={defaultLocale}
@@ -21,8 +23,8 @@ const GeneralPane: React.FC = () => {
           }
         />
         <Listy.Item
-          title={'Theme'}
-          description={'Choose your preferred color scheme'}
+          title={t('theme')}
+          description={t('themeDesc')}
           action={
             <Segmented
               classNames={{
@@ -47,13 +49,13 @@ const GeneralPane: React.FC = () => {
           }
         />
         <Listy.Item
-          title={'Suggestions'}
-          description={`Get relevant in-chat suggestions to refine your project.`}
+          title={t('suggestions')}
+          description={t('suggestionsDesc')}
           action={<Switch key="switch" defaultChecked />}
         />
         <Listy.Item
-          title={'Manage Cookies'}
-          action={<Button key="button">Manage</Button>}
+          title={t('manageCookies')}
+          action={<Button key="button">{t('manage')}</Button>}
         />
       </Listy>
     </>

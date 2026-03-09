@@ -9,6 +9,7 @@ import PlansCreditsPane from '@/app/(app)/_settings/components/plans-credits';
 import ProfilePane from '@/app/(app)/_settings/components/profile';
 import SecurityPane from '@/app/(app)/_settings/components/security';
 import UsagePane from '@/app/(app)/_settings/components/usage';
+import { useTranslations } from 'next-intl';
 import {
   RiDraftLine,
   RiEqualizer2Line,
@@ -39,79 +40,80 @@ type MenuItemType = GetProp<MenuProps, 'items'>[number];
 
 type TabItemType = GetProp<TabsProps, 'items'>[number];
 
-const panes: {
-  key?: React.Key;
-  label?: React.ReactNode;
-  icon?: React.ReactNode;
-  children?: React.ReactNode;
-  type?: 'divider' | 'group';
-}[] = [
-  {
-    key: 'general',
-    label: 'General',
-    icon: <RiEqualizer2Line size={18} />,
-    children: <GeneralPane />,
-  },
-  {
-    key: 'profile',
-    label: 'Profile',
-    icon: <RiUserLine size={18} />,
-    children: <ProfilePane />,
-  },
-  {
-    key: 'plans-credits',
-    label: 'Plans & credits',
-    icon: <RiVipCrown2Line size={18} />,
-    children: <PlansCreditsPane />,
-  },
-  {
-    key: 'billing',
-    label: 'Billing',
-    icon: <RiWalletLine size={18} />,
-    children: <BillingPane />,
-  },
-  {
-    key: 'usage',
-    label: 'Usage',
-    icon: <RiPulseLine size={18} />,
-    children: <UsagePane />,
-  },
-  {
-    key: 'keys',
-    label: 'API Keys',
-    icon: <RiKey2Line size={18} />,
-    children: <KeysPane />,
-  },
-  {
-    key: 'connections',
-    label: 'Connections',
-    icon: <RiLinksLine size={18} />,
-    children: <ConnectionsPane />,
-  },
-  {
-    key: 'notifications',
-    label: 'Notifications',
-    icon: <RiNotification3Line size={18} />,
-    children: <NotificationsPane />,
-  },
-  {
-    key: 'security',
-    label: 'Security',
-    icon: <RiShieldKeyholeLine size={18} />,
-    children: <SecurityPane />,
-  },
-  // {
-  //   type: 'divider',
-  // },
-  {
-    key: 'about',
-    label: 'About',
-    icon: <RiDraftLine size={18} />,
-    children: <AboutPane />,
-  },
-];
-
 const SettingsModal: React.FC = () => {
+  const t = useTranslations('app.settings');
+
+  const panes: {
+    key?: React.Key;
+    label?: React.ReactNode;
+    icon?: React.ReactNode;
+    children?: React.ReactNode;
+    type?: 'divider' | 'group';
+  }[] = useMemo(
+    () => [
+      {
+        key: 'general',
+        label: t('tabs.general'),
+        icon: <RiEqualizer2Line size={18} />,
+        children: <GeneralPane />,
+      },
+      {
+        key: 'profile',
+        label: t('tabs.profile'),
+        icon: <RiUserLine size={18} />,
+        children: <ProfilePane />,
+      },
+      {
+        key: 'plans-credits',
+        label: t('tabs.plansCredits'),
+        icon: <RiVipCrown2Line size={18} />,
+        children: <PlansCreditsPane />,
+      },
+      {
+        key: 'billing',
+        label: t('tabs.billing'),
+        icon: <RiWalletLine size={18} />,
+        children: <BillingPane />,
+      },
+      {
+        key: 'usage',
+        label: t('tabs.usage'),
+        icon: <RiPulseLine size={18} />,
+        children: <UsagePane />,
+      },
+      {
+        key: 'keys',
+        label: t('tabs.apiKeys'),
+        icon: <RiKey2Line size={18} />,
+        children: <KeysPane />,
+      },
+      {
+        key: 'connections',
+        label: t('tabs.connections'),
+        icon: <RiLinksLine size={18} />,
+        children: <ConnectionsPane />,
+      },
+      {
+        key: 'notifications',
+        label: t('tabs.notifications'),
+        icon: <RiNotification3Line size={18} />,
+        children: <NotificationsPane />,
+      },
+      {
+        key: 'security',
+        label: t('tabs.security'),
+        icon: <RiShieldKeyholeLine size={18} />,
+        children: <SecurityPane />,
+      },
+      {
+        key: 'about',
+        label: t('tabs.about'),
+        icon: <RiDraftLine size={18} />,
+        children: <AboutPane />,
+      },
+    ],
+    [t],
+  );
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [open, setOpen] = useState(false);
@@ -216,7 +218,7 @@ const SettingsModal: React.FC = () => {
               height={256}
               alt="logo"
             />
-            <h2 className="font-medium text-base">Settings</h2>
+            <h2 className="font-medium text-base">{t('title')}</h2>
           </div>
           <div className="flex-auto px-4 overflow-auto">
             <ConfigProvider

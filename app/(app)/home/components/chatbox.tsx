@@ -14,8 +14,10 @@ import {
   RiSpyLine,
 } from '@remixicon/react';
 import { Button, Dropdown, Input, Switch, Tooltip } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 const Chatbox: React.FC = () => {
+  const t = useTranslations('app.chatbox');
   return (
     <div className="w-full transition border border-(--ant-color-border) focus-within:shadow-lg rounded-[calc(var(--ant-control-height)/1.5)] p-3">
       <div className="mb-2">
@@ -29,7 +31,7 @@ const Chatbox: React.FC = () => {
             minRows: 3,
             maxRows: 6,
           }}
-          placeholder={'Ask a task or ask anything'}
+          placeholder={t('placeholder')}
         />
       </div>
       <div className="flex items-center justify-between">
@@ -39,12 +41,12 @@ const Chatbox: React.FC = () => {
               items: [
                 {
                   key: 'file',
-                  label: 'Add form local files',
+                  label: t('menu.addFromLocal'),
                   icon: <RiAttachment2 size={18} />,
                 },
                 {
                   key: 'skills',
-                  label: 'Use Skills',
+                  label: t('menu.useSkills'),
                   icon: <RiPuzzleLine size={18} />,
                 },
                 {
@@ -52,19 +54,19 @@ const Chatbox: React.FC = () => {
                 },
                 {
                   key: 'google-drive',
-                  label: 'Add from Google Drive files',
+                  label: t('menu.addFromGoogleDrive'),
                   icon: <GoogleDrive width={16} height={16} />,
                 },
                 {
                   key: 'microsoft-onedrive',
-                  label: 'Add from OneDrive files',
+                  label: t('menu.addFromOneDrive'),
                   icon: <MicrosoftOnedrive width={16} height={16} />,
                 },
               ],
             }}
           >
             <div>
-              <Tooltip title={'Add files and more'}>
+              <Tooltip title={t('addFilesMore')}>
                 <Button shape="circle" icon={<RiAddLine size={20} />} />
               </Tooltip>
             </div>
@@ -74,19 +76,19 @@ const Chatbox: React.FC = () => {
               items: [
                 {
                   key: 'reasoning',
-                  label: 'Reasoning',
+                  label: t('menu.reasoning'),
                   icon: <RiLightbulbLine size={20} />,
                   extra: <Switch size="small" />,
                 },
                 {
                   key: 'research',
-                  label: 'Research',
+                  label: t('menu.research'),
                   icon: <RiBrain2Line size={20} />,
                   extra: <Switch size="small" />,
                 },
                 {
                   key: 'temporary',
-                  label: 'Temporary',
+                  label: t('menu.temporary'),
                   icon: <RiSpyLine size={20} />,
                   extra: <Switch size="small" />,
                 },
@@ -94,20 +96,20 @@ const Chatbox: React.FC = () => {
             }}
           >
             <div>
-              <Tooltip title={'Chat settings'}>
+              <Tooltip title={t('chatSettings')}>
                 <Button shape="circle" icon={<RiEqualizer2Line size={20} />} />
               </Tooltip>
             </div>
           </Dropdown>
         </div>
         <div className="flex items-center gap-2">
-          <Tooltip title={'Voice input'}>
+          <Tooltip title={t('voiceInput')}>
             <Button type="text" shape="circle" icon={<RiMicLine size={20} />} />
           </Tooltip>
           <Tooltip
             title={
               <>
-                <span>Send</span>
+                <span>{t('send')}</span>
                 (
                 <Kbd
                   className="[&>kbd>*]:border-0 [&>kbd>*]:p-0"

@@ -1,6 +1,10 @@
 'use client';
+import { languages } from '@/i18n/config';
+import { useLanguage } from '@/providers/language';
 import { cn } from '@/utils/classname';
-import { Button } from 'antd';
+import { RiTranslate2 } from '@remixicon/react';
+import { Button, Dropdown, type MenuProps } from 'antd';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 
@@ -12,9 +16,7 @@ const NavItem: React.FC<{
     <li>
       <a
         href={href}
-        className={cn(
-          'block text-sm text-(--ant-color-text-base) hover:text-primary-500',
-        )}
+        className={cn('text-sm/6 font-semibold text-gray-900 hover:opacity-80')}
       >
         {title}
       </a>
@@ -23,9 +25,15 @@ const NavItem: React.FC<{
 };
 
 const Header: React.FC = () => {
+  const t = useTranslations('web.header');
+  const { setLocale } = useLanguage();
+  const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
+    setLocale(key as string);
+  };
+
   return (
-    <header>
-      <div className="h-16 flex items-center justify-between bg-(--ant-color-bg-container)/90 px-8">
+    <header className="z-10 relative">
+      <div className="h-16 flex items-center justify-between px-8">
         <a
           href="/"
           className="flex items-center gap-2 text-(--ant-color-text-base)"
@@ -37,22 +45,30 @@ const Header: React.FC = () => {
             height={256}
             alt="logo"
           />
-          <span className="font-bold text-lg">
-            {process.env.NEXT_PUBLIC_APP_NAME}
-          </span>
         </a>
         <nav>
           <ul className="flex items-center gap-12">
-            <NavItem title={'Products'} href={'/products'} />
-            <NavItem title={'Pricing'} href={'/pricing'} />
-            <NavItem title={'Blog'} href={'/blog'} />
-            <NavItem title={'API'} href={'/api'} />
-            <NavItem title={'Docs'} href={'/docs'} />
+            <NavItem title={t('nav.products')} href={'/products'} />
+            <NavItem title={t('nav.pricing')} href={'/pricing'} />
+            <NavItem title={t('nav.blog')} href={'/blog'} />
+            <NavItem title={t('nav.api')} href={'/api'} />
+            <NavItem title={t('nav.docs')} href={'/docs'} />
           </ul>
         </nav>
-        <div>
-          <Button href="/signup" shape="round" type="primary">
-            Try {process.env.NEXT_PUBLIC_APP_NAME}
+        <div className="flex items-center gap-4">
+          <Dropdown
+            menu={{
+              items: languages.map((lang) => ({
+                key: lang.value,
+                label: lang.label,
+              })),
+              onClick: handleMenuClick,
+            }}
+          >
+            <Button type="text" icon={<RiTranslate2 size={18} />} />
+          </Dropdown>
+          <Button href="/signup" type="primary">
+            {t('cta', { appName: process.env.NEXT_PUBLIC_APP_NAME! })}
           </Button>
         </div>
       </div>

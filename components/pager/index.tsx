@@ -89,7 +89,9 @@ const Pager: React.FC<PagerProps> = ({
         </div>
         {description && (
           <div className={cn('mt-4', classNames?.description)}>
-            <p className="text-sm text-black/50">{description}</p>
+            <p className="text-sm text-(--ant-color-text-description)">
+              {description}
+            </p>
           </div>
         )}
       </div>
@@ -105,7 +107,7 @@ const Pager: React.FC<PagerProps> = ({
       {footer && (
         <div
           className={cn(
-            'sticky bottom-0 bg-white px-8 py-4 left-0',
+            'sticky bottom-0 bg-(--ant-layout-body-bg) px-8 py-4 left-0',
             classNames?.footer,
           )}
         >

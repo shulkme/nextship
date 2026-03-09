@@ -1,6 +1,7 @@
 'use client';
 import { apps } from '@/app/(app)/discover/mock';
 import SliderScroller from '@/components/slider-scroller';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const AppItem: React.FC<{
@@ -24,9 +25,11 @@ const AppItem: React.FC<{
 };
 
 const Apps: React.FC = () => {
+  const t = useTranslations('app.discover');
+
   return (
     <section>
-      <h3 className="text-lg font-medium mb-4">Quick apps</h3>
+      <h3 className="text-lg font-medium mb-4">{t('quickApps')}</h3>
       <div>
         <SliderScroller
           classNames={{

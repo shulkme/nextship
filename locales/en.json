@@ -1,13 +1,183 @@
 {
   "global": {},
   "app": {
-    "page": {
-      "dashboard": {
-        "title": "Dashboard"
+    "sidebar": {
+      "openSidebar": "Open sidebar",
+      "closeSidebar": "Close sidebar",
+      "menu": {
+        "home": "Home",
+        "discover": "Discover",
+        "search": "Search",
+        "layouts": "Layouts",
+        "table": "Table",
+        "list": "List",
+        "grid": "Grid",
+        "masonry": "Masonry",
+        "pages": "Pages",
+        "pricing": "Pricing",
+        "signIn": "Sign in",
+        "signUp": "Sign up",
+        "forgotPassword": "Forgot password",
+        "resetPassword": "Reset password",
+        "emailCheck": "Email Check"
+      },
+      "userMenu": {
+        "profile": "Profile",
+        "plansCredits": "Plans & credits",
+        "helpCenter": "Help center",
+        "settings": "Settings",
+        "languages": "Languages",
+        "theme": "Theme",
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System",
+        "logout": "Logout",
+        "upgrade": "Upgrade",
+        "free": "Free"
       }
+    },
+    "home": {
+      "notifications": "Notifications",
+      "newBadge": "New",
+      "newVersionTitle": "The next version is already available!",
+      "startFreeTrial": "Start free trial",
+      "pageTitle": "What can I do for you?",
+      "quickActions": {
+        "createSlides": "Create slides",
+        "buildWebsite": "Build website",
+        "developApps": "Develop apps",
+        "design": "Design",
+        "more": "More"
+      }
+    },
+    "chatbox": {
+      "placeholder": "Ask a task or ask anything",
+      "addFilesMore": "Add files and more",
+      "chatSettings": "Chat settings",
+      "voiceInput": "Voice input",
+      "send": "Send",
+      "menu": {
+        "addFromLocal": "Add form local files",
+        "useSkills": "Use Skills",
+        "addFromGoogleDrive": "Add from Google Drive files",
+        "addFromOneDrive": "Add from OneDrive files",
+        "reasoning": "Reasoning",
+        "research": "Research",
+        "temporary": "Temporary"
+      }
+    },
+    "credits": {
+      "free": "Free",
+      "upgrade": "Upgrade",
+      "credits": "Credits",
+      "freeCredits": "Free Credits",
+      "dailyRefresh": "Daily refresh credits",
+      "refreshAt": "Refresh to {amount} at 00:00 every day",
+      "viewUsage": "View usage"
+    },
+    "discover": {
+      "title": "Discover",
+      "quickApps": "Quick apps",
+      "inspirations": "Inspirations"
+    },
+    "settings": {
+      "title": "Settings",
+      "tabs": {
+        "general": "General",
+        "profile": "Profile",
+        "plansCredits": "Plans & credits",
+        "billing": "Billing",
+        "usage": "Usage",
+        "apiKeys": "API Keys",
+        "connections": "Connections",
+        "notifications": "Notifications",
+        "security": "Security",
+        "about": "About"
+      },
+      "general": {
+        "language": "Language",
+        "languageDesc": "Select your preferred language",
+        "theme": "Theme",
+        "themeDesc": "Choose your preferred color scheme",
+        "suggestions": "Suggestions",
+        "suggestionsDesc": "Get relevant in-chat suggestions to refine your project.",
+        "manageCookies": "Manage Cookies",
+        "manage": "Manage"
+      }
+    },
+    "search": {
+      "placeholder": "Search...",
+      "newChat": "New chat",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "chatTitle": "Chat title {number}"
     }
   },
-  "web": {},
+  "web": {
+    "header": {
+      "nav": {
+        "products": "Products",
+        "pricing": "Pricing",
+        "blog": "Blog",
+        "api": "API",
+        "docs": "Docs"
+      },
+      "cta": "Try {appName}"
+    },
+    "hero": {
+      "announcement": "Announcing our next round of funding.",
+      "readMore": "Read more",
+      "title": "Data to enrich your online business",
+      "description": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.",
+      "getStarted": "Get Started",
+      "github": "Github"
+    }
+  },
+  "auth": {
+    "common": {
+      "email": "Email",
+      "password": "Password",
+      "continue": "Continue",
+      "dividerOr": "OR",
+      "googleContinue": "Continue with Google"
+    },
+    "signup": {
+      "title": "Get Started",
+      "subtitle": "Already have an account?",
+      "loginLink": "Log in now →",
+      "agreement": "By signing up, you agree to the",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Don't have an account?",
+      "signupLink": "Create your account →",
+      "submit": "Log in",
+      "forgotPassword": "Forgot password?"
+    },
+    "forgot": {
+      "title": "Forget Password",
+      "subtitle": "We will sent you a link to reset your password.",
+      "backToLogin": "Back to login"
+    },
+    "reset": {
+      "title": "Reset Password",
+      "subtitle": "Please enter a new password below to change your password.",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Reset"
+    },
+    "verify": {
+      "title": "Verify email",
+      "subtitle": "A verification code has been sent to {email}. Please check your {inbox} and {spam}.",
+      "inbox": "inbox",
+      "spam": "spam folder",
+      "submit": "Submit",
+      "resend": "Resend code ({seconds}s)"
+    }
+  },
   "error": {
     "404": {
       "title": "404",

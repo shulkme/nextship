@@ -6,9 +6,11 @@ import {
   RiQuestionLine,
 } from '@remixicon/react';
 import { Button, Popover } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const CreditsPopover: React.FC = () => {
+  const t = useTranslations('app.credits');
   return (
     <Popover
       classNames={{
@@ -20,7 +22,7 @@ const CreditsPopover: React.FC = () => {
         <div className="min-w-60">
           <div className="flex items-center pb-4 border-b border-dashed border-(--ant-color-border-secondary)">
             <div className="flex-auto">
-              <h3 className="text-lg font-medium font-serif">Free</h3>
+              <h3 className="text-lg font-medium font-serif">{t('free')}</h3>
             </div>
             <div className="flex-none">
               <Button
@@ -29,7 +31,7 @@ const CreditsPopover: React.FC = () => {
                 size="small"
                 shape="round"
               >
-                Upgrade
+                {t('upgrade')}
               </Button>
             </div>
           </div>
@@ -38,7 +40,7 @@ const CreditsPopover: React.FC = () => {
               <div className="flex items-center justify-between mb-1">
                 <h3 className="flex items-center gap-2">
                   <RiBardLine size={18} />
-                  <span className="font-medium text-sm">Credits</span>
+                  <span className="font-medium text-sm">{t('credits')}</span>
                   <span className="text-neutral-400">
                     <RiQuestionLine size={16} />
                   </span>
@@ -46,7 +48,7 @@ const CreditsPopover: React.FC = () => {
                 <span>1,234</span>
               </div>
               <div className="flex items-center justify-between text-neutral-400 text-xs">
-                <span>Free Credits</span>
+                <span>{t('freeCredits')}</span>
                 <span>1,234</span>
               </div>
             </div>
@@ -55,7 +57,7 @@ const CreditsPopover: React.FC = () => {
                 <h3 className="flex items-center gap-2">
                   <RiCalendarScheduleLine size={18} />
                   <span className="font-medium text-sm">
-                    Daily refresh credits
+                    {t('dailyRefresh')}
                   </span>
                   <span className="text-neutral-400">
                     <RiQuestionLine size={16} />
@@ -64,7 +66,7 @@ const CreditsPopover: React.FC = () => {
                 <span>1,234</span>
               </div>
               <div className="flex items-center justify-between text-neutral-400 text-xs">
-                <span>Refresh to 1,234 at 00:00 every day</span>
+                <span>{t('refreshAt', { amount: '1,234' })}</span>
               </div>
             </div>
             <div>
@@ -72,7 +74,7 @@ const CreditsPopover: React.FC = () => {
                 className="inline-flex items-center gap-1"
                 href="#settings/usage"
               >
-                <span>View usage</span>
+                <span>{t('viewUsage')}</span>
                 <span>
                   <RiArrowRightSLine size={16} />
                 </span>
