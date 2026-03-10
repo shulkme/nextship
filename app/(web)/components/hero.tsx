@@ -37,7 +37,31 @@ const Hero: React.FC = async () => {
                   <span className="bg-linear-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                     {chunks}
                   </span>
-                  <span className="absolute -bottom-1 left-0 h-1 w-full rounded-full bg-linear-to-r from-primary-400 to-primary-600 sm:-bottom-2 sm:h-1.5" />
+                  <svg
+                    className="absolute -bottom-1 left-0 w-full h-2.5 sm:-bottom-2 sm:h-3.5"
+                    viewBox="0 0 120 12"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="underlineGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%"
+                      >
+                        <stop offset="0%" stopColor="#61a3ff" />
+                        <stop offset="100%" stopColor="#0244d1" />
+                      </linearGradient>
+                    </defs>
+                    {/* 上弧笔刷：两端细，中间粗，峰向上 */}
+                    <path
+                      d="M2,10 Q60,0 118,10 Q60,4 2,10 Z"
+                      fill="url(#underlineGradient)"
+                      opacity="0.85"
+                    />
+                  </svg>
                 </span>
               ),
             })}
