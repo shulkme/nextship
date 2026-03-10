@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import { dayjs } from '@/lib/dayjs';
 
 export const data = Array.from({
   length: 200,
