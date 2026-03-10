@@ -9,7 +9,6 @@ import PlansCreditsPane from '@/app/(app)/_settings/components/plans-credits';
 import ProfilePane from '@/app/(app)/_settings/components/profile';
 import SecurityPane from '@/app/(app)/_settings/components/security';
 import UsagePane from '@/app/(app)/_settings/components/usage';
-import { useTranslations } from 'next-intl';
 import {
   RiDraftLine,
   RiEqualizer2Line,
@@ -31,6 +30,7 @@ import {
   Tabs,
   type TabsProps,
 } from 'antd';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { omit, pick } from 'radash';
@@ -122,12 +122,12 @@ const SettingsModal: React.FC = () => {
   // Memoize menus and menuKeys to prevent unnecessary re-renders
   const menus = useMemo(
     () => panes.map((f) => omit(f, ['children'])) as MenuItemType[],
-    []
+    [panes],
   );
 
   const menuKeys = useMemo(
     () => menus.map((f) => f?.key).filter((f) => f !== undefined),
-    [menus]
+    [menus],
   );
 
   const tabs = useMemo(
@@ -135,7 +135,7 @@ const SettingsModal: React.FC = () => {
       panes
         .filter((f) => !!f?.key && f?.type !== 'divider' && f?.type !== 'group')
         .map((f) => pick(f, ['key', 'label', 'children'])) as TabItemType[],
-    []
+    [panes],
   );
 
   useEffect(() => {
@@ -180,7 +180,10 @@ const SettingsModal: React.FC = () => {
 
   const handleClose = () => {
     // Remove hash from URL when closing (use native API for immediate effect)
-    if (typeof window !== 'undefined' && window.location.hash.startsWith('#settings')) {
+    if (
+      typeof window !== 'undefined' &&
+      window.location.hash.startsWith('#settings')
+    ) {
       // Use native history API for instant hash removal without triggering hashchange
       const search = searchParams.toString();
       const url = search ? `${pathname}?${search}` : pathname;

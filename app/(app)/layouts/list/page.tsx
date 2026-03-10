@@ -5,11 +5,13 @@ import Pager from '@/components/pager';
 import Toggle from '@/components/toggle';
 import { RiArrowRightSLine } from '@remixicon/react';
 import { Avatar, Button } from 'antd';
+import { useTranslations } from 'next-intl';
 import { random, shuffle } from 'radash';
 import { useMemo, useState } from 'react';
 
 export default function Page() {
   const [type, setType] = useState<string>('featured');
+  const t = useTranslations('app.layouts.list');
 
   const renderItems = useMemo(() => {
     const items = shuffle(data) || [];
@@ -17,27 +19,21 @@ export default function Page() {
   }, [type]);
 
   return (
-    <Pager
-      size="large"
-      title={'List'}
-      description={
-        'Use list layout for similar items in order, easy to scan and act on.'
-      }
-    >
+    <Pager size="large" title={t('title')} description={t('description')}>
       <div className="space-x-2 mb-4">
         <Toggle.Group
           value={type}
           options={[
             {
-              label: 'Featured',
+              label: t('categories.featured'),
               value: 'featured',
             },
             {
-              label: 'Lifestyle',
+              label: t('categories.lifestyle'),
               value: 'lifestyle',
             },
             {
-              label: 'Productivity',
+              label: t('categories.productivity'),
               value: 'productivity',
             },
           ]}

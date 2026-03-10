@@ -1,12 +1,25 @@
 'use client';
 import Listy from '@/components/listy';
-import { defaultLocale, languages } from '@/i18n/config';
+import { languages, type Locale } from '@/i18n/config';
+import { useLanguage } from '@/providers/language';
+import { type Mode, useTheme } from '@/providers/theme';
 import { RiComputerLine, RiMoonLine, RiSunLine } from '@remixicon/react';
 import { Button, Segmented, Select, Switch } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 const GeneralPane: React.FC = () => {
   const t = useTranslations('app.settings.general');
+  const { locale, setLocale } = useLanguage();
+  const { mode, setMode } = useTheme();
+
+  const handleLanguageChange = (value: Locale) => {
+    setLocale(value);
+  };
+
+  const handleThemeChange = (value: string) => {
+    setMode(value as Mode);
+  };
+
   return (
     <>
       <Listy>
@@ -15,10 +28,11 @@ const GeneralPane: React.FC = () => {
           description={t('languageDesc')}
           action={
             <Select
-              defaultValue={defaultLocale}
+              value={locale}
               className="w-32"
               key="select"
               options={languages}
+              onChange={handleLanguageChange}
             />
           }
         />
@@ -27,10 +41,12 @@ const GeneralPane: React.FC = () => {
           description={t('themeDesc')}
           action={
             <Segmented
+              value={mode}
               classNames={{
                 label: 'flex items-center',
               }}
               key="segmented"
+              onChange={handleThemeChange}
               options={[
                 {
                   value: 'light',

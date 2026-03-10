@@ -116,7 +116,7 @@ const SearchModal: React.FC = () => {
         >
           <Menu
             selectable={false}
-            className="[&_.ant-menu-item-group-title]:pl-6"
+            className="custom-menu-search"
             inlineIndent={16}
             mode="inline"
             items={[

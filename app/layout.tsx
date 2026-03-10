@@ -33,15 +33,21 @@ export default async function LocaleLayout({
   modal?: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
-  const theme = cookieStore.get('theme')?.value || 'auto';
   const cookieLocale = cookieStore.get(LOCALE_COOKIE_KEY)?.value;
   const locale: Locale =
     cookieLocale && locales.includes(cookieLocale as Locale)
       ? (cookieLocale as Locale)
       : defaultLocale;
 
+  // Read resolved theme (light/dark) from cookie for SSR
+  // This prevents Ant Design theme flash on page load
+  const ssrTheme = cookieStore.get('theme-resolved')?.value as
+    | 'light'
+    | 'dark'
+    | undefined;
+
   return (
-    <html lang={locale} className={theme} suppressHydrationWarning>
+    <html lang={locale} className={ssrTheme} suppressHydrationWarning>
       <body>
         <NProgressBar
           options={{
@@ -49,7 +55,7 @@ export default async function LocaleLayout({
           }}
         />
         <AntdRegistry>
-          <ThemeProvider initMode={theme}>
+          <ThemeProvider ssrTheme={ssrTheme}>
             <NextIntlClientProvider locale={locale}>
               <LanguageProvider>
                 <App>{children}</App>

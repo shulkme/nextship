@@ -48,8 +48,22 @@
 
 
 @layer base {
+  /* Prevent theme flashing by setting colors before hydration */
+  html {
+    background-color: #fff;
+  }
+
+  html.dark {
+    background-color: #121416;
+  }
+
   body {
-    @apply overflow-hidden bg-(--ant-color-bg-container);
+    @apply overflow-hidden;
+    background-color: #fff;
+  }
+
+  html.dark body {
+    background-color: #121416;
   }
 }
 
@@ -62,5 +76,49 @@
 @utility scrollbar-hidden {
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@layer components {
+  /* Ant Design Menu custom styles */
+  .custom-menu-sidebar {
+    & .ant-menu-item-group-title {
+      padding-left: 1rem;
+    }
+
+    &.ant-menu-inline-collapsed .ant-menu-item-group-title {
+      display: none;
+    }
+  }
+
+  .custom-menu-search {
+    & .ant-menu-item-group-title {
+      padding-left: 1.5rem;
+    }
+  }
+
+  /* Prevent Ant Design component flashing */
+  .ant-layout {
+    background-color: #fff;
+  }
+
+  html.dark .ant-layout {
+    background-color: #121416;
+  }
+
+  .ant-layout-sider {
+    background-color: #f7f8fa;
+  }
+
+  html.dark .ant-layout-sider {
+    background-color: #191b1d;
+  }
+
+  .ant-layout-content {
+    background-color: #fff;
+  }
+
+  html.dark .ant-layout-content {
+    background-color: #121416;
   }
 }

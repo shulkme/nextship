@@ -3,53 +3,55 @@ import { inspirations } from '@/app/(app)/discover/mock';
 import Toggle from '@/components/toggle';
 import { RiSparklingFill } from '@remixicon/react';
 import { Button, Masonry } from 'antd';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 const Inspirations: React.FC = () => {
+  const t = useTranslations('app.discover.inspirations');
   return (
     <section>
-      <h3 className="text-lg font-medium">Inspirations</h3>
+      <h3 className="text-lg font-medium">{t('title')}</h3>
       <div className="py-6 bg-(--ant-layout-body-bg) sticky top-0 z-20">
         <Toggle.Group
           defaultValue="all"
           options={[
             {
-              label: 'All',
+              label: t('categories.all'),
               value: 'all',
             },
             {
-              label: 'Branding',
+              label: t('categories.branding'),
               value: 'branding',
             },
             {
-              label: 'Posters & Ads',
+              label: t('categories.postersAds'),
               value: 'posters_and_ads',
             },
             {
-              label: 'Illustration',
+              label: t('categories.illustration'),
               value: 'illustration',
             },
             {
-              label: 'UI Layout',
+              label: t('categories.uiLayout'),
               value: 'ui_layout',
             },
             {
-              label: 'Character Design',
+              label: t('categories.characterDesign'),
               value: 'character_design',
             },
 
             {
-              label: 'Video & Storyboards',
+              label: t('categories.videoStoryboards'),
               value: 'video_and_storyboards',
             },
 
             {
-              label: 'Product Design',
+              label: t('categories.productDesign'),
               value: 'product_design',
             },
 
             {
-              label: 'Architectural Design',
+              label: t('categories.architecturalDesign'),
               value: 'architectural_design',
             },
           ]}
@@ -63,7 +65,7 @@ const Inspirations: React.FC = () => {
           itemRender={({ data }) => (
             <div className="relative rounded-lg overflow-hidden group/item">
               <div className="absolute z-10 top-2 left-2 bg-black/30 backdrop-blur-sm text-xs text-white px-2 py-0.5 rounded-full">
-                <span>Style</span>
+                <span>{t('style')}</span>
               </div>
               <div
                 className="w-full relative bg-(--ant-color-fill-tertiary)"
@@ -88,7 +90,7 @@ const Inspirations: React.FC = () => {
                   block
                   icon={<RiSparklingFill size={18} />}
                 >
-                  Generate
+                  {t('generate')}
                 </Button>
               </div>
             </div>

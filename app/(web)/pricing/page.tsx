@@ -1,3 +1,5 @@
+import FAQ from '@/app/(web)/components/faq';
+import Footer from '@/app/(web)/components/footer';
 import PricingContent from '@/app/_pricing';
 
 export default function Page() {
@@ -8,6 +10,8 @@ export default function Page() {
           <PricingContent />
         </div>
       </section>
+      <FAQ />
+      <Footer />
     </>
   );
 }

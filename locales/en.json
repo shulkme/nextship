@@ -24,6 +24,7 @@
       "userMenu": {
         "profile": "Profile",
         "plansCredits": "Plans & credits",
+        "officialWebsite": "Official website",
         "helpCenter": "Help center",
         "settings": "Settings",
         "languages": "Languages",
@@ -48,6 +49,20 @@
         "developApps": "Develop apps",
         "design": "Design",
         "more": "More"
+      },
+      "slideBanner": {
+        "personalize": {
+          "title": "Personalize your Manus",
+          "desc": "Let Manus know more about you."
+        },
+        "skills": {
+          "title": "Create skills",
+          "desc": "Get new capabilities with custom skills."
+        },
+        "agent": {
+          "title": "Claim your personalized agent",
+          "desc": "Distinct identity with memory that grows with you."
+        }
       }
     },
     "chatbox": {
@@ -78,7 +93,22 @@
     "discover": {
       "title": "Discover",
       "quickApps": "Quick apps",
-      "inspirations": "Inspirations"
+      "inspirations": {
+        "title": "Inspirations",
+        "categories": {
+          "all": "All",
+          "branding": "Branding",
+          "postersAds": "Posters & Ads",
+          "illustration": "Illustration",
+          "uiLayout": "UI Layout",
+          "characterDesign": "Character Design",
+          "videoStoryboards": "Video & Storyboards",
+          "productDesign": "Product Design",
+          "architecturalDesign": "Architectural Design"
+        },
+        "style": "Style",
+        "generate": "Generate"
+      }
     },
     "settings": {
       "title": "Settings",
@@ -103,6 +133,86 @@
         "suggestionsDesc": "Get relevant in-chat suggestions to refine your project.",
         "manageCookies": "Manage Cookies",
         "manage": "Manage"
+      },
+      "profile": {
+        "name": "Name",
+        "uuid": "UUID",
+        "email": "Email",
+        "deleteAccount": "Delete Account",
+        "deleteAccountDesc": "This will delete your account and all associated data.",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "billing": {
+        "currentPlan": "Current Plan",
+        "freePlan": "Free Plan",
+        "nextResetTime": "Next reset time: {date}",
+        "upgrade": "Upgrade",
+        "paymentMethod": "Payment Method",
+        "noPaymentMethod": "No payment method added",
+        "noPaymentMethodDesc": "Add a payment method to your account.",
+        "addCard": "Add Card",
+        "invoices": "Invoices",
+        "invoicesDesc": "View invoice records for previous subscription periods.",
+        "getInvoices": "Get Invoices"
+      },
+      "security": {
+        "password": "Password",
+        "passkeys": "Passkeys",
+        "passkeysDesc": "Passkeys are secure and protect your account with multi-factor authentication. They don't require any extra steps.",
+        "mfa": "Multi-factor authentication (MFA)",
+        "mfaDesc": "Use one-time codes from an authenticator app.",
+        "logoutAllDevices": "Log out of all device",
+        "logoutAllDevicesDesc": "Log out of all active sessions across all devices, including your current session. It may take up to 30 minutes for other devices to be logged out.",
+        "add": "Add",
+        "logout": "Log out"
+      },
+      "notifications": {
+        "responses": "Responses",
+        "responsesDesc": "Get notified when {appName} responds to requests that take time, like research or image generation.",
+        "tasks": "Tasks",
+        "tasksDesc": "Get notified when tasks you've created have updates.",
+        "projects": "Projects",
+        "projectsDesc": "Get notified when you receive an email invitation to a shared project.",
+        "recommendations": "Recommendations",
+        "recommendationsDesc": "Stay in the loop on new tools, tips, and features from {appName}."
+      },
+      "plansCredits": {
+        "creditsRemaining": "Credits remaining",
+        "creditsResetOn": "Credits reset on {date}",
+        "creditsUsage": "{used}/{total}",
+        "plans": "Plans",
+        "manageBilling": "Manage Billing",
+        "annual": "Annual",
+        "savePercent": "Save {percent}%"
+      },
+      "usage": {
+        "total": "Total {total} items",
+        "columns": {
+          "detail": "Detail",
+          "type": "Type",
+          "date": "Date",
+          "creditsChange": "Credits change"
+        }
+      },
+      "connections": {
+        "googleDrive": "Google Drive",
+        "googleDriveDesc": "Connect Google Drive to import files into Knowledge Hub and use in your videos.",
+        "notion": "Notion",
+        "notionDesc": "Connect Notion to pull content from your workspace into Knowledge Hub and video creation.",
+        "slack": "Slack",
+        "slackDesc": "Connect your Slack account to easily create videos from your workspace.",
+        "connect": "Connect"
+      },
+      "keys": {
+        "description": "Manage your model and platform API keys. While in beta, API calls will consume your credits. By using the API, you agree to our API Terms. Learn more about the API",
+        "noKeysAdded": "No API keys added",
+        "newKey": "New Key"
+      },
+      "about": {
+        "termsOfUse": "Terms of Use",
+        "privacyPolicy": "Privacy Policy",
+        "view": "View"
       }
     },
     "search": {
@@ -111,6 +221,91 @@
       "today": "Today",
       "yesterday": "Yesterday",
       "chatTitle": "Chat title {number}"
+    },
+    "layouts": {
+      "table": {
+        "title": "Table",
+        "description": "Use Table for structured data with comparison.",
+        "columns": {
+          "date": "Date",
+          "type": "Type",
+          "amount": "Amount",
+          "paymentMethod": "Payment Method",
+          "status": "Status"
+        },
+        "pagination": {
+          "total": "Total {total} items"
+        }
+      },
+      "grid": {
+        "title": "Grid",
+        "description": "Use Grid for visual, card-style items; use List for text-heavy, actionable items.",
+        "untitled": "Untitled",
+        "lastRefined": "Last refined on {date}"
+      },
+      "list": {
+        "title": "List",
+        "description": "Use list layout for similar items in order, easy to scan and act on.",
+        "categories": {
+          "featured": "Featured",
+          "lifestyle": "Lifestyle",
+          "productivity": "Productivity"
+        }
+      },
+      "masonry": {
+        "title": "Masonry",
+        "description": "Use Masonry for visual galleries with uneven heights."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Free to start. Flexible to scale.",
+    "billingCycle": {
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "savePercent": "Save {percent}%"
+    },
+    "perMonth": "/ mo",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "For getting started",
+        "button": "Current Plan",
+        "features": {
+          "credits": "<count>25</count> credits per month",
+          "storage": "<size>2GB</size> disk space",
+          "projects": "Create up to <count>200</count> projects",
+          "sharing": "Unlimited project sharing"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Unlock more features",
+        "button": "Upgrade",
+        "features": {
+          "credits": "<count>100</count> credits per month",
+          "storage": "<size>100GB</size> disk space",
+          "unlimitedProjects": "Unlimited projects",
+          "sharing": "Unlimited project sharing",
+          "rollovers": "Credits rollovers",
+          "customDomain": "Custom domain"
+        }
+      },
+      "max": {
+        "name": "Max",
+        "description": "Full access to the best",
+        "button": "Upgrade",
+        "features": {
+          "credits": "<count>500</count> credits per month",
+          "storage": "<size>100GB</size> disk space",
+          "unlimitedProjects": "Unlimited projects",
+          "sharing": "Unlimited project sharing",
+          "rollovers": "Credits rollovers",
+          "customDomain": "Custom domain",
+          "compute": "<multiplier>2x</multiplier> compute resources (versus Pro)"
+        }
+      }
     }
   },
   "web": {
@@ -122,15 +317,133 @@
         "api": "API",
         "docs": "Docs"
       },
-      "cta": "Try {appName}"
+      "cta": "Try {appName}",
+      "login": "Sign in"
     },
     "hero": {
-      "announcement": "Announcing our next round of funding.",
+      "announcement": "NextShip v0.1 is now available.",
       "readMore": "Read more",
-      "title": "Data to enrich your online business",
-      "description": "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.",
+      "title": "Build & ship global <highlight>SaaS</highlight> products fast",
+      "description": "A production-ready Next.js starter template with authentication, i18n, theming, and modern tooling built in. Focus on your product, not the boilerplate.",
       "getStarted": "Get Started",
       "github": "Github"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "description": "Can't find the answer you're looking for? Reach out to our customer support team.",
+      "items": {
+        "q1": "What is {appName} and how does it work?",
+        "a1": "{appName} is a production-ready starter template for building SaaS products. It comes with authentication, internationalization, theming, and modern development tooling out of the box.",
+        "q2": "Is there a free plan available?",
+        "a2": "Yes! We offer a generous free tier that includes 25 credits per month, 2GB of storage, and up to 200 projects. You can upgrade anytime as your needs grow.",
+        "q3": "How do I customize the theme?",
+        "a3": "You can customize the theme through the settings panel or by modifying the theme configuration file. We support light mode, dark mode, and system preference detection.",
+        "q4": "What languages are supported?",
+        "a4": "Currently we support English and Simplified Chinese. More languages can be easily added through the internationalization system built on next-intl.",
+        "q5": "Can I use this for commercial projects?",
+        "a5": "Absolutely. The template is designed for commercial use. You can build and deploy production applications with no restrictions.",
+        "q6": "How do I get support?",
+        "a6": "You can reach our support team through the help center in the app, or visit our GitHub repository to file issues and participate in discussions."
+      }
+    },
+    "feature": {
+      "tagline": "Ship faster",
+      "title": "Everything you need to build",
+      "description": "A complete toolkit for building modern SaaS products. Stop reinventing the wheel and focus on what makes your product unique.",
+      "items": {
+        "auth": {
+          "title": "Authentication",
+          "description": "Complete auth flow with login, signup, password reset, and email verification out of the box."
+        },
+        "i18n": {
+          "title": "Internationalization",
+          "description": "Built-in multi-language support with next-intl. Easily add new languages with JSON translation files."
+        },
+        "theme": {
+          "title": "Theming",
+          "description": "Light, dark, and system theme modes with Ant Design and Tailwind CSS, no flash on page load."
+        },
+        "responsive": {
+          "title": "Responsive Design",
+          "description": "Mobile-first responsive layouts that look great on any device, from phones to desktops."
+        },
+        "typescript": {
+          "title": "TypeScript",
+          "description": "Strict TypeScript throughout the codebase for type safety, better DX, and fewer runtime errors."
+        },
+        "api": {
+          "title": "API Layer",
+          "description": "Centralized API module with Axios, interceptors, token management, and error handling."
+        }
+      }
+    },
+    "stats": {
+      "title": "Trusted by developers worldwide",
+      "description": "Our platform helps teams build and ship products faster than ever before.",
+      "items": {
+        "users": { "value": "8,000+", "label": "Active users" },
+        "countries": { "value": "120+", "label": "Countries" },
+        "uptime": { "value": "99.9%", "label": "Uptime" },
+        "projects": { "value": "25K+", "label": "Projects created" }
+      }
+    },
+    "testimonials": {
+      "title": "Loved by developers",
+      "description": "See what our users have to say about building with our platform.",
+      "items": {
+        "t1": {
+          "content": "This starter template saved us weeks of setup time. The auth flow, i18n, and theming just work out of the box.",
+          "author": "Sarah Chen",
+          "role": "CTO at TechFlow"
+        },
+        "t2": {
+          "content": "The code quality is excellent. Strict TypeScript, clean architecture, and well-organized project structure.",
+          "author": "Marcus Johnson",
+          "role": "Senior Developer at CloudBase"
+        },
+        "t3": {
+          "content": "Finally a Next.js template that takes dark mode seriously. No flash, no hacks, just smooth theme switching.",
+          "author": "Yuki Tanaka",
+          "role": "Frontend Lead at DesignLab"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "description": "Join thousands of developers building their next great product. Start for free, no credit card required.",
+      "getStarted": "Get Started",
+      "learnMore": "Learn more"
+    },
+    "newsletter": {
+      "title": "Subscribe to our newsletter",
+      "description": "Get the latest news, updates, and tips delivered straight to your inbox.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe",
+      "privacy": "We care about your data. Read our <link>Privacy Policy</link>."
+    },
+    "footer": {
+      "description": "Build and ship your SaaS products faster with our production-ready template.",
+      "product": {
+        "title": "Product",
+        "features": "Features",
+        "pricing": "Pricing",
+        "docs": "Documentation",
+        "changelog": "Changelog"
+      },
+      "company": {
+        "title": "Company",
+        "about": "About",
+        "blog": "Blog",
+        "careers": "Careers",
+        "contact": "Contact"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy"
+      },
+      "copyright": "© {year} {appName}. All rights reserved."
     }
   },
   "auth": {

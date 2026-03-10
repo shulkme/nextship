@@ -1,19 +1,21 @@
 'use client';
 import Listy from '@/components/listy';
 import { Button, Typography } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const ProfilePane: React.FC = () => {
+  const t = useTranslations('app.settings.profile');
   return (
     <>
       <Listy>
         <Listy.Item
-          title={'Name'}
+          title={t('name')}
           description={'Shulk Steve'}
-          action={<Button key="edit">Edit</Button>}
+          action={<Button key="edit">{t('edit')}</Button>}
         />
         <Listy.Item
-          title={'UUID'}
+          title={t('uuid')}
           description={
             <Typography.Text copyable type="secondary">
               xxxx-xxxx-xxxx-xxxx
@@ -21,7 +23,7 @@ const ProfilePane: React.FC = () => {
           }
         />
         <Listy.Item
-          title={'Email'}
+          title={t('email')}
           description={
             <Typography.Text copyable type="secondary">
               xxx@example.com
@@ -29,15 +31,15 @@ const ProfilePane: React.FC = () => {
           }
         />
         <Listy.Item
-          title={'Delete Account'}
+          title={t('deleteAccount')}
           description={
             <Typography.Text type="secondary">
-              This will delete your account and all associated data.
+              {t('deleteAccountDesc')}
             </Typography.Text>
           }
           action={
             <Button danger key="edit">
-              Delete
+              {t('delete')}
             </Button>
           }
         />

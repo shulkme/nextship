@@ -1,5 +1,6 @@
 'use client';
 import { Carousel, ConfigProvider } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Banner: React.FC<{
@@ -21,6 +22,8 @@ const Banner: React.FC<{
 };
 
 const SlideBanner: React.FC = () => {
+  const t = useTranslations('app.home.slideBanner');
+
   return (
     <ConfigProvider
       theme={{
@@ -38,22 +41,22 @@ const SlideBanner: React.FC = () => {
           autoplaySpeed={5000}
         >
           <Banner
-            title={'Personalize your Manus'}
-            desc={'Let Manus know more about you.'}
+            title={t('personalize.title')}
+            desc={t('personalize.desc')}
             image={
               'https://files.manuscdn.com/webapp/_next/static/media/personalizationAdCardLight.2b0d3502.webp'
             }
           />
           <Banner
-            title={'Create skills'}
-            desc={'Get new capabilities with custom skills.'}
+            title={t('skills.title')}
+            desc={t('skills.desc')}
             image={
               'https://files.manuscdn.com/webapp/_next/static/media/skillAdCardLight.574de9ed.webp'
             }
           />
           <Banner
-            title={'Claim your personalized agent'}
-            desc={'Distinct identity with memory that grows with you.'}
+            title={t('agent.title')}
+            desc={t('agent.desc')}
             image={
               'https://files.manuscdn.com/webapp/_next/static/media/telegramAdCardLight.efb2a9fd.png'
             }

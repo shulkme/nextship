@@ -10,7 +10,6 @@ import 'dayjs/locale/zh-cn';
 // import 'dayjs/locale/zh-tw';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
 import React, { createContext, useContext, useEffect, useMemo } from 'react';
 
 dayjs.extend(localizedFormat);
@@ -39,7 +38,6 @@ const LanguageProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const locale = useLocale();
-  const router = useRouter();
 
   const setLocale = async (newLocale: string) => {
     setDayjsLocale(newLocale);

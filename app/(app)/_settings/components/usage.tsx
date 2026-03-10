@@ -1,24 +1,27 @@
+'use client';
 import { Table } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 const UsagePane: React.FC = () => {
+  const t = useTranslations('app.settings.usage');
   return (
     <>
       <Table
         pagination={{
-          showTotal: (total) => `Total ${total} items`,
+          showTotal: (total) => t('total', { total }),
         }}
         columns={[
           {
-            title: 'Detail',
+            title: t('columns.detail'),
           },
           {
-            title: 'Type',
+            title: t('columns.type'),
           },
           {
-            title: 'Date',
+            title: t('columns.date'),
           },
           {
-            title: 'Credits change',
+            title: t('columns.creditsChange'),
           },
         ]}
       />

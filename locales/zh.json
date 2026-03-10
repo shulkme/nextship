@@ -24,6 +24,7 @@
       "userMenu": {
         "profile": "个人资料",
         "plansCredits": "套餐与积分",
+        "officialWebsite": "官方网站",
         "helpCenter": "帮助中心",
         "settings": "设置",
         "languages": "语言",
@@ -48,6 +49,20 @@
         "developApps": "开发应用",
         "design": "设计",
         "more": "更多"
+      },
+      "slideBanner": {
+        "personalize": {
+          "title": "个性化您的 Manus",
+          "desc": "让 Manus 更了解您。"
+        },
+        "skills": {
+          "title": "创建技能",
+          "desc": "通过自定义技能获得新能力。"
+        },
+        "agent": {
+          "title": "领取您的个性化智能体",
+          "desc": "独特身份，记忆与您共同成长。"
+        }
       }
     },
     "chatbox": {
@@ -78,7 +93,22 @@
     "discover": {
       "title": "发现",
       "quickApps": "快捷应用",
-      "inspirations": "灵感"
+      "inspirations": {
+        "title": "灵感",
+        "categories": {
+          "all": "全部",
+          "branding": "品牌设计",
+          "postersAds": "海报与广告",
+          "illustration": "插画",
+          "uiLayout": "UI 布局",
+          "characterDesign": "角色设计",
+          "videoStoryboards": "视频与故事板",
+          "productDesign": "产品设计",
+          "architecturalDesign": "建筑设计"
+        },
+        "style": "风格",
+        "generate": "生成"
+      }
     },
     "settings": {
       "title": "设置",
@@ -103,6 +133,86 @@
         "suggestionsDesc": "获取相关的聊天建议以完善您的项目。",
         "manageCookies": "管理 Cookies",
         "manage": "管理"
+      },
+      "profile": {
+        "name": "姓名",
+        "uuid": "UUID",
+        "email": "邮箱",
+        "deleteAccount": "删除账户",
+        "deleteAccountDesc": "这将删除您的账户和所有相关数据。",
+        "edit": "编辑",
+        "delete": "删除"
+      },
+      "billing": {
+        "currentPlan": "当前套餐",
+        "freePlan": "免费套餐",
+        "nextResetTime": "下次重置时间：{date}",
+        "upgrade": "升级",
+        "paymentMethod": "支付方式",
+        "noPaymentMethod": "未添加支付方式",
+        "noPaymentMethodDesc": "向您的账户添加支付方式。",
+        "addCard": "添加银行卡",
+        "invoices": "发票",
+        "invoicesDesc": "查看之前订阅周期的发票记录。",
+        "getInvoices": "获取发票"
+      },
+      "security": {
+        "password": "密码",
+        "passkeys": "通行密钥",
+        "passkeysDesc": "通行密钥安全且能通过多因素身份验证保护您的账户。无需额外步骤。",
+        "mfa": "多因素身份验证（MFA）",
+        "mfaDesc": "使用身份验证应用生成的一次性验证码。",
+        "logoutAllDevices": "登出所有设备",
+        "logoutAllDevicesDesc": "登出所有设备上的所有活动会话，包括您当前的会话。其他设备可能需要最多 30 分钟才能完全登出。",
+        "add": "添加",
+        "logout": "登出"
+      },
+      "notifications": {
+        "responses": "响应通知",
+        "responsesDesc": "当 {appName} 完成耗时请求（如研究或图像生成）时通知您。",
+        "tasks": "任务通知",
+        "tasksDesc": "当您创建的任务有更新时通知您。",
+        "projects": "项目通知",
+        "projectsDesc": "当您收到共享项目的邮件邀请时通知您。",
+        "recommendations": "推荐通知",
+        "recommendationsDesc": "及时了解 {appName} 的新工具、技巧和功能。"
+      },
+      "plansCredits": {
+        "creditsRemaining": "剩余积分",
+        "creditsResetOn": "积分将在 {date} 重置",
+        "creditsUsage": "{used}/{total}",
+        "plans": "套餐",
+        "manageBilling": "管理账单",
+        "annual": "年付",
+        "savePercent": "节省 {percent}%"
+      },
+      "usage": {
+        "total": "共 {total} 条",
+        "columns": {
+          "detail": "详情",
+          "type": "类型",
+          "date": "日期",
+          "creditsChange": "积分变化"
+        }
+      },
+      "connections": {
+        "googleDrive": "Google Drive",
+        "googleDriveDesc": "连接 Google Drive 以将文件导入知识中心并在视频中使用。",
+        "notion": "Notion",
+        "notionDesc": "连接 Notion 以将工作区内容导入知识中心和视频创作。",
+        "slack": "Slack",
+        "slackDesc": "连接您的 Slack 账户以便工作区中轻松制作视频。",
+        "connect": "连接"
+      },
+      "keys": {
+        "description": "管理您的模型和平台 API 密钥。在测试期间，API 调用将消耗您的积分。使用 API 即表示您同意我们的 API 条款。了解更多关于 API 的信息",
+        "noKeysAdded": "未添加 API 密钥",
+        "newKey": "新建密钥"
+      },
+      "about": {
+        "termsOfUse": "使用条款",
+        "privacyPolicy": "隐私政策",
+        "view": "查看"
       }
     },
     "search": {
@@ -111,6 +221,91 @@
       "today": "今天",
       "yesterday": "昨天",
       "chatTitle": "对话标题 {number}"
+    },
+    "layouts": {
+      "table": {
+        "title": "表格",
+        "description": "使用表格布局展示结构化数据并进行比较。",
+        "columns": {
+          "date": "日期",
+          "type": "类型",
+          "amount": "金额",
+          "paymentMethod": "支付方式",
+          "status": "状态"
+        },
+        "pagination": {
+          "total": "共 {total} 条"
+        }
+      },
+      "grid": {
+        "title": "网格",
+        "description": "网格适合视觉化卡片式项目；列表适合文字较多、可操作的项目。",
+        "untitled": "未命名",
+        "lastRefined": "最后修改于 {date}"
+      },
+      "list": {
+        "title": "列表",
+        "description": "列表布局适合按顺序展示相似项目，便于浏览和操作。",
+        "categories": {
+          "featured": "精选",
+          "lifestyle": "生活方式",
+          "productivity": "效率工具"
+        }
+      },
+      "masonry": {
+        "title": "瀑布流",
+        "description": "瀑布流适合高度不一的视觉画廊。"
+      }
+    }
+  },
+  "pricing": {
+    "title": "定价",
+    "subtitle": "免费开始，灵活扩展。",
+    "billingCycle": {
+      "monthly": "按月付费",
+      "annual": "按年付费",
+      "savePercent": "节省 {percent}%"
+    },
+    "perMonth": "/ 月",
+    "plans": {
+      "free": {
+        "name": "免费版",
+        "description": "开始使用",
+        "button": "当前套餐",
+        "features": {
+          "credits": "每月 <count>25</count> 积分",
+          "storage": "<size>2GB</size> 磁盘空间",
+          "projects": "创建最多 <count>200</count> 个项目",
+          "sharing": "无限项目分享"
+        }
+      },
+      "pro": {
+        "name": "专业版",
+        "description": "解锁更多功能",
+        "button": "升级",
+        "features": {
+          "credits": "每月 <count>100</count> 积分",
+          "storage": "<size>100GB</size> 磁盘空间",
+          "unlimitedProjects": "无限项目",
+          "sharing": "无限项目分享",
+          "rollovers": "积分滚存",
+          "customDomain": "自定义域名"
+        }
+      },
+      "max": {
+        "name": "旗舰版",
+        "description": "畅享所有功能",
+        "button": "升级",
+        "features": {
+          "credits": "每月 <count>500</count> 积分",
+          "storage": "<size>100GB</size> 磁盘空间",
+          "unlimitedProjects": "无限项目",
+          "sharing": "无限项目分享",
+          "rollovers": "积分滚存",
+          "customDomain": "自定义域名",
+          "compute": "<multiplier>2x</multiplier> 计算资源（相比专业版）"
+        }
+      }
     }
   },
   "web": {
@@ -122,15 +317,133 @@
         "api": "API",
         "docs": "文档"
       },
-      "cta": "试用 {appName}"
+      "cta": "试用 {appName}",
+      "login": "登录"
     },
     "hero": {
-      "announcement": "宣布我们的下一轮融资。",
+      "announcement": "NextShip v0.1 现已发布。",
       "readMore": "了解更多",
-      "title": "丰富您在线业务的数据",
-      "description": "为您的在线业务提供强大的数据支持。我们致力于帮助您更好地理解和服务您的客户。",
+      "title": "用于快速构建出海<highlight>SaaS</highlight>产品入门模版",
+      "description": "开箱即用的 Next.js 启动模板，内置认证、国际化、主题切换和现代开发工具链。专注于产品本身，而非重复造轮子。",
       "getStarted": "立即开始",
       "github": "Github"
+    },
+    "faq": {
+      "title": "常见问题",
+      "description": "找不到您想要的答案？请联系我们的客服团队。",
+      "items": {
+        "q1": "{appName} 是什么？它如何工作？",
+        "a1": "{appName} 是一个生产就绪的 SaaS 产品启动模板。它开箱即用地提供了身份验证、国际化、主题切换和现代开发工具。",
+        "q2": "有免费套餐吗？",
+        "a2": "有的！我们提供慷慨的免费套餐，包含每月 25 积分、2GB 存储空间和最多 200 个项目。您可以随时根据需求升级。",
+        "q3": "如何自定义主题？",
+        "a3": "您可以通过设置面板或修改主题配置文件来自定义主题。我们支持亮色模式、暗色模式和跟随系统偏好。",
+        "q4": "支持哪些语言？",
+        "a4": "目前我们支持英文和简体中文。通过基于 next-intl 构建的国际化系统，可以轻松添加更多语言。",
+        "q5": "可以用于商业项目吗？",
+        "a5": "当然可以。该模板专为商业用途设计。您可以自由构建和部署生产应用，没有任何限制。",
+        "q6": "如何获得支持？",
+        "a6": "您可以通过应用内的帮助中心联系我们的支持团队，或访问我们的 GitHub 仓库提交问题和参与讨论。"
+      }
+    },
+    "feature": {
+      "tagline": "高效交付",
+      "title": "构建所需的一切",
+      "description": "构建现代 SaaS 产品的完整工具包。不再重复造轮子，专注于让您的产品与众不同。",
+      "items": {
+        "auth": {
+          "title": "身份验证",
+          "description": "开箱即用的完整认证流程，包括登录、注册、密码重置和邮箱验证。"
+        },
+        "i18n": {
+          "title": "国际化",
+          "description": "基于 next-intl 的内置多语言支持。通过 JSON 翻译文件轻松添加新语言。"
+        },
+        "theme": {
+          "title": "主题切换",
+          "description": "基于 Ant Design 和 Tailwind CSS 的亮色、暗色和跟随系统主题模式，页面加载无闪烁。"
+        },
+        "responsive": {
+          "title": "响应式设计",
+          "description": "移动优先的响应式布局，在任何设备上都呈现出色，从手机到桌面端。"
+        },
+        "typescript": {
+          "title": "TypeScript",
+          "description": "整个代码库采用严格的 TypeScript，确保类型安全、更好的开发体验和更少的运行时错误。"
+        },
+        "api": {
+          "title": "API 层",
+          "description": "集中式 API 模块，配备 Axios、拦截器、令牌管理和错误处理。"
+        }
+      }
+    },
+    "stats": {
+      "title": "受到全球开发者信赖",
+      "description": "我们的平台帮助团队以前所未有的速度构建和交付产品。",
+      "items": {
+        "users": { "value": "8,000+", "label": "活跃用户" },
+        "countries": { "value": "120+", "label": "覆盖国家" },
+        "uptime": { "value": "99.9%", "label": "正常运行时间" },
+        "projects": { "value": "25K+", "label": "创建的项目" }
+      }
+    },
+    "testimonials": {
+      "title": "深受开发者喜爱",
+      "description": "看看用户对我们平台的评价。",
+      "items": {
+        "t1": {
+          "content": "这个启动模板为我们节省了数周的配置时间。认证流程、国际化和主题切换开箱即用。",
+          "author": "陈思远",
+          "role": "TechFlow 技术总监"
+        },
+        "t2": {
+          "content": "代码质量非常出色。严格的 TypeScript、清晰的架构和良好的项目结构。",
+          "author": "张明辉",
+          "role": "CloudBase 高级开发工程师"
+        },
+        "t3": {
+          "content": "终于有一个认真对待暗色模式的 Next.js 模板了。无闪烁，无 hack，流畅的主题切换。",
+          "author": "田中优希",
+          "role": "DesignLab 前端负责人"
+        }
+      }
+    },
+    "cta": {
+      "title": "准备好开始了吗？",
+      "description": "加入数千名正在构建下一个伟大产品的开发者。免费开始，无需信用卡。",
+      "getStarted": "立即开始",
+      "learnMore": "了解更多"
+    },
+    "newsletter": {
+      "title": "订阅我们的新闻通讯",
+      "description": "获取最新的新闻、更新和技巧，直达您的收件箱。",
+      "placeholder": "输入您的邮箱",
+      "subscribe": "订阅",
+      "privacy": "我们重视您的数据。请阅读我们的<link>隐私政策</link>。"
+    },
+    "footer": {
+      "description": "使用我们的生产就绪模板，更快地构建和交付您的 SaaS 产品。",
+      "product": {
+        "title": "产品",
+        "features": "功能",
+        "pricing": "定价",
+        "docs": "文档",
+        "changelog": "更新日志"
+      },
+      "company": {
+        "title": "公司",
+        "about": "关于我们",
+        "blog": "博客",
+        "careers": "招聘",
+        "contact": "联系我们"
+      },
+      "legal": {
+        "title": "法律",
+        "privacy": "隐私政策",
+        "terms": "服务条款",
+        "cookies": "Cookie 政策"
+      },
+      "copyright": "© {year} {appName}. 保留所有权利。"
     }
   },
   "auth": {

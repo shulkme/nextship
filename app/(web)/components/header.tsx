@@ -16,7 +16,7 @@ const NavItem: React.FC<{
     <li>
       <a
         href={href}
-        className={cn('text-sm/6 font-semibold text-gray-900 hover:opacity-80')}
+        className={cn('text-sm/6 font-semibold text-gray-900 dark:text-white hover:opacity-80')}
       >
         {title}
       </a>
@@ -67,8 +67,8 @@ const Header: React.FC = () => {
           >
             <Button type="text" icon={<RiTranslate2 size={18} />} />
           </Dropdown>
-          <Button href="/signup" type="primary">
-            {t('cta', { appName: process.env.NEXT_PUBLIC_APP_NAME! })}
+          <Button href="/login" type="primary">
+            {t('login')}
           </Button>
         </div>
       </div>

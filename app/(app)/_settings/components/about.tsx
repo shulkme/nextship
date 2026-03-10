@@ -1,18 +1,20 @@
 'use client';
 import Listy from '@/components/listy';
 import { Button } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 const AboutPane: React.FC = () => {
+  const t = useTranslations('app.settings.about');
   return (
     <>
       <Listy>
         <Listy.Item
-          title={'Terms of Use'}
-          action={<Button key="button">View</Button>}
+          title={t('termsOfUse')}
+          action={<Button key="button">{t('view')}</Button>}
         />
         <Listy.Item
-          title={'Privacy Policy'}
-          action={<Button key="button">View</Button>}
+          title={t('privacyPolicy')}
+          action={<Button key="button">{t('view')}</Button>}
         />
       </Listy>
     </>

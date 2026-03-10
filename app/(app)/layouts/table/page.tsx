@@ -2,17 +2,16 @@
 import { data } from '@/app/(app)/layouts/table/mock';
 import Pager from '@/components/pager';
 import { Table } from 'antd';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
+  const t = useTranslations('app.layouts.table');
+
   return (
-    <Pager
-      size="large"
-      title={'Table'}
-      description={'Use Table for structured data with comparison.'}
-    >
+    <Pager size="large" title={t('title')} description={t('description')}>
       <Table
         pagination={{
-          showTotal: (total) => `Total ${total} items`,
+          showTotal: (total) => t('pagination.total', { total }),
         }}
         scroll={{
           x: 768,
@@ -21,23 +20,23 @@ export default function Page() {
         dataSource={data}
         columns={[
           {
-            title: 'Date',
+            title: t('columns.date'),
             dataIndex: 'date',
           },
           {
-            title: 'Type',
+            title: t('columns.type'),
             dataIndex: 'type',
           },
           {
-            title: 'Amount',
+            title: t('columns.amount'),
             dataIndex: 'amount',
           },
           {
-            title: 'Payment Method',
+            title: t('columns.paymentMethod'),
             dataIndex: 'payment',
           },
           {
-            title: 'Status',
+            title: t('columns.status'),
             dataIndex: 'status',
           },
         ]}

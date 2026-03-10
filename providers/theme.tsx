@@ -14,43 +14,59 @@ export type Mode = 'dark' | 'light' | 'system';
 /**
  * Theme Provider Component
  * Uses next-themes for theme management with Ant Design integration
+ *
+ * @param ssrTheme - Server-side resolved theme from cookie, used to prevent flash
  */
 export const ThemeProvider: React.FC<
   React.PropsWithChildren<{
-    initMode?: string;
+    ssrTheme?: string;
   }>
-> = ({ children, initMode = 'system' }) => {
+> = ({ children, ssrTheme }) => {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme={initMode}
+      defaultTheme={ssrTheme || 'system'}
       enableSystem={true}
       enableColorScheme={false}
       storageKey="theme"
       themes={['light', 'dark', 'system']}
+      disableTransitionOnChange
     >
-      <ThemeConfigProvider>{children}</ThemeConfigProvider>
+      <ThemeConfigProvider ssrTheme={ssrTheme}>
+        {children}
+      </ThemeConfigProvider>
     </NextThemesProvider>
   );
 };
 
 /**
  * Internal component to provide Ant Design theme based on current theme
+ * Uses ssrTheme as initial value to prevent flash before hydration
  */
-const ThemeConfigProvider: React.FC<React.PropsWithChildren> = ({
-  children,
-}) => {
+const ThemeConfigProvider: React.FC<
+  React.PropsWithChildren<{
+    ssrTheme?: string;
+  }>
+> = ({ children, ssrTheme }) => {
   const { theme, resolvedTheme } = useNextTheme();
 
-  // Sync theme with server-side cookie
+  // Sync both theme mode and resolved theme with server-side cookie
+  // - "theme" cookie: user's choice (light/dark/system) for next-themes defaultTheme
+  // - "theme-resolved" cookie: actual resolved theme (light/dark) for SSR rendering
   useEffect(() => {
     if (theme) {
       setThemeCookie(theme).catch(console.error);
     }
   }, [theme]);
 
-  // Use resolvedTheme to get the actual theme (resolves 'system' to 'light' or 'dark')
-  const isDark = resolvedTheme === 'dark';
+  useEffect(() => {
+    if (resolvedTheme) {
+      document.cookie = `theme-resolved=${resolvedTheme};path=/;sameSite=lax`;
+    }
+  }, [resolvedTheme]);
+
+  // Use resolvedTheme from next-themes, fallback to ssrTheme for SSR
+  const isDark = (resolvedTheme ?? ssrTheme) === 'dark';
 
   return (
     <StyleProvider layer>

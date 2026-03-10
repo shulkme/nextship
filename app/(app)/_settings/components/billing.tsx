@@ -1,25 +1,30 @@
+'use client';
 import { RiBankCardLine } from '@remixicon/react';
 import { Avatar, Button, Card } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 const BillingPane: React.FC = () => {
+  const t = useTranslations('app.settings.billing');
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="font-medium text-base mb-2">Current Plan</h3>
+        <h3 className="font-medium text-base mb-2">{t('currentPlan')}</h3>
         <Card>
           <div className="flex items-center">
             <div className="flex-auto">
-              <h3 className="font-bold text-base">Free Plan</h3>
-              <p className="text-neutral-400">Next reset time: 2026-01-01</p>
+              <h3 className="font-bold text-base">{t('freePlan')}</h3>
+              <p className="text-neutral-400">
+                {t('nextResetTime', { date: '2026-01-01' })}
+              </p>
             </div>
             <div className="flex-none">
-              <Button type="primary">Upgrade</Button>
+              <Button type="primary">{t('upgrade')}</Button>
             </div>
           </div>
         </Card>
       </div>
       <div>
-        <h3 className="font-medium text-base mb-2">Payment Method</h3>
+        <h3 className="font-medium text-base mb-2">{t('paymentMethod')}</h3>
         <Card>
           <div className="flex items-center gap-4">
             <div className="flex-none">
@@ -31,29 +36,25 @@ const BillingPane: React.FC = () => {
               />
             </div>
             <div className="flex-auto">
-              <h3 className="font-medium">No payment method added</h3>
-              <p className="text-neutral-400">
-                Add a payment method to your account.
-              </p>
+              <h3 className="font-medium">{t('noPaymentMethod')}</h3>
+              <p className="text-neutral-400">{t('noPaymentMethodDesc')}</p>
             </div>
             <div className="flex-none">
-              <Button>Add Card</Button>
+              <Button>{t('addCard')}</Button>
             </div>
           </div>
         </Card>
       </div>
       <div>
-        <h3 className="font-medium text-base mb-2">Invoices</h3>
+        <h3 className="font-medium text-base mb-2">{t('invoices')}</h3>
         <Card>
           <div className="flex items-center gap-4">
             <div className="flex-auto">
-              <h3 className="font-medium">Invoices</h3>
-              <p className="text-neutral-400">
-                View invoice records for previous subscription periods.
-              </p>
+              <h3 className="font-medium">{t('invoices')}</h3>
+              <p className="text-neutral-400">{t('invoicesDesc')}</p>
             </div>
             <div className="flex-none">
-              <Button>Get Invoices</Button>
+              <Button>{t('getInvoices')}</Button>
             </div>
           </div>
         </Card>

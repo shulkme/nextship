@@ -1,13 +1,16 @@
+'use client';
 import Listy from '@/components/listy';
 import { RiArrowRightSLine } from '@remixicon/react';
 import { Button, Switch } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 const SecurityPane: React.FC = () => {
+  const t = useTranslations('app.settings.security');
   return (
     <>
       <Listy>
         <Listy.Item
-          title={'Password'}
+          title={t('password')}
           action={
             <Button
               type="text"
@@ -15,13 +18,13 @@ const SecurityPane: React.FC = () => {
               icon={<RiArrowRightSLine size={14} />}
               key="button"
             >
-              Add
+              {t('add')}
             </Button>
           }
         />
         <Listy.Item
-          title={'Passkeys'}
-          description={`Passkeys are secure and protect your account with multi-factor authentication. They don't require any extra steps.`}
+          title={t('passkeys')}
+          description={t('passkeysDesc')}
           action={
             <Button
               type="text"
@@ -29,21 +32,21 @@ const SecurityPane: React.FC = () => {
               icon={<RiArrowRightSLine size={14} />}
               key="button"
             >
-              Add
+              {t('add')}
             </Button>
           }
         />
         <Listy.Item
-          title={'Multi-factor authentication (MFA)'}
-          description={`Use one-time codes from an authenticator app.`}
+          title={t('mfa')}
+          description={t('mfaDesc')}
           action={<Switch key="switch" />}
         />
         <Listy.Item
-          title={'Log out of all device'}
-          description={`Log out of all active sessions across all devices, including your current session. It may take up to 30 minutes for other devices to be logged out.`}
+          title={t('logoutAllDevices')}
+          description={t('logoutAllDevicesDesc')}
           action={
             <Button color="danger" variant="outlined" key="button">
-              Log out
+              {t('logout')}
             </Button>
           }
         />

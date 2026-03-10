@@ -1,7 +1,7 @@
 'use client';
 import { usePlatform } from '@/hooks/use-platform';
 import { cn } from '@/utils/classname';
-import type { FC, ReactNode } from 'react';
+import { useEffect, useState, type FC, type ReactNode } from 'react';
 
 interface KbdProps {
   children?: ReactNode;
@@ -72,6 +72,17 @@ const keySymbols = {
  */
 const Kbd: FC<KbdProps> = ({ children, shortcut, className }) => {
   const platform = usePlatform();
+  const [mounted, setMounted] = useState(false);
+
+  // Wait for client-side mount to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Don't render platform-specific symbols until mounted to avoid hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   // Determine content to render
   let content: ReactNode = null;
@@ -80,7 +91,9 @@ const Kbd: FC<KbdProps> = ({ children, shortcut, className }) => {
     // Render children as single key
     content = (
       <kbd>
-        <span className="min-w-[1em] border py-0.5 px-1 leading-none border-(--ant-color-border-secondary) rounded-[4px]">{children}</span>
+        <span className="min-w-[1em] border py-0.5 px-1 leading-none border-(--ant-color-border-secondary) rounded-[4px]">
+          {children}
+        </span>
       </kbd>
     );
   } else if (shortcut) {

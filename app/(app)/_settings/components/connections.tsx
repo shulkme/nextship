@@ -1,10 +1,13 @@
+'use client';
 import Listy from '@/components/listy';
 import GoogleDrive from '@/icons/google-drive';
 import Notion from '@/icons/notion';
 import Slack from '@/icons/slack';
 import { Avatar, Button } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 const ConnectionsPane: React.FC = () => {
+  const t = useTranslations('app.settings.connections');
   return (
     <>
       <Listy>
@@ -15,11 +18,9 @@ const ConnectionsPane: React.FC = () => {
               icon={<GoogleDrive />}
             />
           }
-          title={'Google Drive'}
-          description={
-            'Connect Google Drive to import files into Knowledge Hub and use in your videos.'
-          }
-          action={<Button key="button">Connect</Button>}
+          title={t('googleDrive')}
+          description={t('googleDriveDesc')}
+          action={<Button key="button">{t('connect')}</Button>}
         />
         <Listy.Item
           avatar={
@@ -28,11 +29,9 @@ const ConnectionsPane: React.FC = () => {
               icon={<Notion />}
             />
           }
-          title={'Notion'}
-          description={
-            'Connect Notion to pull content from your workspace into Knowledge Hub and video creation.'
-          }
-          action={<Button key="button">Connect</Button>}
+          title={t('notion')}
+          description={t('notionDesc')}
+          action={<Button key="button">{t('connect')}</Button>}
         />
         <Listy.Item
           avatar={
@@ -41,11 +40,9 @@ const ConnectionsPane: React.FC = () => {
               icon={<Slack />}
             />
           }
-          title={'Slack'}
-          description={
-            'Connect your Slack account to HeyGen and make videos from the comfort and familiarity of your Slack workspace.'
-          }
-          action={<Button key="button">Connect</Button>}
+          title={t('slack')}
+          description={t('slackDesc')}
+          action={<Button key="button">{t('connect')}</Button>}
         />
       </Listy>
     </>

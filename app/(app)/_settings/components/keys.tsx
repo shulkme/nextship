@@ -1,21 +1,20 @@
+'use client';
 import { Button, Card, Result } from 'antd';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 const KeysPane: React.FC = () => {
+  const t = useTranslations('app.settings.keys');
   return (
     <>
-      <p className="mb-4">
-        Manage your model and platform API keys. While in beta, API calls will
-        consume your credits. By using the API, you agree to our API Terms.
-        Learn more about the API
-      </p>
+      <p className="mb-4">{t('description')}</p>
 
       <Card className="border-dashed">
         <Result
           icon={false}
-          subTitle="No API keys added"
+          subTitle={t('noKeysAdded')}
           extra={
             <>
-              <Button>New Key</Button>
+              <Button>{t('newKey')}</Button>
             </>
           }
         />

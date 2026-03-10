@@ -4,12 +4,12 @@ import { type Locale } from '@/i18n/config';
 import { useLanguage } from '@/providers/language';
 import { type Mode, useTheme } from '@/providers/theme';
 import { cn } from '@/utils/classname';
-import { useTranslations } from 'next-intl';
 import {
   RiArrowRightUpLine,
   RiComputerLine,
   RiDashboardLine,
   RiFunctionLine,
+  RiGlobalLine,
   RiHome5Line,
   RiLayoutRowLine,
   RiLockPasswordLine,
@@ -43,6 +43,7 @@ import {
   type MenuProps,
   Tooltip,
 } from 'antd';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useMemo, useState } from 'react';
@@ -249,6 +250,8 @@ const Sidebar: React.FC = () => {
       case 'profile':
         nativePush(`#settings/${key}`);
         break;
+      case 'official-website':
+        window.open('/');
     }
   };
 
@@ -325,7 +328,7 @@ const Sidebar: React.FC = () => {
               }}
             >
               <Menu
-                className="[&_.ant-menu-item-group-title]:pl-4 [&.ant-menu-inline-collapsed_.ant-menu-item-group-title]:hidden"
+                className="custom-menu-sidebar"
                 inlineIndent={16}
                 mode="inline"
                 selectedKeys={selectedKeys}
@@ -350,6 +353,12 @@ const Sidebar: React.FC = () => {
                     key: 'plans-credits',
                     icon: <RiVipCrown2Line size={18} />,
                     label: t('userMenu.plansCredits'),
+                  },
+                  {
+                    key: 'official-website',
+                    icon: <RiGlobalLine size={18} />,
+                    label: t('userMenu.officialWebsite'),
+                    extra: <RiArrowRightUpLine size={16} />,
                   },
                   {
                     key: 'help-center',

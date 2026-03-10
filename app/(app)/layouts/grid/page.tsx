@@ -2,17 +2,14 @@ import { data } from '@/app/(app)/layouts/grid/mock';
 import Pager from '@/components/pager';
 import { Card } from 'antd';
 import dayjs from 'dayjs';
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
-export default function Page() {
+export default async function Page() {
+  const t = await getTranslations('app.layouts.grid');
+
   return (
-    <Pager
-      title={'Grid'}
-      description={
-        'Use Grid for visual, card-style items; use List for text-heavy, actionable items.'
-      }
-      size="large"
-    >
+    <Pager title={t('title')} description={t('description')} size="large">
       <div className="grid gap-2 sm:gap-3 md:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data.map((item, index) => (
           <div key={index}>
@@ -30,9 +27,9 @@ export default function Page() {
                 />
               </div>
               <div className="pt-3">
-                <h3 className="text-sm">Untitled</h3>
+                <h3 className="text-sm">{t('untitled')}</h3>
                 <p className="text-xs text-(--ant-color-text-description)">
-                  Last refined on {dayjs().format('L')}
+                  {t('lastRefined', { date: dayjs().format('L') })}
                 </p>
               </div>
             </Card>
