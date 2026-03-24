@@ -28,6 +28,7 @@ export default async function Page() {
                   src={item.data.cover}
                   fill
                   alt={item.data.title}
+                  unoptimized
                 />
               </div>
               <div className="pt-3">

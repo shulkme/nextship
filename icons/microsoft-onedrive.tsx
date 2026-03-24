@@ -47,7 +47,7 @@ const MicrosoftOnedrive = (props: SVGProps<SVGSVGElement>) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" stopColor="#fff" />
-          <stop offset=".66" stopColor="#adc0ff" stop-opacity="0" />
+          <stop offset=".66" stopColor="#adc0ff" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="microsoft_onedrive__d"
@@ -60,7 +60,7 @@ const MicrosoftOnedrive = (props: SVGProps<SVGSVGElement>) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" stopColor="#033acc" />
-          <stop offset="1" stopColor="#368eff" stop-opacity="0" />
+          <stop offset="1" stopColor="#368eff" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="microsoft_onedrive__e"
@@ -72,7 +72,7 @@ const MicrosoftOnedrive = (props: SVGProps<SVGSVGElement>) => {
           gradientTransform="matrix(38.74213 82.7056 94.03873 -44.01576 -62416.51 75114.97)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".59" stopColor="#3464e3" stop-opacity="0" />
+          <stop offset=".59" stopColor="#3464e3" stopOpacity="0" />
           <stop offset="1" stopColor="#033acc" />
         </radialGradient>
         <radialGradient
@@ -86,7 +86,7 @@ const MicrosoftOnedrive = (props: SVGProps<SVGSVGElement>) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" stopColor="#4bfde8" />
-          <stop offset=".54" stopColor="#4bfde8" stop-opacity="0" />
+          <stop offset=".54" stopColor="#4bfde8" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="microsoft_onedrive__h"
@@ -99,7 +99,7 @@ const MicrosoftOnedrive = (props: SVGProps<SVGSVGElement>) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" stopColor="#fff" />
-          <stop offset=".79" stopColor="#fff" stop-opacity="0" />
+          <stop offset=".79" stopColor="#fff" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="microsoft_onedrive__i"
@@ -112,7 +112,7 @@ const MicrosoftOnedrive = (props: SVGProps<SVGSVGElement>) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" stopColor="#4bfde8" />
-          <stop offset=".58" stopColor="#4bfde8" stop-opacity="0" />
+          <stop offset=".58" stopColor="#4bfde8" stopOpacity="0" />
         </radialGradient>
         <linearGradient
           id="microsoft_onedrive__g"

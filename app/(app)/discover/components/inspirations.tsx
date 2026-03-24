@@ -79,6 +79,7 @@ const Inspirations: React.FC = () => {
                   src={data.cover}
                   alt={data.title}
                   loading="lazy"
+                  unoptimized
                   // width={data.width}
                   // height={data.height}
                 />

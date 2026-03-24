@@ -11,7 +11,11 @@ export default function Page() {
   const tCategories = useTranslations('app.discover.inspirations.categories');
 
   return (
-    <Pager size="large" title={tLayout('title')} description={tLayout('description')}>
+    <Pager
+      size="large"
+      title={tLayout('title')}
+      description={tLayout('description')}
+    >
       <div className="sticky top-0 z-10 bg-(--ant-layout-body-bg) overflow-auto py-4">
         <Toggle.Group
           defaultValue="all"
@@ -77,6 +81,7 @@ export default function Page() {
                   src={data.cover}
                   alt={data.title}
                   loading="lazy"
+                  unoptimized
                   // width={data.width}
                   // height={data.height}
                 />
