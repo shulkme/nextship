@@ -1,5 +1,5 @@
 'use client';
-import { RiCheckLine } from '@remixicon/react';
+import { IconCheck } from '@tabler/icons-react';
 import { Button, Card, Tag } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -39,7 +39,7 @@ const Plans: React.FC<{
           <div>
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>
                   {t.rich('plans.free.features.credits', {
                     count: (chunks) => <strong>{chunks}</strong>,
@@ -47,7 +47,7 @@ const Plans: React.FC<{
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>
                   {t.rich('plans.free.features.storage', {
                     size: (chunks) => <strong>{chunks}</strong>,
@@ -55,7 +55,7 @@ const Plans: React.FC<{
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>
                   {t.rich('plans.free.features.projects', {
                     count: (chunks) => <strong>{chunks}</strong>,
@@ -63,7 +63,7 @@ const Plans: React.FC<{
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.free.features.sharing')}</span>
               </li>
             </ul>
@@ -94,7 +94,7 @@ const Plans: React.FC<{
           <div>
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>
                   {t.rich('plans.pro.features.credits', {
                     count: (chunks) => <strong>{chunks}</strong>,
@@ -102,7 +102,7 @@ const Plans: React.FC<{
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>
                   {t.rich('plans.pro.features.storage', {
                     size: (chunks) => <strong>{chunks}</strong>,
@@ -110,19 +110,19 @@ const Plans: React.FC<{
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.pro.features.unlimitedProjects')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.pro.features.sharing')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.pro.features.rollovers')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.pro.features.customDomain')}</span>
               </li>
             </ul>
@@ -153,7 +153,7 @@ const Plans: React.FC<{
           <div>
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>
                   {t.rich('plans.max.features.credits', {
                     count: (chunks) => <strong>{chunks}</strong>,
@@ -161,7 +161,7 @@ const Plans: React.FC<{
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>
                   {t.rich('plans.max.features.storage', {
                     size: (chunks) => <strong>{chunks}</strong>,
@@ -169,23 +169,23 @@ const Plans: React.FC<{
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.max.features.unlimitedProjects')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.max.features.sharing')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.max.features.rollovers')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>{t('plans.max.features.customDomain')}</span>
               </li>
               <li className="flex items-center gap-2">
-                <RiCheckLine size={16} />
+                <IconCheck size={16} />
                 <span>
                   {t.rich('plans.max.features.compute', {
                     multiplier: (chunks) => <strong>{chunks}</strong>,

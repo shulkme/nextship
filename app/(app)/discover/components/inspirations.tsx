@@ -1,7 +1,7 @@
 'use client';
 import { inspirations } from '@/app/(app)/discover/mock';
 import Toggle from '@/components/toggle';
-import { RiSparklingFill } from '@remixicon/react';
+import { IconSparkles } from '@tabler/icons-react';
 import { Button, Masonry } from 'antd';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -89,7 +89,7 @@ const Inspirations: React.FC = () => {
                   shape="round"
                   className="border-0 bg-black/30 text-white backdrop-blur-sm hover:bg-black/50"
                   block
-                  icon={<RiSparklingFill size={18} />}
+                  icon={<IconSparkles size={18} />}
                 >
                   {t('generate')}
                 </Button>

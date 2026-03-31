@@ -1,5 +1,5 @@
 'use client';
-import { RiAddCircleLine, RiChat3Line, RiSearchLine } from '@remixicon/react';
+import { IconCirclePlus, IconMessage, IconSearch } from '@tabler/icons-react';
 import { ConfigProvider, Input, Menu, Modal } from 'antd';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -94,7 +94,7 @@ const SearchModal: React.FC = () => {
           classNames={{
             prefix: 'mr-3 text-(--ant-color-text-quaternary)',
           }}
-          prefix={<RiSearchLine size={20} />}
+          prefix={<IconSearch size={20} />}
           variant="borderless"
           size="large"
           placeholder={t('placeholder')}
@@ -123,7 +123,7 @@ const SearchModal: React.FC = () => {
               {
                 key: '1',
                 label: t('newChat'),
-                icon: <RiAddCircleLine size={20} />,
+                icon: <IconCirclePlus size={20} />,
               },
               {
                 key: 'today',
@@ -133,12 +133,12 @@ const SearchModal: React.FC = () => {
                   {
                     key: 'today-1',
                     label: t('chatTitle', { number: '1' }),
-                    icon: <RiChat3Line size={20} />,
+                    icon: <IconMessage size={20} />,
                   },
                   {
                     key: 'today-2',
                     label: t('chatTitle', { number: '2' }),
-                    icon: <RiChat3Line size={20} />,
+                    icon: <IconMessage size={20} />,
                   },
                 ],
               },
@@ -150,12 +150,12 @@ const SearchModal: React.FC = () => {
                   {
                     key: 'yesterday-1',
                     label: t('chatTitle', { number: '1' }),
-                    icon: <RiChat3Line size={20} />,
+                    icon: <IconMessage size={20} />,
                   },
                   {
                     key: 'yesterday-2',
                     label: t('chatTitle', { number: '2' }),
-                    icon: <RiChat3Line size={20} />,
+                    icon: <IconMessage size={20} />,
                   },
                 ],
               },

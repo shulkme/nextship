@@ -1,4 +1,4 @@
-import { RiGithubFill } from '@remixicon/react';
+import { IconBrandGithub } from '@tabler/icons-react';
 import { Button } from 'antd';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
@@ -75,7 +75,7 @@ const Hero: React.FC = async () => {
             </Button>
             <Button
               size="large"
-              icon={<RiGithubFill size={18} />}
+              icon={<IconBrandGithub size={18} />}
               href={process.env.NEXT_PUBLIC_GITHUB_URL}
             >
               {t('github')}

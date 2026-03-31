@@ -1,10 +1,9 @@
 import {
-  RiArrowRightSLine,
-  RiBardFill,
-  RiBardLine,
-  RiCalendarScheduleLine,
-  RiQuestionLine,
-} from '@remixicon/react';
+  IconCalendar,
+  IconChevronRight,
+  IconHelp,
+  IconSparkles,
+} from '@tabler/icons-react';
 import { Button, Popover } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -39,10 +38,10 @@ const CreditsPopover: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-1">
                 <h3 className="flex items-center gap-2">
-                  <RiBardLine size={18} />
+                  <IconSparkles size={18} />
                   <span className="font-medium text-sm">{t('credits')}</span>
                   <span className="text-neutral-400">
-                    <RiQuestionLine size={16} />
+                    <IconHelp size={16} />
                   </span>
                 </h3>
                 <span>1,234</span>
@@ -55,12 +54,12 @@ const CreditsPopover: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-1">
                 <h3 className="flex items-center gap-2">
-                  <RiCalendarScheduleLine size={18} />
+                  <IconCalendar size={18} />
                   <span className="font-medium text-sm">
                     {t('dailyRefresh')}
                   </span>
                   <span className="text-neutral-400">
-                    <RiQuestionLine size={16} />
+                    <IconHelp size={16} />
                   </span>
                 </h3>
                 <span>1,234</span>
@@ -76,7 +75,7 @@ const CreditsPopover: React.FC = () => {
               >
                 <span>{t('viewUsage')}</span>
                 <span>
-                  <RiArrowRightSLine size={16} />
+                  <IconChevronRight size={16} />
                 </span>
               </a>
             </div>
@@ -84,7 +83,7 @@ const CreditsPopover: React.FC = () => {
         </div>
       }
     >
-      <Button shape="round" icon={<RiBardFill size={18} />}>
+      <Button shape="round" icon={<IconSparkles size={18} />}>
         1,234
       </Button>
     </Popover>

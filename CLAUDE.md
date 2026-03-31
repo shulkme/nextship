@@ -435,7 +435,7 @@ pnpm build
 
 ### Icons
 
-- `@remixicon/react` - Icon library
+- `@tabler/icons-react` - Icon library
 
 ---
 

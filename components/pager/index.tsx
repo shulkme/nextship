@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/utils/classname';
-import { RiArrowLeftLine } from '@remixicon/react';
+import { IconArrowLeft } from '@tabler/icons-react';
 import { Button } from 'antd';
 import Link from 'next/link';
 import React, { useMemo } from 'react';
@@ -68,7 +68,7 @@ const Pager: React.FC<PagerProps> = ({
                   variant="filled"
                   className="leading-none"
                   size="middle"
-                  icon={<RiArrowLeftLine size={24} />}
+                  icon={<IconArrowLeft size={24} />}
                 />
               </Link>
             )}

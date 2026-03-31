@@ -1,5 +1,5 @@
 'use client';
-import { RiArrowLeftLine } from '@remixicon/react';
+import { IconArrowLeft } from '@tabler/icons-react';
 import { Button, Form, Input } from 'antd';
 import { useTranslations } from 'next-intl';
 
@@ -28,7 +28,7 @@ export default function Page() {
             href="/login"
             block
             type="text"
-            icon={<RiArrowLeftLine size={18} />}
+            icon={<IconArrowLeft size={18} />}
           >
             {t('forgot.backToLogin')}
           </Button>

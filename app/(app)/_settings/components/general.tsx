@@ -3,7 +3,7 @@ import Listy from '@/components/listy';
 import { languages, type Locale } from '@/i18n/config';
 import { useLanguage } from '@/providers/language';
 import { type Mode, useTheme } from '@/providers/theme';
-import { RiComputerLine, RiMoonLine, RiSunLine } from '@remixicon/react';
+import { IconDeviceDesktop, IconMoon, IconSun } from '@tabler/icons-react';
 import { Button, Segmented, Select, Switch } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -50,15 +50,15 @@ const GeneralPane: React.FC = () => {
               options={[
                 {
                   value: 'light',
-                  icon: <RiSunLine size={16} />,
+                  icon: <IconSun size={16} />,
                 },
                 {
                   value: 'dark',
-                  icon: <RiMoonLine size={16} />,
+                  icon: <IconMoon size={16} />,
                 },
                 {
                   value: 'system',
-                  icon: <RiComputerLine size={16} />,
+                  icon: <IconDeviceDesktop size={16} />,
                 },
               ]}
             />

@@ -3,16 +3,16 @@ import Kbd from '@/components/kbd';
 import GoogleDrive from '@/icons/google-drive';
 import MicrosoftOnedrive from '@/icons/microsoft-onedrive';
 import {
-  RiAddLine,
-  RiArrowUpLine,
-  RiAttachment2,
-  RiBrain2Line,
-  RiEqualizer2Line,
-  RiLightbulbLine,
-  RiMicLine,
-  RiPuzzleLine,
-  RiSpyLine,
-} from '@remixicon/react';
+  IconAdjustments,
+  IconArrowUp,
+  IconBrain,
+  IconBulb,
+  IconSpy,
+  IconMicrophone,
+  IconPaperclip,
+  IconPlus,
+  IconPuzzle,
+} from '@tabler/icons-react';
 import { Button, Dropdown, Input, Switch, Tooltip } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -42,12 +42,12 @@ const Chatbox: React.FC = () => {
                 {
                   key: 'file',
                   label: t('menu.addFromLocal'),
-                  icon: <RiAttachment2 size={18} />,
+                  icon: <IconPaperclip size={18} />,
                 },
                 {
                   key: 'skills',
                   label: t('menu.useSkills'),
-                  icon: <RiPuzzleLine size={18} />,
+                  icon: <IconPuzzle size={18} />,
                 },
                 {
                   type: 'divider',
@@ -67,7 +67,7 @@ const Chatbox: React.FC = () => {
           >
             <div>
               <Tooltip title={t('addFilesMore')}>
-                <Button shape="circle" icon={<RiAddLine size={20} />} />
+                <Button shape="circle" icon={<IconPlus size={20} />} />
               </Tooltip>
             </div>
           </Dropdown>
@@ -77,19 +77,19 @@ const Chatbox: React.FC = () => {
                 {
                   key: 'reasoning',
                   label: t('menu.reasoning'),
-                  icon: <RiLightbulbLine size={20} />,
+                  icon: <IconBulb size={20} />,
                   extra: <Switch size="small" />,
                 },
                 {
                   key: 'research',
                   label: t('menu.research'),
-                  icon: <RiBrain2Line size={20} />,
+                  icon: <IconBrain size={20} />,
                   extra: <Switch size="small" />,
                 },
                 {
                   key: 'temporary',
                   label: t('menu.temporary'),
-                  icon: <RiSpyLine size={20} />,
+                  icon: <IconSpy size={20} />,
                   extra: <Switch size="small" />,
                 },
               ],
@@ -97,14 +97,14 @@ const Chatbox: React.FC = () => {
           >
             <div>
               <Tooltip title={t('chatSettings')}>
-                <Button shape="circle" icon={<RiEqualizer2Line size={20} />} />
+                <Button shape="circle" icon={<IconAdjustments size={20} />} />
               </Tooltip>
             </div>
           </Dropdown>
         </div>
         <div className="flex items-center gap-2">
           <Tooltip title={t('voiceInput')}>
-            <Button type="text" shape="circle" icon={<RiMicLine size={20} />} />
+            <Button type="text" shape="circle" icon={<IconMicrophone size={20} />} />
           </Tooltip>
           <Tooltip
             title={
@@ -124,7 +124,7 @@ const Chatbox: React.FC = () => {
               type="primary"
               disabled
               shape="circle"
-              icon={<RiArrowUpLine size={20} />}
+              icon={<IconArrowUp size={20} />}
             />
           </Tooltip>
         </div>

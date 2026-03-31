@@ -2,7 +2,7 @@
 import { languages } from '@/i18n/config';
 import { useLanguage } from '@/providers/language';
 import { cn } from '@/utils/classname';
-import { RiTranslate2 } from '@remixicon/react';
+import { IconLanguage } from '@tabler/icons-react';
 import { Button, Dropdown, type MenuProps } from 'antd';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
               onClick: handleMenuClick,
             }}
           >
-            <Button type="text" icon={<RiTranslate2 size={18} />} />
+            <Button type="text" icon={<IconLanguage size={18} />} />
           </Dropdown>
           <Button href="/login" type="primary">
             {t('login')}

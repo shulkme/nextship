@@ -1,5 +1,5 @@
 'use client';
-import { RiBankCardLine } from '@remixicon/react';
+import { IconCreditCard } from '@tabler/icons-react';
 import { Avatar, Button, Card } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -30,7 +30,7 @@ const BillingPane: React.FC = () => {
             <div className="flex-none">
               <Avatar
                 className="bg-transparent text-neutral-400 border border-(--ant-color-border)"
-                icon={<RiBankCardLine size={24} />}
+                icon={<IconCreditCard size={24} />}
                 shape="square"
                 size={48}
               />

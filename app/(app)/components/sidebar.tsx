@@ -5,33 +5,33 @@ import { useLanguage } from '@/providers/language';
 import { type Mode, useTheme } from '@/providers/theme';
 import { cn } from '@/utils/classname';
 import {
-  RiArrowRightUpLine,
-  RiComputerLine,
-  RiDashboardLine,
-  RiFunctionLine,
-  RiGlobalLine,
-  RiHome5Line,
-  RiLayoutRowLine,
-  RiLockPasswordLine,
-  RiLoginBoxLine,
-  RiLogoutBoxRLine,
-  RiMailCheckLine,
-  RiMoonLine,
-  RiPlanetLine,
-  RiQuestionLine,
-  RiResetRightLine,
-  RiSearchLine,
-  RiSettingsLine,
-  RiSideBarFill,
-  RiSideBarLine,
-  RiSunLine,
-  RiTableView,
-  RiTranslate2,
-  RiTShirt2Line,
-  RiUser3Line,
-  RiVipCrown2Line,
-  RiVipDiamondLine,
-} from '@remixicon/react';
+  IconArrowUpRight,
+  IconCrown,
+  IconDeviceDesktop,
+  IconDiamond,
+  IconHelp,
+  IconLanguage,
+  IconLayoutDashboard,
+  IconLayoutGrid,
+  IconLayoutList,
+  IconLayoutSidebar,
+  IconLayoutSidebarFilled,
+  IconLock,
+  IconLogin,
+  IconLogout,
+  IconMailCheck,
+  IconMoon,
+  IconPalette,
+  IconPlanet,
+  IconRefresh,
+  IconSearch,
+  IconSettings,
+  IconSmartHome,
+  IconSun,
+  IconTable,
+  IconUser,
+  IconWorld,
+} from '@tabler/icons-react';
 import {
   Avatar,
   Button,
@@ -75,19 +75,19 @@ const Sidebar: React.FC = () => {
         {
           key: 'home',
           label: t('menu.home'),
-          icon: <RiHome5Line size={18} />,
+          icon: <IconSmartHome size={20} />,
           href: '/home',
         },
         {
           key: 'discover',
           label: t('menu.discover'),
-          icon: <RiPlanetLine size={18} />,
+          icon: <IconPlanet size={20} />,
           href: '/discover',
         },
         {
           key: 'search',
           label: t('menu.search'),
-          icon: <RiSearchLine size={18} />,
+          icon: <IconSearch size={20} />,
           href: '#search',
           extra: <Kbd shortcut="cmd+k" />,
         },
@@ -99,25 +99,25 @@ const Sidebar: React.FC = () => {
             {
               key: 'layouts:table',
               label: t('menu.table'),
-              icon: <RiTableView size={18} />,
+              icon: <IconTable size={20} />,
               href: '/layouts/table',
             },
             {
               key: 'layouts:list',
               label: t('menu.list'),
-              icon: <RiLayoutRowLine size={18} />,
+              icon: <IconLayoutList size={20} />,
               href: '/layouts/list',
             },
             {
               key: 'layouts:grid',
               label: t('menu.grid'),
-              icon: <RiFunctionLine size={18} />,
+              icon: <IconLayoutGrid size={20} />,
               href: '/layouts/grid',
             },
             {
               key: 'layouts:masonry',
               label: t('menu.masonry'),
-              icon: <RiDashboardLine size={18} />,
+              icon: <IconLayoutDashboard size={20} />,
               href: '/layouts/masonry',
             },
           ],
@@ -130,42 +130,42 @@ const Sidebar: React.FC = () => {
             {
               key: 'pages:pricing',
               label: t('menu.pricing'),
-              icon: <RiVipDiamondLine size={18} />,
+              icon: <IconDiamond size={20} />,
               href: '/pricing',
             },
             {
               key: 'pages:sign-in',
               label: t('menu.signIn'),
-              icon: <RiLoginBoxLine size={18} />,
-              extra: <RiArrowRightUpLine size={16} />,
+              icon: <IconLogin size={20} />,
+              extra: <IconArrowUpRight size={16} />,
               href: '/login',
             },
             {
               key: 'pages:sign-up',
               label: t('menu.signUp'),
-              icon: <RiLogoutBoxRLine size={18} />,
-              extra: <RiArrowRightUpLine size={16} />,
+              icon: <IconLogout size={20} />,
+              extra: <IconArrowUpRight size={16} />,
               href: '/signup',
             },
             {
               key: 'pages:forgot-password',
               label: t('menu.forgotPassword'),
-              icon: <RiLockPasswordLine size={18} />,
-              extra: <RiArrowRightUpLine size={16} />,
+              icon: <IconLock size={20} />,
+              extra: <IconArrowUpRight size={16} />,
               href: '/password/forgot',
             },
             {
               key: 'pages:reset-password',
               label: t('menu.resetPassword'),
-              icon: <RiResetRightLine size={18} />,
-              extra: <RiArrowRightUpLine size={16} />,
+              icon: <IconRefresh size={20} />,
+              extra: <IconArrowUpRight size={16} />,
               href: '/password/reset',
             },
             {
               key: 'pages:email-check',
               label: t('menu.emailCheck'),
-              icon: <RiMailCheckLine size={18} />,
-              extra: <RiArrowRightUpLine size={16} />,
+              icon: <IconMailCheck size={20} />,
+              extra: <IconArrowUpRight size={16} />,
               href: '/email/check',
             },
           ],
@@ -300,9 +300,9 @@ const Sidebar: React.FC = () => {
                   type="text"
                   icon={
                     collapsed ? (
-                      <RiSideBarFill size={18} />
+                      <IconLayoutSidebarFilled size={18} />
                     ) : (
-                      <RiSideBarLine size={18} />
+                      <IconLayoutSidebar size={18} />
                     )
                   }
                   onClick={() => setCollapsed(!collapsed)}
@@ -315,8 +315,8 @@ const Sidebar: React.FC = () => {
               theme={{
                 components: {
                   Menu: {
-                    iconSize: 18,
-                    collapsedIconSize: 18,
+                    iconSize: 20,
+                    collapsedIconSize: 20,
                     itemHeight: 40,
                     itemMarginBlock: 4,
                     itemMarginInline: 0,
@@ -346,37 +346,37 @@ const Sidebar: React.FC = () => {
                 items: [
                   {
                     key: 'profile',
-                    icon: <RiUser3Line size={18} />,
+                    icon: <IconUser size={20} />,
                     label: t('userMenu.profile'),
                   },
                   {
                     key: 'plans-credits',
-                    icon: <RiVipCrown2Line size={18} />,
+                    icon: <IconCrown size={20} />,
                     label: t('userMenu.plansCredits'),
                   },
                   {
                     key: 'official-website',
-                    icon: <RiGlobalLine size={18} />,
+                    icon: <IconWorld size={20} />,
                     label: t('userMenu.officialWebsite'),
-                    extra: <RiArrowRightUpLine size={16} />,
+                    extra: <IconArrowUpRight size={16} />,
                   },
                   {
                     key: 'help-center',
-                    icon: <RiQuestionLine size={18} />,
+                    icon: <IconHelp size={20} />,
                     label: t('userMenu.helpCenter'),
-                    extra: <RiArrowRightUpLine size={16} />,
+                    extra: <IconArrowUpRight size={16} />,
                   },
                   {
                     type: 'divider',
                   },
                   {
                     key: 'general', // menu key mapping
-                    icon: <RiSettingsLine size={18} />,
+                    icon: <IconSettings size={20} />,
                     label: t('userMenu.settings'),
                   },
                   {
                     key: 'languages',
-                    icon: <RiTranslate2 size={18} />,
+                    icon: <IconLanguage size={20} />,
                     label: t('userMenu.languages'),
                     children: [
                       {
@@ -393,21 +393,21 @@ const Sidebar: React.FC = () => {
                   },
                   {
                     key: 'theme',
-                    icon: <RiTShirt2Line size={18} />,
+                    icon: <IconPalette size={20} />,
                     label: t('userMenu.theme'),
                     children: [
                       {
-                        icon: <RiSunLine size={18} />,
+                        icon: <IconSun size={20} />,
                         key: 'light',
                         label: t('userMenu.light'),
                       },
                       {
-                        icon: <RiMoonLine size={18} />,
+                        icon: <IconMoon size={20} />,
                         key: 'dark',
                         label: t('userMenu.dark'),
                       },
                       {
-                        icon: <RiComputerLine size={18} />,
+                        icon: <IconDeviceDesktop size={20} />,
                         key: 'system',
                         label: t('userMenu.system'),
                       },
@@ -418,7 +418,7 @@ const Sidebar: React.FC = () => {
                   },
                   {
                     key: 'logout',
-                    icon: <RiLogoutBoxRLine size={18} />,
+                    icon: <IconLogout size={20} />,
                     label: t('userMenu.logout'),
                     danger: true,
                   },

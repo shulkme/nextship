@@ -1,7 +1,7 @@
 'use client';
 
 import PricingContent from '@/app/_pricing';
-import { RiArrowRightUpLine } from '@remixicon/react';
+import { IconArrowUpRight } from '@tabler/icons-react';
 import { Modal } from 'antd';
 import { useRouter } from 'next/navigation';
 
@@ -33,7 +33,7 @@ export default function PricingModal() {
         <div className="text-center">
           <a className="inline-flex items-center gap-1" href="#">
             <span>Manage Billing</span>
-            <RiArrowRightUpLine size={16} />
+            <IconArrowUpRight size={16} />
           </a>
         </div>
       </div>

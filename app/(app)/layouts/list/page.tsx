@@ -3,7 +3,7 @@ import { data } from '@/app/(app)/layouts/list/mock';
 import Listy from '@/components/listy';
 import Pager from '@/components/pager';
 import Toggle from '@/components/toggle';
-import { RiArrowRightSLine } from '@remixicon/react';
+import { IconChevronRight } from '@tabler/icons-react';
 import { Avatar, Button } from 'antd';
 import { useTranslations } from 'next-intl';
 import { random, shuffle } from 'radash';
@@ -51,7 +51,7 @@ export default function Page() {
                   type="text"
                   size="small"
                   shape="circle"
-                  icon={<RiArrowRightSLine size={18} />}
+                  icon={<IconChevronRight size={18} />}
                 />
               }
               title={item.title}

@@ -10,17 +10,17 @@ import ProfilePane from '@/app/(app)/_settings/components/profile';
 import SecurityPane from '@/app/(app)/_settings/components/security';
 import UsagePane from '@/app/(app)/_settings/components/usage';
 import {
-  RiDraftLine,
-  RiEqualizer2Line,
-  RiKey2Line,
-  RiLinksLine,
-  RiNotification3Line,
-  RiPulseLine,
-  RiShieldKeyholeLine,
-  RiUserLine,
-  RiVipCrown2Line,
-  RiWalletLine,
-} from '@remixicon/react';
+  IconActivity,
+  IconAdjustments,
+  IconBell,
+  IconCrown,
+  IconFileText,
+  IconKey,
+  IconLink,
+  IconShieldLock,
+  IconUser,
+  IconWallet,
+} from '@tabler/icons-react';
 import {
   ConfigProvider,
   type GetProp,
@@ -54,61 +54,61 @@ const SettingsModal: React.FC = () => {
       {
         key: 'general',
         label: t('tabs.general'),
-        icon: <RiEqualizer2Line size={18} />,
+        icon: <IconAdjustments size={20} />,
         children: <GeneralPane />,
       },
       {
         key: 'profile',
         label: t('tabs.profile'),
-        icon: <RiUserLine size={18} />,
+        icon: <IconUser size={20} />,
         children: <ProfilePane />,
       },
       {
         key: 'plans-credits',
         label: t('tabs.plansCredits'),
-        icon: <RiVipCrown2Line size={18} />,
+        icon: <IconCrown size={20} />,
         children: <PlansCreditsPane />,
       },
       {
         key: 'billing',
         label: t('tabs.billing'),
-        icon: <RiWalletLine size={18} />,
+        icon: <IconWallet size={20} />,
         children: <BillingPane />,
       },
       {
         key: 'usage',
         label: t('tabs.usage'),
-        icon: <RiPulseLine size={18} />,
+        icon: <IconActivity size={20} />,
         children: <UsagePane />,
       },
       {
         key: 'keys',
         label: t('tabs.apiKeys'),
-        icon: <RiKey2Line size={18} />,
+        icon: <IconKey size={20} />,
         children: <KeysPane />,
       },
       {
         key: 'connections',
         label: t('tabs.connections'),
-        icon: <RiLinksLine size={18} />,
+        icon: <IconLink size={20} />,
         children: <ConnectionsPane />,
       },
       {
         key: 'notifications',
         label: t('tabs.notifications'),
-        icon: <RiNotification3Line size={18} />,
+        icon: <IconBell size={20} />,
         children: <NotificationsPane />,
       },
       {
         key: 'security',
         label: t('tabs.security'),
-        icon: <RiShieldKeyholeLine size={18} />,
+        icon: <IconShieldLock size={20} />,
         children: <SecurityPane />,
       },
       {
         key: 'about',
         label: t('tabs.about'),
-        icon: <RiDraftLine size={18} />,
+        icon: <IconFileText size={20} />,
         children: <AboutPane />,
       },
     ],
@@ -228,8 +228,8 @@ const SettingsModal: React.FC = () => {
               theme={{
                 components: {
                   Menu: {
-                    iconSize: 18,
-                    collapsedIconSize: 18,
+                    iconSize: 20,
+                    collapsedIconSize: 20,
                     itemHeight: 40,
                     itemMarginBlock: 4,
                     itemMarginInline: 0,

@@ -1,21 +1,21 @@
 import {
-  RiCodeSSlashLine,
-  RiGlobalLine,
-  RiLockLine,
-  RiMacbookLine,
-  RiMoonLine,
-  RiPlugLine,
-} from '@remixicon/react';
+  IconCode,
+  IconDeviceLaptop,
+  IconLock,
+  IconMoon,
+  IconPlug,
+  IconWorld,
+} from '@tabler/icons-react';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
 const icons = [
-  RiLockLine,
-  RiGlobalLine,
-  RiMoonLine,
-  RiMacbookLine,
-  RiCodeSSlashLine,
-  RiPlugLine,
+  IconLock,
+  IconWorld,
+  IconMoon,
+  IconDeviceLaptop,
+  IconCode,
+  IconPlug,
 ];
 
 const keys = ['auth', 'i18n', 'theme', 'responsive', 'typescript', 'api'] as const;

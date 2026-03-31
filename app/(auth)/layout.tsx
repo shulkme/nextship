@@ -1,5 +1,5 @@
 'use client';
-import { RiArrowLeftLine } from '@remixicon/react';
+import { IconArrowLeft } from '@tabler/icons-react';
 import { Layout as AntdLayout, Button } from 'antd';
 import React from 'react';
 
@@ -8,7 +8,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
     <AntdLayout className="min-h-screen w-full flex flex-row p-6">
       <div className="flex-auto flex flex-col">
         <div className="flex-none">
-          <Button href="/" type="text" icon={<RiArrowLeftLine size={18} />} />
+          <Button href="/" type="text" icon={<IconArrowLeft size={18} />} />
         </div>
         <div className="flex-auto flex flex-col justify-center items-center">
           <div className="w-full max-w-sm">{children}</div>

@@ -4,12 +4,12 @@ import Chatbox from '@/app/(app)/home/components/chatbox';
 import CreditsPopover from '@/app/(app)/home/components/credits-popover';
 import SlideBanner from '@/app/(app)/home/components/slide-banner';
 import {
-  RiBrushAiLine,
-  RiNotification3Line,
-  RiSlideshow3Line,
-  RiSmartphoneLine,
-  RiWindowLine,
-} from '@remixicon/react';
+  IconBell,
+  IconBrowser,
+  IconBrush,
+  IconDeviceMobile,
+  IconPresentation,
+} from '@tabler/icons-react';
 import { Alert, Button, Tooltip } from 'antd';
 import { useTranslations } from 'next-intl';
 
@@ -21,7 +21,7 @@ export default function Page() {
         <div></div>
         <div className="flex items-center gap-3">
           <Tooltip title={t('notifications')}>
-            <Button shape="circle" icon={<RiNotification3Line size={18} />} />
+            <Button shape="circle" icon={<IconBell size={18} />} />
           </Tooltip>
           <CreditsPopover />
         </div>
@@ -54,16 +54,16 @@ export default function Page() {
         <Chatbox />
         <div className="flex flex-col items-center mt-6">
           <div className="flex flex-wrap justify-center items-center gap-2">
-            <Button shape="round" icon={<RiSlideshow3Line size={18} />}>
+            <Button shape="round" icon={<IconPresentation size={18} />}>
               {t('quickActions.createSlides')}
             </Button>
-            <Button shape="round" icon={<RiWindowLine size={18} />}>
+            <Button shape="round" icon={<IconBrowser size={18} />}>
               {t('quickActions.buildWebsite')}
             </Button>
-            <Button shape="round" icon={<RiSmartphoneLine size={18} />}>
+            <Button shape="round" icon={<IconDeviceMobile size={18} />}>
               {t('quickActions.developApps')}
             </Button>
-            <Button shape="round" icon={<RiBrushAiLine size={18} />}>
+            <Button shape="round" icon={<IconBrush size={18} />}>
               {t('quickActions.design')}
             </Button>
             <Button shape="round">{t('quickActions.more')}</Button>

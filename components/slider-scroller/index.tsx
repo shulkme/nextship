@@ -1,11 +1,11 @@
 'use client';
 import { cn } from '@/utils/classname';
 import {
-  RiArrowDownSLine,
-  RiArrowLeftSLine,
-  RiArrowRightSLine,
-  RiArrowUpSLine,
-} from '@remixicon/react';
+  IconChevronDown,
+  IconChevronLeft,
+  IconChevronRight,
+  IconChevronUp,
+} from '@tabler/icons-react';
 import { Button, type ButtonProps } from 'antd';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -140,9 +140,9 @@ const SliderScroller: React.FC<{
             className="leading-none border-0 shadow-lg"
             icon={
               vertical ? (
-                <RiArrowUpSLine size={18} />
+                <IconChevronUp size={18} />
               ) : (
-                <RiArrowLeftSLine size={18} />
+                <IconChevronLeft size={18} />
               )
             }
             onClick={prev}
@@ -165,9 +165,9 @@ const SliderScroller: React.FC<{
             className="leading-none border-0 shadow-lg"
             icon={
               vertical ? (
-                <RiArrowDownSLine size={18} />
+                <IconChevronDown size={18} />
               ) : (
-                <RiArrowRightSLine size={18} />
+                <IconChevronRight size={18} />
               )
             }
             onClick={next}
