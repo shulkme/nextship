@@ -300,9 +300,9 @@ const Sidebar: React.FC = () => {
                   type="text"
                   icon={
                     collapsed ? (
-                      <IconLayoutSidebarFilled size={18} />
+                      <IconLayoutSidebarFilled size={20} />
                     ) : (
-                      <IconLayoutSidebar size={18} />
+                      <IconLayoutSidebar size={20} />
                     )
                   }
                   onClick={() => setCollapsed(!collapsed)}
