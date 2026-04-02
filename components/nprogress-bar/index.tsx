@@ -19,9 +19,11 @@ interface NProgressBarProps {
 
 const NProgressBar: React.FC<NProgressBarProps> = React.memo(
   ({ options, showOnShallow = false }) => {
-    if (options) NProgress.configure(options);
-
     const pathname = usePathname();
+
+    useEffect(() => {
+      if (options) NProgress.configure(options);
+    }, [options]);
 
     useEffect(() => {
       NProgress.done(true);
@@ -69,38 +71,73 @@ const NProgressBar: React.FC<NProgressBarProps> = React.memo(
         if (showOnShallow && isSameUrl) return;
         if (isSameUrl) return;
 
-        startProgress();
+        // Defer to allow React synthetic event handlers (e.g. preventDefault)
+        // to execute before starting the progress bar
+        setTimeout(() => {
+          if (event.defaultPrevented) return;
+          startProgress();
+        }, 0);
+      };
+
+      const boundAnchors = new WeakSet<HTMLAnchorElement>();
+
+      const isValidAnchor = (anchor: HTMLAnchorElement) => {
+        if (
+          anchor.href.startsWith('tel:+') ||
+          anchor.href.startsWith('mailto:')
+        )
+          return false;
+        if (anchor.target !== '_self' && anchor.target?.trim() !== '')
+          return false;
+        return !!anchor.href;
+      };
+
+      const bindAnchors = () => {
+        const anchorElements = document.querySelectorAll('a');
+        anchorElements.forEach((anchor) => {
+          if (boundAnchors.has(anchor) || !isValidAnchor(anchor)) return;
+          anchor.addEventListener('click', handleAnchorClick);
+          boundAnchors.add(anchor);
+        });
       };
 
       const handleMutation: MutationCallback = () => {
-        const anchorElements = document.querySelectorAll('a');
-        const validAnchorELes = Array.from(anchorElements).filter((anchor) => {
-          if (
-            anchor.href.startsWith('tel:+') ||
-            anchor.href.startsWith('mailto:')
-          )
-            return false;
-          if (anchor.target !== '_self' && anchor.target?.trim() !== '')
-            return false;
-          return anchor.href;
-        });
-        validAnchorELes.forEach((anchor) =>
-          anchor.addEventListener('click', handleAnchorClick),
-        );
+        bindAnchors();
       };
+
+      // Bind existing anchors on mount
+      bindAnchors();
 
       const mutationObserver = new MutationObserver(handleMutation);
       mutationObserver.observe(document, { childList: true, subtree: true });
 
-      const proxyStateChange = new Proxy(window.history.pushState, {
+      const originalPushState = window.history.pushState;
+      const originalReplaceState = window.history.replaceState;
+
+      window.history.pushState = new Proxy(originalPushState, {
         apply: (target, thisArg, argArray: PushStateInput) => {
           stopProgress();
           return target.apply(thisArg, argArray);
         },
       });
 
-      window.history.pushState = proxyStateChange;
-      window.history.replaceState = proxyStateChange;
+      window.history.replaceState = new Proxy(originalReplaceState, {
+        apply: (target, thisArg, argArray: PushStateInput) => {
+          stopProgress();
+          return target.apply(thisArg, argArray);
+        },
+      });
+
+      return () => {
+        mutationObserver.disconnect();
+
+        document.querySelectorAll('a').forEach((anchor) => {
+          anchor.removeEventListener('click', handleAnchorClick);
+        });
+
+        window.history.pushState = originalPushState;
+        window.history.replaceState = originalReplaceState;
+      };
     }, [showOnShallow]);
 
     return null;

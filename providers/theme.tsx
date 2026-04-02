@@ -32,9 +32,7 @@ export const ThemeProvider: React.FC<
       themes={['light', 'dark', 'system']}
       disableTransitionOnChange
     >
-      <ThemeConfigProvider ssrTheme={ssrTheme}>
-        {children}
-      </ThemeConfigProvider>
+      <ThemeConfigProvider ssrTheme={ssrTheme}>{children}</ThemeConfigProvider>
     </NextThemesProvider>
   );
 };
@@ -86,9 +84,9 @@ const ThemeConfigProvider: React.FC<
           classNames: {
             header: 'mb-4',
           },
-          // mask: {
-          //   blur: true,
-          // },
+          mask: {
+            blur: true,
+          },
         }}
         table={{
           classNames: {

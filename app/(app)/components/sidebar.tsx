@@ -6,9 +6,9 @@ import { type Mode, useTheme } from '@/providers/theme';
 import { cn } from '@/utils/classname';
 import {
   IconArrowUpRight,
+  IconBrandMyOppo,
   IconCrown,
   IconDeviceDesktop,
-  IconDiamond,
   IconHelp,
   IconLanguage,
   IconLayoutDashboard,
@@ -17,7 +17,6 @@ import {
   IconLayoutSidebar,
   IconLayoutSidebarFilled,
   IconLock,
-  IconLogin,
   IconLogout,
   IconMailCheck,
   IconMoon,
@@ -30,6 +29,8 @@ import {
   IconSun,
   IconTable,
   IconUser,
+  IconUserCheck,
+  IconUserKey,
   IconWorld,
 } from '@tabler/icons-react';
 import {
@@ -130,20 +131,20 @@ const Sidebar: React.FC = () => {
             {
               key: 'pages:pricing',
               label: t('menu.pricing'),
-              icon: <IconDiamond size={20} />,
+              icon: <IconBrandMyOppo size={20} />,
               href: '/pricing',
             },
             {
               key: 'pages:sign-in',
               label: t('menu.signIn'),
-              icon: <IconLogin size={20} />,
+              icon: <IconUserKey size={20} />,
               extra: <IconArrowUpRight size={16} />,
               href: '/login',
             },
             {
               key: 'pages:sign-up',
               label: t('menu.signUp'),
-              icon: <IconLogout size={20} />,
+              icon: <IconUserCheck size={20} />,
               extra: <IconArrowUpRight size={16} />,
               href: '/signup',
             },
@@ -185,7 +186,7 @@ const Sidebar: React.FC = () => {
       }
     });
     return result;
-  }, []);
+  }, [menus]);
 
   const selectedKeys = useMemo(() => {
     // Find exact match first
@@ -208,12 +209,12 @@ const Sidebar: React.FC = () => {
 
     // Default to first menu item
     return [menus[0]?.key as string];
-  }, [pathname, flattenMenus]);
+  }, [flattenMenus, menus, pathname]);
 
   const renderMenus = useMemo(() => {
     // filter menu items, eq: promission control
     return menus;
-  }, []);
+  }, [menus]);
 
   const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
     const menuItem = flattenMenus.find((item) => item.key === key);

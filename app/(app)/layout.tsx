@@ -8,7 +8,7 @@ import React from 'react';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <AntdLayout hasSider className="h-screen">
+      <AntdLayout hasSider className="h-screen isolate">
         <Sidebar />
         <AntdLayout.Content className="overflow-auto">
           {children}

@@ -11,12 +11,12 @@ import SecurityPane from '@/app/(app)/_settings/components/security';
 import UsagePane from '@/app/(app)/_settings/components/usage';
 import {
   IconActivity,
-  IconAdjustments,
   IconBell,
   IconCrown,
   IconFileText,
   IconKey,
   IconLink,
+  IconSettings,
   IconShieldLock,
   IconUser,
   IconWallet,
@@ -54,7 +54,7 @@ const SettingsModal: React.FC = () => {
       {
         key: 'general',
         label: t('tabs.general'),
-        icon: <IconAdjustments size={20} />,
+        icon: <IconSettings size={20} />,
         children: <GeneralPane />,
       },
       {
