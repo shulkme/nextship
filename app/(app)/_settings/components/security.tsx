@@ -1,6 +1,6 @@
 'use client';
 import Listy from '@/components/listy';
-import { IconChevronRight } from '@tabler/icons-react';
+import { ChevronRight } from '@boxicons/react';
 import { Button, Switch } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -15,7 +15,7 @@ const SecurityPane: React.FC = () => {
             <Button
               type="text"
               iconPlacement="end"
-              icon={<IconChevronRight size={14} />}
+              icon={<ChevronRight size="xs" />}
               key="button"
             >
               {t('add')}
@@ -29,7 +29,7 @@ const SecurityPane: React.FC = () => {
             <Button
               type="text"
               iconPlacement="end"
-              icon={<IconChevronRight size={14} />}
+              icon={<ChevronRight size="xs" />}
               key="button"
             >
               {t('add')}

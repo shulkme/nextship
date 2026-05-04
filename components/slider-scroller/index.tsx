@@ -1,11 +1,11 @@
 'use client';
 import { cn } from '@/utils/classname';
 import {
-  IconChevronDown,
-  IconChevronLeft,
-  IconChevronRight,
-  IconChevronUp,
-} from '@tabler/icons-react';
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+} from '@boxicons/react';
 import { Button, type ButtonProps } from 'antd';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -139,11 +139,7 @@ const SliderScroller: React.FC<{
             shape="circle"
             className="leading-none border-0 shadow-lg"
             icon={
-              vertical ? (
-                <IconChevronUp size={18} />
-              ) : (
-                <IconChevronLeft size={18} />
-              )
+              vertical ? <ChevronUp size="sm" /> : <ChevronLeft size="sm" />
             }
             onClick={prev}
           />
@@ -164,11 +160,7 @@ const SliderScroller: React.FC<{
             shape="circle"
             className="leading-none border-0 shadow-lg"
             icon={
-              vertical ? (
-                <IconChevronDown size={18} />
-              ) : (
-                <IconChevronRight size={18} />
-              )
+              vertical ? <ChevronDown size="sm" /> : <ChevronRight size="sm" />
             }
             onClick={next}
           />

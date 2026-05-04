@@ -1,59 +1,44 @@
 'use client';
 import Kbd from '@/components/kbd';
-import { type Locale } from '@/i18n/config';
+import NavMenu from '@/components/nav-menu';
+import { languages, type Locale } from '@/i18n/config';
 import { useLanguage } from '@/providers/language';
-import { type Mode, useTheme } from '@/providers/theme';
+import { useTheme } from '@/providers/theme';
 import { cn } from '@/utils/classname';
 import {
-  IconArrowUpRight,
-  IconBrandMyOppo,
-  IconCrown,
-  IconDeviceDesktop,
-  IconHelp,
-  IconLanguage,
-  IconLayoutDashboard,
-  IconLayoutGrid,
-  IconLayoutList,
-  IconLayoutSidebar,
-  IconLayoutSidebarFilled,
-  IconLock,
-  IconLogout,
-  IconMailCheck,
-  IconMoon,
-  IconPalette,
-  IconPlanet,
-  IconRefresh,
-  IconSearch,
-  IconSettings,
-  IconSmartHome,
-  IconSun,
-  IconTable,
-  IconUser,
-  IconUserCheck,
-  IconUserKey,
-  IconWorld,
-} from '@tabler/icons-react';
-import {
-  Avatar,
-  Button,
-  ConfigProvider,
-  Dropdown,
-  type GetProp,
-  Layout,
-  Menu,
-  type MenuProps,
-  Tooltip,
-} from 'antd';
+  ArrowOutRightSquareHalf,
+  ArrowUpRightStroke,
+  Check,
+  Cog,
+  Dashboard,
+  DiamondAlt,
+  DockLeft,
+  GlobeAlt,
+  Grid,
+  HomeAlt,
+  HomeAlt2,
+  Lock,
+  MessageCheck,
+  MessageCircleQuestionMark,
+  Mobile,
+  Monitor,
+  Moon,
+  Planet,
+  RefreshCw,
+  Rows3,
+  SearchBig,
+  SparkleCircle,
+  Sun,
+  Table,
+  User,
+  UserCheck,
+  UserCircle,
+  UserPlus,
+} from '@boxicons/react';
+import { Avatar, Button, Divider, Dropdown, Layout, Tooltip } from 'antd';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
-import React, { useMemo, useState } from 'react';
-
-type MenuItemType = GetProp<MenuProps, 'items'>[number] & {
-  href?: string;
-};
-
-// Menu factory function moved inside component to access translations
+import React, { useState } from 'react';
 
 const nativePush = (hash: string) => {
   if (typeof window !== 'undefined') {
@@ -63,233 +48,43 @@ const nativePush = (hash: string) => {
 
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const { setMode } = useTheme();
-  const { setLocale } = useLanguage();
-  const router = useRouter();
-  const pathname = usePathname();
+  const { toggleMode, mode } = useTheme();
+  const { setLocale, locale, language } = useLanguage();
   const t = useTranslations('app.sidebar');
-
-  // Generate menus with translations
-  const menus = useMemo(
-    () =>
-      [
-        {
-          key: 'home',
-          label: t('menu.home'),
-          icon: <IconSmartHome size={20} />,
-          href: '/home',
-        },
-        {
-          key: 'discover',
-          label: t('menu.discover'),
-          icon: <IconPlanet size={20} />,
-          href: '/discover',
-        },
-        {
-          key: 'search',
-          label: t('menu.search'),
-          icon: <IconSearch size={20} />,
-          href: '#search',
-          extra: <Kbd shortcut="cmd+k" />,
-        },
-        {
-          key: 'layouts',
-          label: t('menu.layouts'),
-          type: 'group',
-          children: [
-            {
-              key: 'layouts:table',
-              label: t('menu.table'),
-              icon: <IconTable size={20} />,
-              href: '/layouts/table',
-            },
-            {
-              key: 'layouts:list',
-              label: t('menu.list'),
-              icon: <IconLayoutList size={20} />,
-              href: '/layouts/list',
-            },
-            {
-              key: 'layouts:grid',
-              label: t('menu.grid'),
-              icon: <IconLayoutGrid size={20} />,
-              href: '/layouts/grid',
-            },
-            {
-              key: 'layouts:masonry',
-              label: t('menu.masonry'),
-              icon: <IconLayoutDashboard size={20} />,
-              href: '/layouts/masonry',
-            },
-          ],
-        },
-        {
-          key: 'pages',
-          label: t('menu.pages'),
-          type: 'group',
-          children: [
-            {
-              key: 'pages:pricing',
-              label: t('menu.pricing'),
-              icon: <IconBrandMyOppo size={20} />,
-              href: '/pricing',
-            },
-            {
-              key: 'pages:sign-in',
-              label: t('menu.signIn'),
-              icon: <IconUserKey size={20} />,
-              extra: <IconArrowUpRight size={16} />,
-              href: '/login',
-            },
-            {
-              key: 'pages:sign-up',
-              label: t('menu.signUp'),
-              icon: <IconUserCheck size={20} />,
-              extra: <IconArrowUpRight size={16} />,
-              href: '/signup',
-            },
-            {
-              key: 'pages:forgot-password',
-              label: t('menu.forgotPassword'),
-              icon: <IconLock size={20} />,
-              extra: <IconArrowUpRight size={16} />,
-              href: '/password/forgot',
-            },
-            {
-              key: 'pages:reset-password',
-              label: t('menu.resetPassword'),
-              icon: <IconRefresh size={20} />,
-              extra: <IconArrowUpRight size={16} />,
-              href: '/password/reset',
-            },
-            {
-              key: 'pages:email-check',
-              label: t('menu.emailCheck'),
-              icon: <IconMailCheck size={20} />,
-              extra: <IconArrowUpRight size={16} />,
-              href: '/email/check',
-            },
-          ],
-        },
-      ] as MenuItemType[],
-    [t],
-  );
-
-  // Cache flattened menu items (only calculate once)
-  const flattenMenus = useMemo(() => {
-    const result: MenuItemType[] = [];
-    menus.forEach((menu) => {
-      if (menu.type === 'group' && 'children' in menu && menu.children) {
-        result.push(...(menu.children as MenuItemType[]));
-      } else {
-        result.push(menu);
-      }
-    });
-    return result;
-  }, [menus]);
-
-  const selectedKeys = useMemo(() => {
-    // Find exact match first
-    const exactMatch = flattenMenus.find((item) => item.href === pathname);
-    if (exactMatch) {
-      return [exactMatch.key as string];
-    }
-
-    // Find best prefix match (longest match wins)
-    const prefixMatches = flattenMenus.filter(
-      (item) => item.href && pathname.startsWith(item.href),
-    );
-    if (prefixMatches.length > 0) {
-      // Sort by href length (longest first)
-      const bestMatch = prefixMatches.sort(
-        (a, b) => (b.href?.length || 0) - (a.href?.length || 0),
-      )[0];
-      return [bestMatch.key as string];
-    }
-
-    // Default to first menu item
-    return [menus[0]?.key as string];
-  }, [flattenMenus, menus, pathname]);
-
-  const renderMenus = useMemo(() => {
-    // filter menu items, eq: promission control
-    return menus;
-  }, [menus]);
-
-  const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
-    const menuItem = flattenMenus.find((item) => item.key === key);
-    if (menuItem?.href) {
-      // Handle hash links (e.g., #search) with native navigation
-      if (menuItem.href.startsWith('#')) {
-        nativePush(menuItem.href);
-      } else {
-        // Use Next.js router for regular paths
-        router.push(menuItem.href);
-      }
-    }
-  };
-
-  const handleDropdownClick: MenuProps['onClick'] = ({ key, keyPath }) => {
-    const type = keyPath[1] || key;
-    switch (type) {
-      case 'theme':
-        setMode(key as Mode);
-        break;
-      case 'languages':
-        // Map menu keys to locale values
-        const localeMap: Record<string, Locale> = {
-          english: 'en',
-          chinese: 'zh',
-        };
-        const newLocale = localeMap[key];
-        if (newLocale) {
-          setLocale(newLocale);
-        }
-        break;
-      case 'general':
-      case 'plans-credits':
-      case 'profile':
-        nativePush(`#settings/${key}`);
-        break;
-      case 'official-website':
-        window.open('/');
-    }
-  };
-
-  const handleUpgrade = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    router.push('/pricing');
-  };
 
   return (
     <>
       <Layout.Sider
         collapsed={collapsed}
-        breakpoint="lg"
+        breakpoint="xl"
         collapsible
-        collapsedWidth={64}
+        collapsedWidth={52}
         width={272}
         trigger={null}
         onCollapse={setCollapsed}
       >
-        <div className="h-full flex flex-col overflow-hidden group">
-          <div className="flex-none flex items-center justify-between">
-            <div className="flex-none p-3">
-              <div className="size-10 flex items-center justify-center">
+        <div className="h-full flex flex-col overflow-hidden bg-sider group">
+          <div className="flex-none px-2 py-3 relative">
+            <div className="flex items-center gap-1">
+              <div className="flex-none size-(--ant-control-height) flex items-center justify-center">
                 <Image
-                  className="size-7"
+                  className="size-6 block"
                   src="/images/logo.png"
                   width={256}
                   height={256}
                   alt="logo"
                 />
               </div>
+              {!collapsed && (
+                <div className="text-base font-medium font-serif leading-none">
+                  {process.env.NEXT_PUBLIC_APP_NAME}
+                </div>
+              )}
             </div>
             <div
               className={cn(
-                'flex-none p-3',
-                collapsed &&
-                  'bg-(--ant-layout-sider-bg) absolute top-0 left-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity',
+                'absolute top-1/2 -translate-y-1/2 right-2 z-10 bg-sider',
+                collapsed && 'hidden group-hover:block',
               )}
             >
               <Tooltip
@@ -297,171 +92,251 @@ const Sidebar: React.FC = () => {
                 title={collapsed ? t('openSidebar') : t('closeSidebar')}
               >
                 <Button
-                  className="size-10 text-neutral-400 hover:text-neutral-800"
                   type="text"
                   icon={
-                    collapsed ? (
-                      <IconLayoutSidebarFilled size={20} />
-                    ) : (
-                      <IconLayoutSidebar size={20} />
-                    )
+                    <DockLeft size="xs" pack={collapsed ? 'filled' : 'basic'} />
                   }
                   onClick={() => setCollapsed(!collapsed)}
                 />
               </Tooltip>
             </div>
           </div>
-          <div className="flex-auto px-3 overflow-auto scrollbar-hidden">
-            <ConfigProvider
-              theme={{
-                components: {
-                  Menu: {
-                    iconSize: 20,
-                    collapsedIconSize: 20,
-                    itemHeight: 40,
-                    itemMarginBlock: 4,
-                    itemMarginInline: 0,
-                    groupTitleFontSize: 12,
-                    iconMarginInlineEnd: 12,
-                    itemPaddingInline: 8,
-                  },
-                },
-              }}
-            >
-              <Menu
-                className="custom-menu-sidebar"
-                inlineIndent={16}
-                mode="inline"
-                selectedKeys={selectedKeys}
-                onClick={handleMenuClick}
-                items={renderMenus}
+          <div className="flex-auto px-2 py-2 overflow-auto scrollbar-hidden">
+            <NavMenu collapsed={collapsed}>
+              <NavMenu.Item
+                icon={<HomeAlt2 size="xs" />}
+                label={t('menu.home')}
+                href="/home"
+                className="px-2.5"
               />
-            </ConfigProvider>
-          </div>
-          <div className="flex-none p-3">
-            <Dropdown
-              trigger={['click']}
-              menu={{
-                _internalDisableMenuItemTitleTooltip: true, // FIXME: antd bug
-                onClick: handleDropdownClick,
-                items: [
-                  {
-                    key: 'profile',
-                    icon: <IconUser size={20} />,
-                    label: t('userMenu.profile'),
-                  },
-                  {
-                    key: 'plans-credits',
-                    icon: <IconCrown size={20} />,
-                    label: t('userMenu.plansCredits'),
-                  },
-                  {
-                    key: 'official-website',
-                    icon: <IconWorld size={20} />,
-                    label: t('userMenu.officialWebsite'),
-                    extra: <IconArrowUpRight size={16} />,
-                  },
-                  {
-                    key: 'help-center',
-                    icon: <IconHelp size={20} />,
-                    label: t('userMenu.helpCenter'),
-                    extra: <IconArrowUpRight size={16} />,
-                  },
-                  {
-                    type: 'divider',
-                  },
-                  {
-                    key: 'general', // menu key mapping
-                    icon: <IconSettings size={20} />,
-                    label: t('userMenu.settings'),
-                  },
-                  {
-                    key: 'languages',
-                    icon: <IconLanguage size={20} />,
-                    label: t('userMenu.languages'),
-                    children: [
-                      {
-                        icon: <span>🇺🇸</span>,
-                        key: 'english',
-                        label: 'English',
-                      },
-                      {
-                        icon: <span>🇨🇳</span>,
-                        key: 'chinese',
-                        label: '简体中文',
-                      },
-                    ],
-                  },
-                  {
-                    key: 'theme',
-                    icon: <IconPalette size={20} />,
-                    label: t('userMenu.theme'),
-                    children: [
-                      {
-                        icon: <IconSun size={20} />,
-                        key: 'light',
-                        label: t('userMenu.light'),
-                      },
-                      {
-                        icon: <IconMoon size={20} />,
-                        key: 'dark',
-                        label: t('userMenu.dark'),
-                      },
-                      {
-                        icon: <IconDeviceDesktop size={20} />,
-                        key: 'system',
-                        label: t('userMenu.system'),
-                      },
-                    ],
-                  },
-                  {
-                    type: 'divider',
-                  },
-                  {
-                    key: 'logout',
-                    icon: <IconLogout size={20} />,
-                    label: t('userMenu.logout'),
-                    danger: true,
-                  },
-                ],
-              }}
-            >
-              <div
-                className={cn(
-                  'flex items-center gap-3 leading-none hover:bg-gray-200 dark:hover:bg-(--ant-layout-body-bg) p-2 rounded-md cursor-pointer',
-                  collapsed && 'p-1 bg-transparent',
-                  '[&.ant-dropdown-open]:bg-gray-200 dark:[&.ant-dropdown-open]:bg-(--ant-layout-body-bg)',
-                )}
-              >
-                <div className="flex-none">
-                  <Avatar size={32} className="bg-primary-500">
-                    User
-                  </Avatar>
+              <NavMenu.Item
+                icon={<Planet size="xs" />}
+                label={t('menu.discover')}
+                href="/discover"
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<SearchBig size="xs" />}
+                label={t('menu.search')}
+                onClick={() => nativePush('#search')}
+                extra={<Kbd shortcut="ctrl+K" />}
+                className="px-2.5"
+              />
+              {!collapsed && (
+                <div className="text-xs text-(--ant-color-text-description) py-1 px-2 mt-2">
+                  <span>{t('menu.layouts')}</span>
                 </div>
-                {!collapsed && (
-                  <>
-                    <div className="flex-auto leading-none">
-                      <div className="font-medium text-xs line-clamp-1">
-                        UserName
+              )}
+              <NavMenu.Item
+                icon={<Table size="xs" />}
+                label={t('menu.table')}
+                href="/layouts/table"
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<Rows3 size="xs" />}
+                label={t('menu.list')}
+                href="/layouts/list"
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<Grid size="xs" />}
+                label={t('menu.grid')}
+                href="/layouts/grid"
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<Dashboard size="xs" />}
+                label={t('menu.masonry')}
+                href="/layouts/masonry"
+                className="px-2.5"
+              />
+              {!collapsed && (
+                <div className="text-xs text-(--ant-color-text-description) py-1 px-2 mt-2">
+                  <span>{t('menu.pages')}</span>
+                </div>
+              )}
+              <NavMenu.Item
+                icon={<DiamondAlt size="xs" />}
+                label={t('menu.pricing')}
+                href="/pricing"
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<UserCheck size="xs" />}
+                label={t('menu.signIn')}
+                href="/login"
+                extra={<ArrowUpRightStroke size="xs" />}
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<UserPlus size="xs" />}
+                label={t('menu.signUp')}
+                href="/signup"
+                extra={<ArrowUpRightStroke size="xs" />}
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<Lock size="xs" />}
+                label={t('menu.forgotPassword')}
+                href="/password/forgot"
+                extra={<ArrowUpRightStroke size="xs" />}
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<RefreshCw size="xs" />}
+                label={t('menu.resetPassword')}
+                href="/password/reset"
+                extra={<ArrowUpRightStroke size="xs" />}
+                className="px-2.5"
+              />
+              <NavMenu.Item
+                icon={<MessageCheck size="xs" />}
+                label={t('menu.emailCheck')}
+                href="/email/check"
+                extra={<ArrowUpRightStroke size="xs" />}
+                className="px-2.5"
+              />
+            </NavMenu>
+          </div>
+          <div className="flex-none px-2 py-2">
+            <div className="flex items-center gap-0.5">
+              <div className="flex-auto">
+                <Dropdown
+                  trigger={['click']}
+                  menu={{
+                    tooltip: false,
+                    items: [
+                      {
+                        type: 'divider',
+                      },
+                      {
+                        key: 'profile',
+                        icon: <UserCircle size="xs" />,
+                        label: t('userMenu.profile'),
+                        onClick: () => nativePush('#settings/profile'),
+                      },
+                      {
+                        key: 'general',
+                        icon: <Cog size="xs" />,
+                        label: t('userMenu.settings'),
+                        onClick: () => nativePush('#settings/general'),
+                      },
+                      {
+                        key: 'language',
+                        label: language,
+                        icon: <GlobeAlt size="xs" />,
+                        children: languages.map((lang) => ({
+                          key: lang.value,
+                          label: lang.label,
+                          icon:
+                            locale === lang.value ? <Check size="xs" /> : null,
+                          onClick: () => setLocale(lang.value as Locale),
+                        })),
+                      },
+                      {
+                        type: 'divider',
+                      },
+                      {
+                        key: 'official-website',
+                        icon: <HomeAlt size="xs" />,
+                        label: t('userMenu.officialWebsite'),
+                        extra: <ArrowUpRightStroke size="xs" />,
+                        onClick: () => window.open('/', '_blank'),
+                      },
+                      {
+                        key: 'help-center',
+                        icon: <MessageCircleQuestionMark size="xs" />,
+                        label: t('userMenu.helpCenter'),
+                        extra: <ArrowUpRightStroke size="xs" />,
+                        onClick: () => window.open('/help', '_blank'),
+                      },
+                      {
+                        key: 'logout',
+                        icon: <ArrowOutRightSquareHalf size="xs" />,
+                        label: t('userMenu.logout'),
+                      },
+                    ],
+                  }}
+                  popupRender={(menu) => (
+                    <div className="w-64 bg-(--ant-color-bg-elevated) rounded-lg shadow-lg">
+                      <div className="flex items-center gap-2 p-4">
+                        <div className="flex-none">
+                          <Avatar size={32} icon={<User size="sm" />} />
+                        </div>
+                        <div className="flex-auto leading-none min-w-0">
+                          <h3 className="font-medium truncate">Nickname</h3>
+                          <p className="text-xs text-(--ant-color-text-tertiary) truncate">
+                            username@acme.com
+                          </p>
+                        </div>
                       </div>
-                      <div className="text-xs text-neutral-500">
-                        {t('userMenu.free')}
+                      <Divider orientation="horizontal" className="m-0" />
+                      <div className="px-4 py-2">
+                        <div className="flex items-center justify-between mb-3">
+                          <h3 className="font-medium">Free</h3>
+                          <div className="flex items-center gap-1 text-xs text-(--ant-color-text-tertiary)">
+                            <span>
+                              <SparkleCircle size="xs" pack="filled" />
+                            </span>
+                            <span>1,234</span>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                          <Button size="small" type="primary" block>
+                            {t('userMenu.upgrade')}
+                          </Button>
+                        </div>
+                      </div>
+                      <div>
+                        {React.cloneElement(
+                          menu as React.ReactElement<{
+                            className: string;
+                          }>,
+                          {
+                            className: 'shadow-none bg-transparent',
+                          },
+                        )}
                       </div>
                     </div>
-                    <div className="flex-none">
-                      <Button
-                        className="text-xs"
-                        size="small"
-                        shape="round"
-                        onClick={handleUpgrade}
-                      >
-                        {t('userMenu.upgrade')}
-                      </Button>
-                    </div>
-                  </>
-                )}
+                  )}
+                >
+                  <Button type="text" icon={<Avatar size="small">U</Avatar>} />
+                </Dropdown>
               </div>
-            </Dropdown>
+              {!collapsed && (
+                <>
+                  <div className="flex-none">
+                    <Button type="text" icon={<Mobile size="xs" />} />
+                  </div>
+                  <div className="flex-none">
+                    <Tooltip
+                      title={
+                        mode === 'dark'
+                          ? t('userMenu.dark')
+                          : mode === 'light'
+                            ? t('userMenu.light')
+                            : t('userMenu.system')
+                      }
+                    >
+                      <Button
+                        type="text"
+                        icon={
+                          mode === 'dark' ? (
+                            <Moon size="xs" />
+                          ) : mode === 'light' ? (
+                            <Sun size="xs" />
+                          ) : (
+                            <Monitor size="xs" />
+                          )
+                        }
+                        onClick={toggleMode}
+                      />
+                    </Tooltip>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </Layout.Sider>

@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/utils/classname';
-import { IconArrowLeft } from '@tabler/icons-react';
+import { ArrowLeftStroke } from '@boxicons/react';
 import { Button } from 'antd';
 import Link from 'next/link';
 import React, { useMemo } from 'react';
@@ -68,7 +68,7 @@ const Pager: React.FC<PagerProps> = ({
                   variant="filled"
                   className="leading-none"
                   size="middle"
-                  icon={<IconArrowLeft size={24} />}
+                  icon={<ArrowLeftStroke size="base" />}
                 />
               </Link>
             )}

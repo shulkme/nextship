@@ -1,5 +1,5 @@
 'use client';
-import { IconArrowLeft } from '@tabler/icons-react';
+import { ArrowLeftStroke } from '@boxicons/react';
 import { Button, Form, Input } from 'antd';
 import { useTranslations } from 'next-intl';
 
@@ -28,7 +28,7 @@ export default function Page() {
             href="/login"
             block
             type="text"
-            icon={<IconArrowLeft size={18} />}
+            icon={<ArrowLeftStroke size="sm" />}
           >
             {t('forgot.backToLogin')}
           </Button>

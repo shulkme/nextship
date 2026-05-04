@@ -1,4 +1,4 @@
-import { IconBrandGithub } from '@tabler/icons-react';
+import { Github } from '@boxicons/react';
 import { Button } from 'antd';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
@@ -23,7 +23,10 @@ const Hero: React.FC = async () => {
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 dark:text-gray-400 ring-1 ring-gray-900/10 dark:ring-white/10 hover:ring-gray-900/20 dark:hover:ring-white/20">
             {t('announcement')}{' '}
-            <a href="#" className="font-semibold text-primary-500 dark:text-primary-300">
+            <a
+              href="#"
+              className="font-semibold text-primary-500 dark:text-primary-300"
+            >
               <span aria-hidden="true" className="absolute inset-0" />
               {t('readMore')} <span aria-hidden="true">&rarr;</span>
             </a>
@@ -75,7 +78,7 @@ const Hero: React.FC = async () => {
             </Button>
             <Button
               size="large"
-              icon={<IconBrandGithub size={18} />}
+              icon={<Github size="sm" />}
               href={process.env.NEXT_PUBLIC_GITHUB_URL}
             >
               {t('github')}

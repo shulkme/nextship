@@ -1,24 +1,24 @@
 import {
-  IconCode,
-  IconDeviceLaptop,
-  IconLock,
-  IconMoon,
-  IconPlug,
-  IconWorld,
-} from '@tabler/icons-react';
+  Code,
+  GlobeAlt,
+  Laptop,
+  Lock,
+  Moon,
+  PlugConnect,
+} from '@boxicons/react';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
-const icons = [
-  IconLock,
-  IconWorld,
-  IconMoon,
-  IconDeviceLaptop,
-  IconCode,
-  IconPlug,
-];
+const icons = [Lock, GlobeAlt, Moon, Laptop, Code, PlugConnect];
 
-const keys = ['auth', 'i18n', 'theme', 'responsive', 'typescript', 'api'] as const;
+const keys = [
+  'auth',
+  'i18n',
+  'theme',
+  'responsive',
+  'typescript',
+  'api',
+] as const;
 
 const Feature: React.FC = async () => {
   const t = await getTranslations('web.feature');
@@ -46,7 +46,7 @@ const Feature: React.FC = async () => {
                 className="relative rounded-2xl border border-gray-200 dark:border-gray-800 p-8"
               >
                 <div className="flex size-10 items-center justify-center rounded-lg bg-primary-500">
-                  <Icon className="text-white" size={20} />
+                  <Icon className="text-white" size="sm" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">
                   {t(`items.${key}.title`)}

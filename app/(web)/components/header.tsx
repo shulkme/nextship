@@ -2,7 +2,7 @@
 import { languages } from '@/i18n/config';
 import { useLanguage } from '@/providers/language';
 import { cn } from '@/utils/classname';
-import { IconLanguage } from '@tabler/icons-react';
+import { GlobeAlt } from '@boxicons/react';
 import { Button, Dropdown, type MenuProps } from 'antd';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -16,7 +16,9 @@ const NavItem: React.FC<{
     <li>
       <a
         href={href}
-        className={cn('text-sm/6 font-semibold text-gray-900 dark:text-white hover:opacity-80')}
+        className={cn(
+          'text-sm/6 font-semibold text-gray-900 dark:text-white hover:opacity-80',
+        )}
       >
         {title}
       </a>
@@ -48,11 +50,11 @@ const Header: React.FC = () => {
         </a>
         <nav>
           <ul className="flex items-center gap-12">
-            <NavItem title={t('nav.products')} href={'/products'} />
+            <NavItem title={t('nav.products')} href={'#'} />
             <NavItem title={t('nav.pricing')} href={'/pricing'} />
-            <NavItem title={t('nav.blog')} href={'/blog'} />
-            <NavItem title={t('nav.api')} href={'/api'} />
-            <NavItem title={t('nav.docs')} href={'/docs'} />
+            <NavItem title={t('nav.blog')} href={'#'} />
+            <NavItem title={t('nav.api')} href={'#'} />
+            <NavItem title={t('nav.docs')} href={'#'} />
           </ul>
         </nav>
         <div className="flex items-center gap-4">
@@ -65,7 +67,7 @@ const Header: React.FC = () => {
               onClick: handleMenuClick,
             }}
           >
-            <Button type="text" icon={<IconLanguage size={18} />} />
+            <Button type="text" icon={<GlobeAlt size="sm" />} />
           </Dropdown>
           <Button href="/login" type="primary">
             {t('login')}

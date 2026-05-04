@@ -18,7 +18,7 @@ const palettes = [
 const sharedConfig: ThemeConfig = {
   hashed: false, // close hash
   token: {
-    colorPrimary: '#0F60F8',
+    colorPrimary: palettes[5],
     controlHeightXS: 20,
     controlHeightSM: 28,
     controlHeight: 36,
@@ -27,6 +27,8 @@ const sharedConfig: ThemeConfig = {
     borderRadiusSM: 8,
     borderRadius: 10,
     borderRadiusLG: 12,
+    borderRadiusOuter: 14,
+    controlOutlineWidth: 0,
   },
   components: {
     Layout: {
@@ -36,6 +38,8 @@ const sharedConfig: ThemeConfig = {
       headerBg: 'transparent',
       footerBg: 'transparent',
       triggerBg: 'transparent',
+      siderBg: 'transparent',
+      bodyBg: 'transparent',
     },
     Table: {
       // headerBorderRadius: 0,
@@ -51,9 +55,6 @@ const sharedConfig: ThemeConfig = {
       darkSubMenuItemBg: 'transparent',
     },
     Button: {
-      dangerShadow: 'none',
-      defaultShadow: 'none',
-      primaryShadow: 'none',
       contentFontSizeSM: 12,
       paddingInlineSM: 11,
       paddingInline: 15,
@@ -91,6 +92,15 @@ const sharedConfig: ThemeConfig = {
     Rate: {
       starColor: '#FFAE0A',
     },
+    Segmented: {
+      trackPadding: 4,
+    },
+    Checkbox: {
+      borderRadiusXS: 4,
+      borderRadiusSM: 6,
+      borderRadius: 8,
+      borderRadiusLG: 10,
+    },
   },
 };
 
@@ -102,9 +112,13 @@ const lightConfig: ThemeConfig = assign(sharedConfig, {
     colorBgContainer: '#fff',
   },
   components: {
-    Layout: {
-      bodyBg: '#fff',
-      siderBg: '#f7f8fa',
+    Button: {
+      defaultActiveColor: '#000',
+      defaultHoverColor: '#000',
+      defaultHoverBorderColor: '#e2e8f0',
+      defaultActiveBorderColor: '#e2e8f0',
+      defaultHoverBg: '#F5F5F5',
+      defaultActiveBg: '#F0F0F0',
     },
   },
 });
@@ -117,9 +131,13 @@ const darkConfig: ThemeConfig = assign(sharedConfig, {
     colorBgContainer: '#191b1d',
   },
   components: {
-    Layout: {
-      siderBg: '#191b1d',
-      bodyBg: '#121416',
+    Button: {
+      defaultActiveColor: '#fff',
+      defaultHoverColor: '#fff',
+      defaultHoverBorderColor: '#7a7a7a',
+      defaultActiveBorderColor: '#7a7a7a',
+      defaultHoverBg: '#313131',
+      defaultActiveBg: '#3A3A3A',
     },
   },
 });

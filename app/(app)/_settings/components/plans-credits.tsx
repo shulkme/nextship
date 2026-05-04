@@ -1,6 +1,6 @@
 'use client';
 import Plans from '@/app/_pricing/components/plans';
-import { IconArrowUpRight } from '@tabler/icons-react';
+import { ArrowUpRightStroke } from '@boxicons/react';
 import { Card, Progress, Switch, Tag } from 'antd';
 import { useTranslations } from 'next-intl';
 import React, { useMemo, useState } from 'react';
@@ -29,7 +29,7 @@ const PlansCreditsPane: React.FC = () => {
           <div>
             <a className="inline-flex items-center gap-1" href="#">
               <span>{t('manageBilling')}</span>
-              <IconArrowUpRight size={16} />
+              <ArrowUpRightStroke size="xs" />
             </a>
           </div>
         </div>

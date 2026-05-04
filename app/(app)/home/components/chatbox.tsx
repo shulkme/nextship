@@ -3,23 +3,19 @@ import Kbd from '@/components/kbd';
 import GoogleDrive from '@/icons/google-drive';
 import MicrosoftOnedrive from '@/icons/microsoft-onedrive';
 import {
-  IconAdjustments,
-  IconArrowUp,
-  IconBrain,
-  IconBulb,
-  IconSpy,
-  IconMicrophone,
-  IconPaperclip,
-  IconPlus,
-  IconPuzzle,
-} from '@tabler/icons-react';
-import { Button, Dropdown, Input, Switch, Tooltip } from 'antd';
+  ArrowUpStroke,
+  Microphone,
+  Paperclip,
+  Plus,
+  Puzzle,
+} from '@boxicons/react';
+import { Button, Dropdown, Input, Tooltip } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 const Chatbox: React.FC = () => {
   const t = useTranslations('app.chatbox');
   return (
-    <div className="w-full transition border border-(--ant-color-border) focus-within:shadow-lg rounded-[calc(var(--ant-control-height)/1.5)] p-3">
+    <div className="w-full transition border border-(--ant-color-border) focus-within:border-primary-400 focus-within:shadow-lg rounded-[calc(var(--ant-control-height)/1.5)] p-3">
       <div className="mb-2">
         <Input.TextArea
           size="large"
@@ -28,8 +24,8 @@ const Chatbox: React.FC = () => {
             textarea: 'p-1',
           }}
           autoSize={{
-            minRows: 3,
-            maxRows: 6,
+            minRows: 2,
+            maxRows: 3,
           }}
           placeholder={t('placeholder')}
         />
@@ -42,12 +38,12 @@ const Chatbox: React.FC = () => {
                 {
                   key: 'file',
                   label: t('menu.addFromLocal'),
-                  icon: <IconPaperclip size={18} />,
+                  icon: <Paperclip size="sm" />,
                 },
                 {
                   key: 'skills',
                   label: t('menu.useSkills'),
-                  icon: <IconPuzzle size={18} />,
+                  icon: <Puzzle size="sm" />,
                 },
                 {
                   type: 'divider',
@@ -67,44 +63,18 @@ const Chatbox: React.FC = () => {
           >
             <div>
               <Tooltip title={t('addFilesMore')}>
-                <Button shape="circle" icon={<IconPlus size={20} />} />
-              </Tooltip>
-            </div>
-          </Dropdown>
-          <Dropdown
-            menu={{
-              items: [
-                {
-                  key: 'reasoning',
-                  label: t('menu.reasoning'),
-                  icon: <IconBulb size={20} />,
-                  extra: <Switch size="small" />,
-                },
-                {
-                  key: 'research',
-                  label: t('menu.research'),
-                  icon: <IconBrain size={20} />,
-                  extra: <Switch size="small" />,
-                },
-                {
-                  key: 'temporary',
-                  label: t('menu.temporary'),
-                  icon: <IconSpy size={20} />,
-                  extra: <Switch size="small" />,
-                },
-              ],
-            }}
-          >
-            <div>
-              <Tooltip title={t('chatSettings')}>
-                <Button shape="circle" icon={<IconAdjustments size={20} />} />
+                <Button type="text" shape="circle" icon={<Plus size="sm" />} />
               </Tooltip>
             </div>
           </Dropdown>
         </div>
         <div className="flex items-center gap-2">
           <Tooltip title={t('voiceInput')}>
-            <Button type="text" shape="circle" icon={<IconMicrophone size={20} />} />
+            <Button
+              type="text"
+              shape="circle"
+              icon={<Microphone size="sm" />}
+            />
           </Tooltip>
           <Tooltip
             title={
@@ -120,11 +90,10 @@ const Chatbox: React.FC = () => {
             }
           >
             <Button
-              className="border-none"
               type="primary"
               disabled
               shape="circle"
-              icon={<IconArrowUp size={20} />}
+              icon={<ArrowUpStroke size="base" />}
             />
           </Tooltip>
         </div>

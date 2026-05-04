@@ -70,8 +70,12 @@ const ThemeConfigProvider: React.FC<
     <StyleProvider layer>
       <ConfigProvider
         theme={isDark ? darkConfig : lightConfig}
+        wave={{
+          disabled: true,
+        }}
         button={{
-          className: 'leading-none',
+          className: 'leading-none [&:disabled]:border-none',
+          autoInsertSpace: false,
         }}
         dropdown={{
           className: '[&_.ant-dropdown-menu-submenu-title]:items-center', // FIXME: antd bug

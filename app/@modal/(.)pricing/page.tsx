@@ -1,7 +1,7 @@
 'use client';
 
 import PricingContent from '@/app/_pricing';
-import { IconArrowUpRight } from '@tabler/icons-react';
+import { ArrowUpRightStroke } from '@boxicons/react';
 import { Modal } from 'antd';
 import { useRouter } from 'next/navigation';
 
@@ -33,7 +33,7 @@ export default function PricingModal() {
         <div className="text-center">
           <a className="inline-flex items-center gap-1" href="#">
             <span>Manage Billing</span>
-            <IconArrowUpRight size={16} />
+            <ArrowUpRightStroke size="xs" />
           </a>
         </div>
       </div>

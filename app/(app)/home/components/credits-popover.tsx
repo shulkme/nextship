@@ -1,9 +1,9 @@
 import {
-  IconCalendar,
-  IconChevronRight,
-  IconHelp,
-  IconSparkles,
-} from '@tabler/icons-react';
+  Calendar,
+  ChevronRight,
+  HelpCircle,
+  SparkleCircle,
+} from '@boxicons/react';
 import { Button, Popover } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -37,11 +37,11 @@ const CreditsPopover: React.FC = () => {
           <div className="pt-4 space-y-4">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <h3 className="flex items-center gap-2">
-                  <IconSparkles size={18} />
+                <h3 className="flex items-center gap-1">
+                  <SparkleCircle pack="filled" size="xs" />
                   <span className="font-medium text-sm">{t('credits')}</span>
                   <span className="text-neutral-400">
-                    <IconHelp size={16} />
+                    <HelpCircle size="xs" />
                   </span>
                 </h3>
                 <span>1,234</span>
@@ -54,12 +54,12 @@ const CreditsPopover: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-1">
                 <h3 className="flex items-center gap-2">
-                  <IconCalendar size={18} />
+                  <Calendar size="xs" />
                   <span className="font-medium text-sm">
                     {t('dailyRefresh')}
                   </span>
                   <span className="text-neutral-400">
-                    <IconHelp size={16} />
+                    <HelpCircle size="xs" />
                   </span>
                 </h3>
                 <span>1,234</span>
@@ -75,7 +75,7 @@ const CreditsPopover: React.FC = () => {
               >
                 <span>{t('viewUsage')}</span>
                 <span>
-                  <IconChevronRight size={16} />
+                  <ChevronRight size="xs" />
                 </span>
               </a>
             </div>
@@ -83,7 +83,7 @@ const CreditsPopover: React.FC = () => {
         </div>
       }
     >
-      <Button shape="round" icon={<IconSparkles size={18} />}>
+      <Button shape="round" icon={<SparkleCircle pack="filled" size="xs" />}>
         1,234
       </Button>
     </Popover>

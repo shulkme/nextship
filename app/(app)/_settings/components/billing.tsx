@@ -1,5 +1,5 @@
 'use client';
-import { IconCreditCard } from '@tabler/icons-react';
+import { CreditCardAlt } from '@boxicons/react';
 import { Avatar, Button, Card } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -30,7 +30,7 @@ const BillingPane: React.FC = () => {
             <div className="flex-none">
               <Avatar
                 className="bg-transparent text-neutral-400 border border-(--ant-color-border)"
-                icon={<IconCreditCard size={24} />}
+                icon={<CreditCardAlt size="base" />}
                 shape="square"
                 size={48}
               />

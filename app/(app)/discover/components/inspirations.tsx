@@ -1,7 +1,7 @@
 'use client';
 import { inspirations } from '@/app/(app)/discover/mock';
 import Toggle from '@/components/toggle';
-import { IconSparkles } from '@tabler/icons-react';
+import { Sparkles } from '@boxicons/react';
 import { Button, Masonry } from 'antd';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -11,7 +11,7 @@ const Inspirations: React.FC = () => {
   return (
     <section>
       <h3 className="text-lg font-medium">{t('title')}</h3>
-      <div className="py-6 bg-(--ant-layout-body-bg) sticky top-0 z-20">
+      <div className="py-6 bg-layout sticky top-0 z-20">
         <Toggle.Group
           defaultValue="all"
           options={[
@@ -89,7 +89,7 @@ const Inspirations: React.FC = () => {
                   shape="round"
                   className="border-0 bg-black/30 text-white backdrop-blur-sm hover:bg-black/50"
                   block
-                  icon={<IconSparkles size={18} />}
+                  icon={<Sparkles size="xs" pack="filled" />}
                 >
                   {t('generate')}
                 </Button>

@@ -3,7 +3,7 @@ import Listy from '@/components/listy';
 import { languages, type Locale } from '@/i18n/config';
 import { useLanguage } from '@/providers/language';
 import { type Mode, useTheme } from '@/providers/theme';
-import { IconDeviceDesktop, IconMoon, IconSun } from '@tabler/icons-react';
+import { Monitor, Moon, Sun } from '@boxicons/react';
 import { Button, Segmented, Select, Switch } from 'antd';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -28,8 +28,9 @@ const GeneralPane: React.FC = () => {
           description={t('languageDesc')}
           action={
             <Select
+              variant="filled"
               value={locale}
-              className="w-32"
+              className="w-30.5"
               key="select"
               options={languages}
               onChange={handleLanguageChange}
@@ -50,15 +51,15 @@ const GeneralPane: React.FC = () => {
               options={[
                 {
                   value: 'light',
-                  icon: <IconSun size={16} />,
+                  icon: <Sun size="xs" />,
                 },
                 {
                   value: 'dark',
-                  icon: <IconMoon size={16} />,
+                  icon: <Moon size="xs" />,
                 },
                 {
                   value: 'system',
-                  icon: <IconDeviceDesktop size={16} />,
+                  icon: <Monitor size="xs" />,
                 },
               ]}
             />
