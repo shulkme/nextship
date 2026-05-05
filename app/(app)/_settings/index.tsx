@@ -186,7 +186,7 @@ const SettingsModal: React.FC = () => {
       footer={false}
     >
       <div className="w-full h-[calc(100vh-128px)] overflow-hidden flex">
-        <div className="flex-none flex flex-col overflow-hidden w-64 bg-sider rounded-l-lg">
+        <div className="flex-none flex flex-col overflow-hidden w-64 bg-(--ant-color-bg-layout) rounded-l-lg">
           <div className="p-6">
             <h2 className="font-medium text-base">{t('title')}</h2>
           </div>

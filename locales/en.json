@@ -32,7 +32,8 @@
         "dark": "Dark",
         "system": "System",
         "logout": "Logout",
-        "upgrade": "Upgrade"
+        "upgrade": "Upgrade",
+        "downloadApp": "Download app"
       }
     },
     "home": {

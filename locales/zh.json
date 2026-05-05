@@ -32,7 +32,8 @@
         "dark": "深色",
         "system": "跟随系统",
         "logout": "退出登录",
-        "upgrade": "升级"
+        "upgrade": "升级",
+        "downloadApp": "下载应用"
       }
     },
     "home": {

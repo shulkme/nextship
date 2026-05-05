@@ -63,7 +63,7 @@ const Sidebar: React.FC = () => {
         trigger={null}
         onCollapse={setCollapsed}
       >
-        <div className="h-full flex flex-col overflow-hidden bg-sider group">
+        <div className="h-full flex flex-col overflow-hidden group">
           <div className="flex-none px-2 py-3 relative">
             <div className="flex items-center gap-1">
               <div className="flex-none size-(--ant-control-height) flex items-center justify-center">
@@ -83,7 +83,7 @@ const Sidebar: React.FC = () => {
             </div>
             <div
               className={cn(
-                'absolute top-1/2 -translate-y-1/2 right-2 z-10 bg-sider',
+                'absolute top-1/2 -translate-y-1/2 right-2 z-10 bg-(--ant-layout-sider-bg)',
                 collapsed && 'hidden group-hover:block',
               )}
             >
@@ -307,7 +307,9 @@ const Sidebar: React.FC = () => {
               {!collapsed && (
                 <>
                   <div className="flex-none">
-                    <Button type="text" icon={<Mobile size="xs" />} />
+                    <Tooltip title={t('userMenu.downloadApp')}>
+                      <Button type="text" icon={<Mobile size="xs" />} />
+                    </Tooltip>
                   </div>
                   <div className="flex-none">
                     <Tooltip

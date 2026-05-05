@@ -21,7 +21,7 @@ const Hero: React.FC = async () => {
       </div>
       <div className="mx-auto max-w-3xl py-24 sm:py-32 lg:py-48">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 dark:text-gray-400 ring-1 ring-gray-900/10 dark:ring-white/10 hover:ring-gray-900/20 dark:hover:ring-white/20">
+          <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 dark:text-gray-400 ring-1 ring-gray-900/10 dark:ring-white/20 hover:ring-gray-900/20 dark:hover:ring-white/30">
             {t('announcement')}{' '}
             <a
               href="#"

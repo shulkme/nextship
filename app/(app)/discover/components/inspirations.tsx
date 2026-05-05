@@ -11,7 +11,7 @@ const Inspirations: React.FC = () => {
   return (
     <section>
       <h3 className="text-lg font-medium">{t('title')}</h3>
-      <div className="py-6 bg-layout sticky top-0 z-20">
+      <div className="py-6 bg-(--ant-layout-body-bg) sticky top-0 z-20">
         <Toggle.Group
           defaultValue="all"
           options={[

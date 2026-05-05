@@ -16,7 +16,7 @@ export default function Page() {
       title={tLayout('title')}
       description={tLayout('description')}
     >
-      <div className="sticky top-0 z-10 bg-layout overflow-auto py-4">
+      <div className="sticky top-0 z-10 bg-(--ant-layout-body-bg) overflow-auto py-4 scrollbar-hidden">
         <Toggle.Group
           defaultValue="all"
           options={[

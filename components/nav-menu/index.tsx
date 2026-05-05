@@ -51,9 +51,8 @@ const NavMenuItem: React.FC<NavMenuItemProps> = ({
     >
       <div
         className={cn(
-          'flex relative items-center h-9 rounded-sm px-2.25 cursor-pointer text-(--ant-color-text) hover:bg-neutral-200 active:bg-neutral-300',
-          'dark:hover:bg-neutral-700 dark:active:bg-neutral-700',
-          'group-data-[selected=true]/item:bg-neutral-200 dark:group-data-[selected=true]/item:bg-neutral-700',
+          'flex relative items-center h-9 rounded-sm px-2.25 cursor-pointer text-(--ant-color-text) hover:bg-(--ant-color-fill-secondary) active:bg-(--ant-color-fill-tertiary)',
+          'group-data-[selected=true]/item:bg-(--ant-color-fill-secondary)',
           className,
         )}
       >

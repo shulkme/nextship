@@ -36,28 +36,32 @@ const Header: React.FC = () => {
   return (
     <header className="z-10 relative">
       <div className="h-16 flex items-center justify-between px-8">
-        <a
-          href="/"
-          className="flex items-center gap-2 text-(--ant-color-text-base)"
-        >
-          <Image
-            className="size-8"
-            src="/images/logo.png"
-            width={256}
-            height={256}
-            alt="logo"
-          />
-        </a>
-        <nav>
-          <ul className="flex items-center gap-12">
-            <NavItem title={t('nav.products')} href={'#'} />
-            <NavItem title={t('nav.pricing')} href={'/pricing'} />
-            <NavItem title={t('nav.blog')} href={'#'} />
-            <NavItem title={t('nav.api')} href={'#'} />
-            <NavItem title={t('nav.docs')} href={'#'} />
-          </ul>
-        </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex-none">
+          <a
+            href="/"
+            className="flex items-center gap-2 text-(--ant-color-text-base)"
+          >
+            <Image
+              className="size-8"
+              src="/images/logo.png"
+              width={256}
+              height={256}
+              alt="logo"
+            />
+          </a>
+        </div>
+        <div className="flex-none mx-auto">
+          <nav>
+            <ul className="flex items-center gap-12">
+              <NavItem title={t('nav.products')} href={'#'} />
+              <NavItem title={t('nav.pricing')} href={'/pricing'} />
+              <NavItem title={t('nav.blog')} href={'#'} />
+              <NavItem title={t('nav.api')} href={'#'} />
+              <NavItem title={t('nav.docs')} href={'#'} />
+            </ul>
+          </nav>
+        </div>
+        <div className="flex-none flex items-center gap-4">
           <Dropdown
             menu={{
               items: languages.map((lang) => ({

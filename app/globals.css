@@ -34,24 +34,6 @@
   --radius-3xl: 18px;
   --radius-4xl: 20px;
 
-
-  /*colorBgContainer*/
-  --color-layout: #fff;
-  /*siderBg*/
-  --color-sider: #f9fafb;
-}
-
-
-html.dark {
-  /*colorBgContainer*/
-  --color-layout: #212121;
-  /*siderBg*/
-  --color-sider: #171717;
-}
-
-
-html {
-  background-color: var(--color-layout);
 }
 
 @utility container {

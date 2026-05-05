@@ -35,11 +35,6 @@ const sharedConfig: ThemeConfig = {
       headerPadding: 0,
       footerPadding: 0,
       headerHeight: 'auto',
-      headerBg: 'transparent',
-      footerBg: 'transparent',
-      triggerBg: 'transparent',
-      siderBg: 'transparent',
-      bodyBg: 'transparent',
     },
     Table: {
       // headerBorderRadius: 0,
@@ -110,8 +105,16 @@ const lightConfig: ThemeConfig = assign(sharedConfig, {
     colorBorderSecondary: '#e2e8f0',
     colorBorder: '#e2e8f0',
     colorBgContainer: '#fff',
+    colorBgLayout: '#f9fafb',
   },
   components: {
+    Layout: {
+      headerBg: 'transparent',
+      footerBg: 'transparent',
+      triggerBg: 'transparent',
+      siderBg: '#f9fafb',
+      bodyBg: '#fff',
+    },
     Button: {
       defaultActiveColor: '#000',
       defaultHoverColor: '#000',
@@ -129,8 +132,16 @@ const darkConfig: ThemeConfig = assign(sharedConfig, {
     colorBorderSecondary: '#272a2c',
     colorBorder: '#272a2c',
     colorBgContainer: '#191b1d',
+    colorBgLayout: '#171717',
   },
   components: {
+    Layout: {
+      headerBg: 'transparent',
+      footerBg: 'transparent',
+      triggerBg: 'transparent',
+      siderBg: '#171717',
+      bodyBg: '#212121',
+    },
     Button: {
       defaultActiveColor: '#fff',
       defaultHoverColor: '#fff',

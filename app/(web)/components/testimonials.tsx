@@ -22,7 +22,7 @@ const Testimonials: React.FC = async () => {
           {keys.map((key) => (
             <div
               key={key}
-              className="rounded-2xl border border-gray-200 dark:border-gray-800 p-8"
+              className="rounded-2xl border border-gray-200 dark:border-white/20 p-8"
             >
               <p className="text-sm/6 text-gray-600 dark:text-gray-300">
                 &ldquo;{t(`items.${key}.content`)}&rdquo;

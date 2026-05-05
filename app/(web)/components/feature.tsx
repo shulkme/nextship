@@ -43,7 +43,7 @@ const Feature: React.FC = async () => {
             return (
               <div
                 key={key}
-                className="relative rounded-2xl border border-gray-200 dark:border-gray-800 p-8"
+                className="relative rounded-2xl border border-gray-200 dark:border-white/20 p-8"
               >
                 <div className="flex size-10 items-center justify-center rounded-lg bg-primary-500">
                   <Icon className="text-white" size="sm" />
